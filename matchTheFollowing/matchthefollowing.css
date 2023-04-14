@@ -1,0 +1,70 @@
+:root{
+    --lightgray:#777777;
+    --darkgray:#656565;
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+}
+
+.mtfqaheading, .formtfque, .formtfans{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mtfqaheadingitems{
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color:rgb(7, 54, 124);
+    padding:2vh 25vw 1vh 2vw;
+}
+
+.mtfitembox{
+    width:30%;
+}
+
+.mtfitems{
+    display: flex;
+    flex-direction: column;
+}
+
+.mtfitem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom:1vh;
+}
+
+.mtfserailno{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    color:rgb(7, 54, 124);
+    margin-right: 0.5vw;
+}
+
+.formtfque, .formtfans{
+    width:37.75%;
+    margin-right:4%;
+    padding:0.1vh 0.5vw;
+}
+
+.mtfupque{
+    width:22.6vw;
+}
+
+.mtfitembox{
+    width:30vw;
+}
+
+.mtfimg{
+    margin-top: 0.25vh;
+}
+
+.mtfaddpair{
+    margin-left:56.65vw;
+}
+
+.mtfItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}

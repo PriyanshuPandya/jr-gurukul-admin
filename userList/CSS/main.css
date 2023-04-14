@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); /*roboto fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap'); /*rubik fonts*/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 0.025rem;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+nav{
+    position: fixed;
+    z-index: 5;
+    height: 10vh;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+}
+
+main{
+    height: 90vh;
+    padding-top:62px;
+}
+
+.container{
+    float:right;
+    width:82%;
+    letter-spacing: 0.02rem;
+}
+
+/*--------------manage show and hide nav container---------------------------------*/
+.showcontainer{
+    animation:showcnt 0.2s ease-in-out 1;
+    margin-left:10%;
+}
+@keyframes showcnt {
+    from {width: 82%;}
+    to {width:90%;}
+}
+
+.hidecontainer{
+    animation:hidecnt 0.2s ease-in-out 1;
+}
+@keyframes hidecnt {
+    from {width: 95%;}
+    to {width:82%;}
+}

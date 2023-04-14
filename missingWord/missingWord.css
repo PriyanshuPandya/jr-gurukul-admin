@@ -1,0 +1,72 @@
+:root{
+    --lightgray:#777777;
+    --darkgray:#656565;
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+}
+
+/*----------------------------------------------------Missing word question----------------------------------------------------------------*/
+
+.mwitems{
+    margin-bottom:1vh;
+}
+
+.mwitembox{
+    width:70vw;
+}
+
+.mwquebox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mwqueitem{
+    float:left;
+    width:78%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mwupque{
+    width:56.25vw;
+    font-size: 0.7rem;
+    color:var(--darkgray);
+}
+
+/*----------------------------------------------------Missing word answer----------------------------------------------------------------*/
+
+.mwansbox{
+    margin-left:2vw;
+    width:84.5%;
+    color:var(--darkgray);
+}
+
+.mwansitem{
+    font-size:0.7rem;
+    color:var(--darkgray);
+    font-weight: bolder;
+    width:47%;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    padding:0.1vh 0.5vw;
+    border:0.1rem solid #bebebe;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5vh;
+}
+.mwansitem:hover{
+    border-color: var(--lightblue);
+}
+
+.mwaddque{
+    margin-left:56.375vw;
+    /* margin-bottom: 2vh; */
+}
+
+.mwItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}

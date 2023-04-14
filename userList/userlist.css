@@ -1,0 +1,72 @@
+:root{
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+    --lightgray:#777777;
+    --darkgray:#656565;
+}
+
+/* #formuserlist{
+    display:none;
+} */
+
+.userlistitems{
+    margin-top:5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userlistbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius:0.2rem;
+    border:0.1rem solid #a2e5ff;
+    background-color: #f0fbff;
+    width:80%;
+    margin-left:8.5%;
+    margin-bottom: 1.5vh;
+    padding:1vh 1vw;
+}
+.userlistbox:hover{
+    border-color:var(--lightblue);
+}
+
+.userprofile{
+    margin-right:0vw;
+    padding:0;
+}
+.profilepic{
+    margin-right: 0;
+    cursor: pointer;
+    height: 1.8rem;
+    border-radius:0.9rem;
+}
+
+.showusername{
+    color:var(--darkgray);
+    font-size: 0.8rem;
+}
+
+.profiledown{
+    width:0.75rem;
+    margin-right:0.5vw;
+}
+
+.username{
+    all:unset;
+    background-color:#f0fbff;
+    font-size:0.9rem;
+    width:20%;
+    /* border-radius:0.2rem;
+    border:0.1rem solid #bbecff; */
+    padding:0.5vh 0.5vw;
+    margin-right: 75%;
+}
+/* .username:hover{
+    border-color:var(--lightblue);
+} */
+
+.gamedataimg{
+    height:0.8rem;
+}

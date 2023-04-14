@@ -1,0 +1,79 @@
+:root{
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+    --lightgray:#777777;
+    --darkgray:#656565;
+}
+
+.fortofitems{
+    display: flex;
+    flex-direction: row;
+}
+
+.fortofitemsheading{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    margin-top:2vh;
+}
+
+.tofname{
+    height:4vh;
+    font-size:0.9rem;
+    font-weight: bolder;
+    color:rgb(1, 10, 93);
+    border:0.1rem solid #bcbcbc;
+    border-radius: 0.1rem;
+    margin: 0.25vh 0.25vw;
+}
+.groupname:hover{
+    border-color:var(--lightblue);
+}
+
+.tofitem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.tofitembox{
+    width:25vw;
+}
+
+.tofupque{
+    width:22vw;
+}
+
+.tofaddbtn,.groupitemcount{
+    margin-left:2.5vw;
+}
+
+.fortruesection,.forfalsesection{
+    margin-right:4%;
+    width:32vw;
+}
+
+.fortruesecheading,.forfalsesecheading{
+    display: flex;
+    flex-direction: row;
+    align-items:self-end;
+    border:0.1rem solid #c6c5c5;
+    border-radius: 0.1rem;
+    width:18vw;
+    margin:0 0 0.5vh 2.1vw;
+    padding:0;
+}
+.fortruesecheading:hover,.forfalsesecheading:hover{
+    border-color:var(--lightblue);
+}
+
+.tofaddgroup{
+    margin-left:70%;
+}
+
+.tofItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}

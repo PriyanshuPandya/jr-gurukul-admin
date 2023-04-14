@@ -1,0 +1,23 @@
+:root{
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+    --lightgray:#777777;
+    --darkgray:#656565;
+}
+
+.spinupque{
+    padding:0.1vh 0.5vw;
+    border:0.1rem solid #bebebe;
+    border-radius: 0.25rem;
+    width:59.5vw;
+}
+
+.spinitem{
+    margin-bottom: 1vh;
+}
+
+.spinItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}

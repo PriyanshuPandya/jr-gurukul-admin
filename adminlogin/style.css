@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap'); /*rubik fonts*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    align-items: center;
+    justify-content: center;    
+    font-family: 'Rubik', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forlogo{
+    padding: 5vh 0;
+}
+
+.foruser{
+    width:10vw;
+    padding:2vh 0;
+}
+
+.loginform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:600px;
+    padding:1vh 0;
+}
+
+.formitem{
+    all: unset;
+    padding:15px;
+    font-size: 15px; 
+    border-radius:5px;
+    color:#6f6f6f;
+    margin:4px 0;
+    width:500px;
+    border:2px solid #ffffff;
+}
+.formitem:hover{    
+    border:2px solid #c5c5c5;
+}
+
+.loginbtn{
+    all: unset;
+    font-size: 18px;
+    margin-top:2vh;
+    color:white;
+    font-weight: bolder;
+    cursor: pointer;
+    padding:7px 150px;
+    background-image:linear-gradient(to left,rgb(3, 116, 190),rgb(24, 205, 250));
+    border-radius:15px;
+}
+.loginbtn:hover{
+    scale:1.025;
+}
+.loginbtn:active{
+    border:0.1rem solid rgb(16, 94, 203);
+}

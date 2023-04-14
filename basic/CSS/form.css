@@ -1,0 +1,718 @@
+:root{
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+    --lightgray:#777777;
+    --darkgray:#656565;
+}
+
+/*---------------------------------------------------Game top-------------------------------------------------------------------*/
+.gametop{
+    height: 9vh;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.nameandlogo{
+    width:70%;
+    float:left;
+    height: 100%;
+    padding-left:7vh;
+    display: flex;
+    flex-direction: row;
+    align-items: self-end;
+}
+
+.gamelogo{
+    margin-top:1vh;
+    height:8vh;
+    width:8vh;
+    border:0.085rem solid var(--lightblue);
+}
+
+.gamename{
+    width:60%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1rem;    
+    padding-left: 2vh;
+}
+
+.gametitle{
+    font-size: 0.9rem;
+    color:var(--blue);
+    font-weight: bolder;
+}
+
+.gamedesc{
+    width:35vw;
+    font-size: 0.75rem;
+    color:rgb(71, 71, 71);
+}
+
+.create{
+    width:30%;
+    height: 100%;
+    float:right;
+    display: flex;
+    align-items: center;
+    padding-top:1vh;
+    padding-left: 23vw;
+}
+
+.createbtn{
+    all: unset;
+    font-size: 0.7rem;
+    color:grey;
+    font-weight: bolder;
+    cursor: pointer;
+    padding:0.25rem 0.5rem;
+    border:0.05rem solid var(--lightgray);
+    border-radius:0.2rem;
+}
+.createbtn:hover{
+    background-image:linear-gradient(to left,var(--blue),var(--lightblue));
+    color:white;
+    border-color: white;
+}
+.createbtn:active{
+    border-color:rgb(16, 94, 203);
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------game Main-----------------------------------------------------------------*/
+.gamemain{
+    height:100%;
+    width:92%;
+    margin-left: 4%;
+}
+
+
+/*--------------------------------------------------------Main Head------------------------------------------------------------*/
+
+.mainhead{
+    width:70vw;
+    height:7vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top:3vh;
+}
+
+.forheading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float:left;
+    width:75%;    
+    font-size:0.775rem;
+}
+
+.entercontent{
+    margin-right: 1vw;
+    font-weight: bolder;
+}
+
+.forheading img{
+    height: 0.75rem;
+    margin-right: 1vw;
+}
+
+.mainheadplay{
+    color:var(--lightgray);
+}
+
+.forbg,.forthumb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float:right;
+    width: 25%;
+    font-weight: bolder;
+}
+
+.forbg input[type="file"] {
+    display: none;
+}
+
+.selectbg,.selectthumb{
+    font-size: 0.7rem;
+    color:var(--lightgray);
+    margin-right: 0.5vw;
+}
+
+.imageurl,.thumburl{
+    height:2rem;
+    margin-right: 0.5vw;
+    border:0.05rem solid var(--lightblue);
+    cursor: pointer;
+}
+
+.aboutbg,.aboutthumb{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.selectbgname,.selectthumbname{
+    color:black;
+    font-size:0.65rem;
+    margin:0.5vh 0.75vw 0 0;
+}
+/*----------------------------------------------------form---------------------------------------------------------*/
+.form{
+    margin-bottom:5rem;
+}
+
+.forform{
+    /* border:1px solid black; */
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px 3px rgba(55, 138, 255, 0.2);
+    width:73vw;
+    padding:1vh 0 1vh 2vw;
+    margin-bottom: 2vh;
+}
+/*------------------------------------------------add title and desc-----------------------------------------------*/
+.titleandthumb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.foractivitytitle{
+    margin-bottom:1.75vh;
+    float:left;
+    width:71.2%;
+}
+
+.plusimg{
+    width: 0.55rem;
+    margin-right: 0.125rem;
+}
+.titlelabel, .desclabel{
+    font-size:0.7rem;
+    font-weight: bolder;
+}
+
+.activitytitle,.activitydesc{
+    all: unset;
+    padding:0.25rem;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    box-sizing: border-box;
+    margin:0.25rem 0 1vh 1vw;    
+    color:var(--darkgray);
+    border-radius:0.2rem;
+    border:0.1rem solid #bebebe;
+}
+
+.activitytitle{
+    width:20vw;
+    height: 1.5rem;
+}
+
+.activitytitle:hover,.activitydesc:hover{
+    border:1px solid var(--lightblue);
+}
+
+.forthumb{
+    float:right;
+    width:28.8%;
+}
+
+.forthumb input[type="file"] {
+    display: none;
+}
+
+/*-----------------------------------------------------------Instruction Items--------------------------------------------------------*/
+.items{
+    padding:1vh 0 0 0;
+}
+
+.foritems{
+    font-size:0.7rem;
+    font-weight: bolder;
+    margin-bottom:0.1rem;
+}
+.itemcount{
+    font-size:0.6rem;
+    color:var(--lightgray);
+    margin-bottom:0.5rem;
+    margin-left:0.75rem;
+}
+
+.item,.itembox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item{
+    margin-bottom: 0.5vh;
+}
+
+.serailno{
+    font-size:0.7rem;
+    margin-right:1rem;
+    font-weight: bolder;
+}
+
+.itembox{
+    border:0.1rem solid #bebebe;
+    border-radius:0.2rem;
+    padding:0 0.1vw 0 0.5vw;
+    width:60vw;
+    height: 5vh;
+}
+.itembox:hover{
+    border-color: var(--lightblue);
+}
+
+.forimage,.foraudio{
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*upload audio/image onclicking icon*/
+/* .forimage input[type="file"],  */
+.foraudio input[type="file"] {
+    display: none;
+}
+
+.itemimg{
+    height:3.5vh;
+    margin-right: 0.5vw;
+    cursor: pointer;
+}
+.itemimg:hover{
+    scale:1.1;
+}
+.del,.upaudio{
+    height: 2.5vh;
+}
+
+.del{
+    margin-left:0.5vw;
+}
+
+.imagename,.audioname{
+    font-size:0.9rem;
+    color:var(--darkgray);
+}
+
+.upquestion{
+    all:unset;
+    height:4vh;
+    font-size:0.8rem;
+    font-weight: bolder;
+    color:var(--darkgray);
+    border:0.1rem solid white;
+    border-radius: 0.1rem;
+}
+.upquestion:hover{
+    border-color:var(--lightblue);
+}
+
+/*---------------------------------------------------Add Item btn------------------------------------------------*/
+.addnewitem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left:57.6vw;
+    padding-top:1vh;
+}
+.addbtn{
+    all: unset;
+    font-size: 0.6rem;
+    color:var(--darkgray);
+    font-weight: bolder;
+    cursor: pointer;
+    padding:0.33rem 1rem;
+    border:0.1rem solid white;
+    background-image:linear-gradient(to left,var(--blue),var(--lightblue));
+    border-radius:0.2rem;
+    color:white;
+}
+.addbtn:hover{
+    scale:1.05;
+}
+.addbtn:active{
+    border:0.1rem solid rgb(16, 94, 203);
+}
+
+/*-------------------------------------------------------Tools---------------------------------------------------------------*/
+.toolslist{
+    float:left;
+    width:75%;
+}
+
+.forsubmit{
+    float:right;
+    width:25%;
+    padding-top:2rem;
+}
+
+.submitbtn{
+    all: unset;
+    font-size: 0.85rem;
+    color:white;
+    font-weight: bolder;
+    cursor: pointer;
+    padding:0.33rem 2rem;
+    background-image:linear-gradient(to left,var(--blue),var(--lightblue));
+    border-radius:0.2rem;
+}
+.submitbtn:hover{
+    scale:1.05;
+}
+.submitbtn:active{
+    border:0.1rem solid rgb(16, 94, 203);
+}
+/*-------------------------------------------------------Tools 1-----------------------------------------------------------*/
+.tools1{
+    width:100%;
+    height: 2.75rem;
+    color:var(--darkgray);
+}
+
+.tools1,.forsound,.fortime,.forminsec,.fortimer,.forlives{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.forsound input[type="file"]{
+    display:none;
+}
+
+.addaudiospan{
+    cursor: pointer;
+}
+.addaudiospan:hover{
+    text-decoration: underline;
+}
+
+.forbgaudio{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bgaudioname{
+    color:black;
+    font-size:0.65rem;
+    margin-top:1vh;
+    padding: 0.2vw;
+}
+
+.soundurl{
+    margin-right:0.5rem;
+}
+
+.fortime,.fortimer,.forlives{
+    margin-left:3rem;
+}
+
+.forsec, .foragemin,.foragemax{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    font-size:0.6rem;
+    margin-left:0.5rem;
+}
+
+.foragemin, .foragemax{
+    font-weight: normal;
+}
+
+.forsec input[type="number"], .forlives input[type="number"], .foragemin input[type="number"], .foragemax input[type="number"]{
+    width:2rem;
+    padding:0.125rem;
+    font-size:0.65rem;
+    color:var(--darkgray);
+    border: 0.005rem solid #b9b9b9;
+    border-radius: 0.2rem;
+}
+
+.tools1img{
+    width:1.1rem;
+    cursor: pointer;
+}
+.tools1img:hover{
+    scale:1.2;
+}
+
+.forsound,.fortimer,.forlives{
+    font-size: 0.8rem;
+    font-weight: bolder;
+}
+
+.fortimer span{
+    font-size:0.7rem;
+    font-weight: normal;
+    margin:0 0.35rem 0 0.125rem;
+}
+.timerorder,.livestext{
+    margin-right:0.5rem;
+}
+
+.forlives input[type="number"]{
+    width:1.75rem;
+    padding:0 0 0 0.15rem;
+}
+
+/*-------------------------------------------------------Tools 2-----------------------------------------------------------*/
+.tools2{
+    font-size: 0.8rem;
+    font-weight: bolder;
+    width:100%;
+    height: 2.75rem;
+    color:var(--darkgray);
+}
+
+.tools2,.forsubject,.foragegroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tools2img{
+    width:1.25rem;
+    margin-right: 0.45rem;
+    cursor: pointer;
+}
+.tools2img:hover{
+    scale:1.2;
+}
+
+.foragegroup{
+    margin-left:7.25vw;
+}
+
+/*--------------------------------------------------------Game Data----------------------------------------------------------*/
+.forgamedata{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-bottom:2vh;
+    margin-top:10vh;
+    margin-left:5%;
+}
+
+.gamedataitem,.gamedatainfo,.gamedatamodify{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.gamedataitem{
+    padding:0.25rem 2vw 0.25rem 0.25vw;
+    width:70vw;
+    height:2.25rem;
+    margin-bottom: 1.5vh;
+    border-radius:0.2rem;
+    border:0.1rem solid #a2e5ff;
+    background-color: #f0fbff;
+}
+.gamedataitem:hover{
+    border-color:var(--lightblue);
+}
+
+.gamedatainfo{
+    width:95%;
+    float: left;
+}
+
+.gaedatalogo{
+    width:3vw;
+    height:75%;
+    cursor: pointer;
+    border:0.05rem solid var(--lightblue);
+}
+
+.gamedatanum{
+    margin-left:0.5vw;
+    font-weight: bolder;
+    font-size:0.7rem;
+}
+
+.gamedatamodify{
+    float:right;
+    width:5%;
+}
+
+.gamedataimg{
+    height:2.5vh;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+.gamedataimg:hover{
+    scale:1.5;
+}
+
+
+/*--------------------------------------for game delete popup-------------------------------------------------*/
+.popup{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    z-index:1;
+    margin-top:20vh;
+    margin-left:20vw;
+    position:absolute;
+    width:40vw;
+    border: 1px solid var(--darkgray);
+    border-radius: 15px;
+    padding:2vh 1vw;
+    background-color: white;
+}
+
+.delGameHead{
+    padding:1vh 0;
+    display:flex;
+    flex-direction: row;
+}
+
+.delGameHeading{
+    margin-left: 15vw;
+    font-size:1.2rem;
+    font-weight: bolder;
+    color: black;
+}
+
+.delGameCancelBtn{
+    margin-left: 12.5vw;
+}
+
+.delGamePopupImg{
+    height:20px;
+    margin-right:0.5vw;
+    /* border:2px solid var(--lightblue);
+    outline:2px solid var(--blue);
+    border-radius: 0.5vw; */
+}
+
+.delGameMsg{
+    padding:3vh 0 0 3vw;
+    font-size: 0.75rem;
+}
+
+.delGameName{
+    font-weight: bolder;
+    font-size:0.8rem;
+    color:rgb(0, 0, 78);
+}
+
+.delGameMsg2{
+    margin-left:10vw;
+}
+
+.delGameWarn{
+    /* background-color: rgb(255, 148, 90); */
+    color:#a12800;
+    width:30vw;
+    margin-left:4vw;
+    padding-left: 0.5vw;
+    border-left: 0.1rem solid #a12800;
+}
+
+.delGameWarnhead{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: bolder;
+}
+
+.delgameWarnData{
+    font-size: 0.75rem;
+    margin-left: 2vw;
+}
+
+.delGameButtons{
+    margin:5vh 0 2vh 12vw;
+    
+}
+
+.delGameBtn{
+    all: unset;
+    font-size: 0.6rem;
+    font-weight: bolder;
+    cursor: pointer;
+    padding:0.33rem 1rem;
+    border:0.05rem solid rgb(22, 142, 228);
+    background-color: rgb(50, 162, 243);
+    border-radius:0.2rem; 
+    color:white;
+}
+
+.delGameCnf{
+    border:0.05rem solid var(--darkgray);
+    background-color: rgb(255, 255, 255);
+    color:var(--darkgray);
+}
+
+
+/* .other{
+    position:relative;
+    z-index: 0;
+    margin-top:20vh;
+    margin-left:20vw;
+    border: 1px solid var(--darkgray);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(135deg,#f0fbff,#d1fafa);
+    padding:2.5vh;
+    padding-top:5vh;
+}
+
+h3{
+    color:#1c13a0;
+    font-weight: bolder;
+}
+
+#uname{
+    font-weight: bolder;
+    font-size: larger;
+}
+
+h4{
+    color:var(--blue);
+    font-weight: bolder;
+}
+
+
+.btns{
+    margin-top:10px;
+    margin-right:10px;
+    height:45px;
+    width:170px;
+    font-size:19px;
+    background-color: rgb(52, 3, 69);
+    color:#d7aaff;
+    border: 5px solid #230350;
+    box-shadow: 6px 6px 6px 0px rgba(18, 113, 255, 0.3);
+    font-family: 'Ubuntu', sans-serif;
+    border-radius:17.5px;
+}
+
+.btns:hover{
+    scale:1.1;
+    cursor: pointer;
+    color:#ffffff;
+} */
+
+/* .popup img{
+    width:5rem;
+    border:1px solid rgb(25, 1, 79);
+    border-radius: 35px;
+    position:absolute;
+    z-index:1;
+    margin-top:15vh;
+    margin-left:30.5vw;
+} */

@@ -1,0 +1,83 @@
+:root{
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+    --lightgray:#777777;
+    --darkgray:#656565;
+}
+
+.forgsitems{
+    display: flex;
+    flex-direction: row;
+}
+
+.forgsitemsheading{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    margin-top:2vh;
+}
+
+.groupname{
+    height:4vh;
+    font-size:0.9rem;
+    font-weight: bolder;
+    color:rgb(1, 10, 93);
+    border:0.1rem solid #c6c5c5;
+    border-radius: 0.2rem;
+    padding:0 0.15vw;
+    border-radius: 0.1rem;
+    margin:1.5vh 0 1vh 2.4vw;
+}
+.groupname:hover{
+    border-color:var(--lightblue);
+}
+
+.gsitem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.gsitembox{
+    width:25vw;
+}
+
+.gsupque{
+    width:22vw;
+}
+
+.gsaddbtn,.groupitemcount{
+    margin-left:2.5vw;
+}
+
+/* .addbtngs{
+    background-color: white;
+    color:var(--darkgray);
+    background-image: linear-gradient(white,white);
+    border-color: var(--lightgray);
+    border-width: 0.05rem;
+}
+.addbtngs:hover{
+    background-image:linear-gradient(to left,var(--blue),var(--lightblue));
+    color:white;
+    border-color: white;
+    border-width: 0.05rem;
+} */
+
+.forg1,.forg2{
+    width:30%;
+    margin-right:4%;
+    /* background-color: #cde7ff; */
+    width:32vw;
+}
+
+.gsaddgroup{
+    margin-left:70%;
+}
+
+.gsItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}

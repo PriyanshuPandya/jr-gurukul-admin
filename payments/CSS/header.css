@@ -1,0 +1,102 @@
+nav{
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav div{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.leftnav{
+    float:left;
+    width:18%;
+}
+
+#logo{
+    height: 90%;
+    padding:0 1vw;
+    margin-right:4vw;
+    cursor: pointer;
+}
+
+#hammenublue{
+    height: 1.5rem;
+    cursor: pointer;
+}
+#hammenublue:hover{
+    scale:1.1;
+}
+
+.rightnav{
+    float:right;
+    width:82%;
+    padding-left:2vw;
+    font-size:0.8rem;
+    color:rgb(57, 57, 57);
+}
+
+#searchimg{
+    height:1.2rem;
+    margin:0 3vw 0;
+    cursor: pointer;
+}
+#searchimg:hover{
+    scale:1.1;
+}
+
+select{
+    all: unset;
+    cursor: pointer;
+}
+
+#down{
+    width:0.75rem;
+    margin-right:3vw;
+}
+
+.notification{
+    padding:0 0.1rem;
+    background-color: rgb(240, 92, 158);
+    border-radius: 0.7rem;
+    font-size: 0.60rem;
+    color:white;
+    font-weight: bold;
+    margin-right: 0.25rem;
+    cursor: pointer;
+}
+
+.right2{
+    position:absolute;
+    right:0;
+}
+
+.rightimages{
+    height: 1.5rem;
+    margin-right: 2.5vw;
+    cursor: pointer;
+}
+
+#bell{
+    height: 2rem;
+}
+
+#profile{
+    height: 2.75rem;
+    border-radius:50%;
+    cursor: pointer;
+    margin-right:2vw;
+}
+#profile:hover,.rightimages:hover{
+    scale:1.1;
+}
+
+/*upload audio/image onclicking icon*/
+.forprofile input[type="file"]{
+    display: none;
+}
+
+#hammenublack{
+    margin-left: 3vw;
+}

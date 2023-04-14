@@ -1,0 +1,106 @@
+.menu{
+    float:left;
+    width: 18%;
+    /* background-image:linear-gradient(135deg, rgb(76, 216, 252),rgb(3, 116, 190)); */
+    background-image:linear-gradient(135deg, rgb(24, 207, 253),rgb(3, 116, 190)); 
+    color:white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index:4;
+}
+
+.menuitem:hover{
+    font-weight: bolder;
+    color:rgb(165, 218, 255);
+    scale:1.025;
+    text-decoration: underline;
+}
+
+.forlinks{
+    color:white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+
+/*--------------manage show and hide nav menu---------------------------------*/
+.showmenu{
+    animation:show 0.1s ease-in-out 1;
+}
+@keyframes show {
+    from {height: 100%;}
+    to {height:0%;}
+}
+
+.hidemenu{
+    animation:hide 0.1s ease-in-out 1;
+}
+@keyframes hide {
+    from {height: 0%;}
+    to {height:100%;}
+}
+
+.menuimg{
+    width:7%;
+    margin-left: 13%;
+    margin-right: 3%;
+}
+
+h5{
+    margin-left:8%;
+    padding-top: 7%;
+}
+
+
+.downarr{
+    float:right;
+    margin-right: 10%;
+    width:1vw;
+    height:0.9vh;
+    padding-top: 3%;
+}
+
+.rotatedownarr{
+    animation: rotdown 1s 1;
+}
+@keyframes rotdown {
+    0% {transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+li{
+    margin-top:3%;
+    font-weight: lighter;
+    font-size: 0.8rem;
+    cursor: pointer;
+    line-height: 1.2rem;
+}
+
+.games{
+    margin-left:17%;
+    border-left:0.1rem solid white;
+    padding-top:5%;
+}
+
+.templateitem{
+    font-size:0.7rem;
+    margin-top: 2%;
+    margin-left:10%;
+    cursor: pointer;
+    line-height: 0.9rem;
+}
+.templateitem:hover{
+    scale:1.02;
+    font-weight: bold;
+}
+
+.selectedgame{
+    color:rgb(23, 177, 249);
+    background-color: white;
+    border-radius: 0.125rem;
+    font-weight: bolder;
+    padding:0 0.25rem;
+    display: inline-block;
+}

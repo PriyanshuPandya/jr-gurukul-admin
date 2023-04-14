@@ -1,0 +1,59 @@
+:root{
+    --lightgray:#777777;
+    --darkgray:#656565;
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+}
+
+.forwfitems{
+    margin-bottom: 2vh;
+}
+
+.wfupque{
+    width:57vw;
+    padding:0 0.5vw;
+}
+
+.wfitem,.forwffields{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wfitem{
+    margin:2vh 2.3vw;
+}
+
+.forwflabel{
+    font-size:0.8rem;
+    color: var(--darkgray);
+    font-weight: bolder;
+}
+
+.wfinputs{
+    all: unset;
+    width:10vw;
+    border:0.1rem solid #b1b1b1;
+    border-radius: 0.25rem;
+    padding:0.5vh 0.5vw;
+    font-size: 0.75rem;
+}
+.wfinputs:hover{
+    border-color:var(--lightblue);
+}
+
+.foractualwords{
+    float: left;
+    width:45%;
+}
+
+.forrandomletters{
+    float: right;
+    width:45%;
+}
+
+.wfItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}

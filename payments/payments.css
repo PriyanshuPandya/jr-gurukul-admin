@@ -1,0 +1,85 @@
+:root{
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+    --lightgray:#777777;
+    --darkgray:#656565;
+}
+
+#formpaymentslist{
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color:var(--darkgray);
+}
+
+.paymentslistitems{
+    margin-top:5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.paymentslistbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius:0.2rem;
+    border:0.1rem solid #a2e5ff;
+    background-color: #f0fbff;
+    width:80%;
+    margin-left:8.5%;
+    margin-bottom: 1.5vh;
+    padding:1vh 1vw;
+}
+.paymentslistbox:hover{
+    border-color:var(--lightblue);
+}
+
+.clientname{
+    margin-left:1%;
+    width:11%;
+}
+
+.fordates,.forpaymentamount{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profilepic{
+    margin-right: 0;
+    cursor: pointer;
+    height: 1.8rem;
+    border-radius:0.9rem;
+}
+
+.delpaymentitem{
+    height:0.8rem;
+    margin-left:2%;
+}
+
+/* .forpaymentsstatus{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+   .paymentitemstatus{
+    height: 1rem;
+} */
+
+.paymentelement{
+    margin-left:6%;
+}
+
+.paymentsinput{
+    color:var(--blue);
+}
+
+/* .paystatuspaid{
+    color:rgb(34, 224, 34);
+} */
+
+.payamount{
+    color:rgb(170, 67, 8);
+    font-weight: bolder;
+}

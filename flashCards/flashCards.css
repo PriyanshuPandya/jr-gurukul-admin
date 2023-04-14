@@ -1,0 +1,24 @@
+/* .fcupque{
+    padding:0.1vh 0.5vw;
+    border:0.1rem solid #bebebe;
+    border-radius: 0.25rem;
+    width:59.5vw;
+}
+
+.fcitem{
+    margin-bottom: 1vh;
+}
+
+.fcaddnew{
+    margin-left:57.4vw;
+} */
+
+.fcItemNo{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-right:1vw;
+}
+
+.fcupque{
+    width:93%;
+}

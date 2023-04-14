@@ -1,0 +1,149 @@
+:root{
+    --lightgray:#777777;
+    --darkgray:#656565;
+    --lightblue:rgb(24, 205, 250);
+    --blue:rgb(3, 116, 190);
+}
+
+/*------------------------------------------------------------for Question----------------------------------------------*/
+.qaheading{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    color:rgb(64, 102, 159);
+    padding:1.5vh 0 1vh 2vw;
+}
+
+.openboxitems{
+    margin-bottom: 1vh;
+}
+
+.openboxitembox{
+    width:50vw;
+}
+
+.openboxquebox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.openboxqueitem{
+    float:left;
+    width:78%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.openboxupque{
+    width:45.5vw;
+    padding:0 0.5vw;
+    font-size: 0.7rem;
+    color:var(--darkgray);
+}
+
+.foropt{
+    float:right;
+    width:22%;
+}
+
+.noofoptlabel{
+    font-size:0.7rem;
+}
+
+.noofoptlabel{
+    font-size: 0.7rem;
+    color:var(--darkgray);
+    font-weight: bolder;
+}
+
+.noofopt{
+    width:2.5vw;
+    margin-left:0.5vw;
+    font-size: 0.7rem;
+    color:var(--darkgray);
+    padding-left:0.25vw;
+}
+
+/*--------------------------------------------------------------ans box-----------------------------------------------------------------*/
+
+.openboxansbox{
+    margin-left:2vw;
+    width:84.5%;
+    color:var(--darkgray);
+}
+
+.openboxansitem{
+    font-size:0.7rem;
+    color:var(--darkgray);
+    font-weight: bolder;
+    width:47%;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    padding:0.1vh 0.5vw;
+    border:0.1rem solid #bebebe;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5vh;
+}
+.openboxansitem:hover{
+    border-color: var(--lightblue);
+}
+
+.leftoption{
+    float: left;
+}
+
+.rightoption{
+    float: right;
+}
+
+.optionname{
+    font-size: 0.7rem;
+    font-weight: bolder;
+    color:rgb(64, 102, 159);
+    margin-right: 0.5vw;
+}
+
+.forcorrect{
+    height: 2rem;
+    cursor: pointer;
+}
+.forcorrect:hover{
+    scale:1.1;
+}
+
+.optionimg{
+    height:2.75vh;
+    cursor: pointer;
+    margin-left: 0.7vw;
+}
+.optionimg:hover{
+    scale:1.1;
+}
+.optioinimgaudio{
+    height: 2.5vh;
+    margin-left:0.6vw;
+    margin-top:0.5vh;
+}
+
+.foroptionsimg input[type="file"], .foroptionsaudio input[type="file"] {
+    display: none;
+}
+
+.upanswer{
+    font-size: 0.7rem;
+    color:var(--lightgray);
+    padding:0.5vh 0.25vw;
+    margin-left: 0.4vw;
+    border:0.1rem solid white;
+    border-radius: 0.25rem;
+    width:21vw;
+}
+.upanswer:hover{
+    border-color: var(--lightblue);
+}
+
+.openboxaddque{
+    margin-left:56.1vw;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin - Payments</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sanghvi Infosoft">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+     <!--CSS link Section-->
+    <link rel="stylesheet" href="CSS/header.css" class="CSS">
+    <link rel="stylesheet" href="CSS/navbar.css" class="CSS">
+    <!-- <link rel="stylesheet" href="CSS/form.css" class="CSS"> -->
+    <link rel="stylesheet" href="CSS/main.css" class="CSS">
+
+    <link rel="stylesheet" href="payments.css" class="CSS">
+
+</head>
+<body>
+    <nav>
+        <div class="leftnav">
+            <img src="../Images/jrgklogo.png" id="logo" alt="jr. Gurukul Logo">
+            <img src="../Images/ham_menu_blue.png" title="Hide Navbar" id="hammenublue" alt="ham_menu_blue">
+        </div>
+        <div class="rightnav">
+            <!-- <div class="right1">
+                    <img src="../Images/search.png" id="searchimg" alt="search">
+
+                    <select>
+                        <option>Menu</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <img src="../Images/down.png" id="down" alt="">
+
+                    <div class="settings">
+                        <p class="notification">&nbsp;3&nbsp;</p>
+                        <select>
+                            <option>Settings</option>
+                            <option>Item 1</option>
+                            <option>Item 2</option>
+                            <option>Item 3</option>
+                        </select>
+                        <img src="../Images/down.png" id="down" alt="">
+                    </div> -->
+        </div>
+
+        <div class="right2">
+            <!-- <img src="../Images/pie.png" class="rightimages" id="pie" alt="pie chart">
+                    <img src="../Images/bell.png" class="rightimages" id="bell" alt="bell">-->
+            <img src="../Images/profilepic.jpg" id="profile" alt="profile pic">
+
+            <!-- <span class="forprofile" id="forprofile" title="Edit Profile">
+                        <label for="adminprofile"><img class="rightimages" id="profile" src="../Images/profilepic.jpg" alt="editprofile"></label>                        
+                        <input type="file" id="adminprofile" name="adminprofile" accept="image/*" onchange="changeprofile()">
+                    </span> -->
+            <!-- <img src="../Images/down.png" id="down" alt=""> -->
+            <!-- <img src="../Images/ham_menu_black.png" class="rightimages" id="hammenublack" alt="black menu"> -->
+        </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="menu" id="menu" onclick="managemenunavigation()">
+            <ul type="none">
+                <h5>ADMIN</h5>
+                <a class="forlinks" href="../dashboard/dashboard.html"><li class="menuitem" id="menudashboard"><img src="../Images/dashboard.png" class="menuimg" alt="dashboard">Dashboard</li></a>
+                <a class="forlinks" href="../userList/userlist.html"><li class="menuitem" id="menuuserlist"><img src="../Images/user.png" class="menuimg" alt="userlist">User List</li></a>
+                <li class="menuitem" id="menupayments"><img src="../Images/payment.png" class="menuimg" alt="payments">Payments</li>
+            </ul>
+
+            <ul type="none">
+                <h5>CREATE ACTIVITY</h5>
+                <a href="../basic/index.html" class="forlinks"><li id="menutemplates" class="menuitem"><img src="../Images/temp.png" class="menuimg" alt="templates"
+                        onclick="managetemplates()"><strong>Templates</strong></a>
+                    <!-- <img src="../Images/downarrow.png" class="downarr" id="tempdown" alt=""> -->
+                </li>
+                <ul class="games" id="games" type="none">
+                    <!-- <li class="templateitem" id="menuspinthewheel">Spin The Wheel</li>
+                    <li class="templateitem" id="menuquiz">Quiz</li>
+                    <li class="templateitem" id="menumatchfollowing">Match The Following</li>
+                    <li class="templateitem" id="menuopenbox">Open The Box</li>
+                    <li class="templateitem" id="menuwordformation">Word Formation</li>
+                    <li class="templateitem" id="menumissingword">Missing Word</li>
+                    <li class="templateitem" id="menuanagram">Anagram</li>
+                    <li class="templateitem" id="menugroupsort">Group Sort</li>
+                    <li class="templateitem" id="menufindthematch">Find The Match</li>
+                    <li class="templateitem" id="menuflashcards">Flash Cards</li>
+                    <li class="templateitem" id="menunjumble">Unjumble</li>
+                    <li class="templateitem" id="menutrueorfalse">True Or False</li> -->
+                </ul>
+            </ul>
+        </div>
+
+
+        <div class="container" id="container">
+
+            <!------------------------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------Form payment-list------------------------------------------------------->
+            <div class="formpaymentslist" id="formpaymentslist">
+                <div class="paymentslistitems">
+                    <div class="paymentslistbox">
+                        <img class="profilepic" src="../Images/profilepic.jpg" alt="editprofile">
+                        <!-- <input type="text" class="username" value="User 1"> -->
+                        <div class="clientname paymentsinput">User 1</div>
+                        <div class="forpackage paymentelement">Package :&nbsp;<span
+                                class="clientpackage paymentsinput">A</span></div>
+                        <div class="forduration paymentelement"><span
+                                class="duration paymentsinput">10</span>&nbsp;Months</div>
+                        <div class="fordates paymentelement">
+                            <div class="forstartdate">Start Date :<span class="paymentsinput">01/03/2022</span></div>
+                            &nbsp;|&nbsp;<div class="forstartdate">End Date :<span
+                                    class="paymentsinput">15/05/2023</span></div>
+                        </div>
+                        <div class="forpaymentamount paymentelement">Rs. :&nbsp;<span class="payamount">8000</span>
+                        </div>
+                        <!-- <div class="forpaymentsstatus paymentelement"><span class="paystatus paystatuspaid">Paid</span><img src="../Images/greentick.png" alt="status icon"  class="paymentitemstatus"/></div> -->
+                        <!-- <img src="../Images/edit.png" alt="edit payment item" class="gamedataimg"> -->
+                        <!-- <img src="../Images/bin.png" alt="delete user" class="delpaymentitem"> -->
+                    </div>
+
+                    <div class="paymentslistbox">
+                        <img class="profilepic" src="../Images/profilepic.jpg" alt="editprofile">
+                        <!-- <input type="text" class="username" value="User 1"> -->
+                        <div class="clientname paymentsinput">User 4</div>
+                        <div class="forpackage paymentelement">Package :&nbsp;<span
+                                class="clientpackage paymentsinput">B</span></div>
+                        <div class="forduration paymentelement"><span
+                                class="duration paymentsinput">03</span>&nbsp;Months</div>
+                        <div class="fordates paymentelement">
+                            <div class="forstartdate">Start Date :<span class="paymentsinput">17/09/2022</span></div>
+                            &nbsp;|&nbsp;<div class="forstartdate">End Date :<span
+                                    class="paymentsinput">10/04/2023</span></div>
+                        </div>
+                        <div class="forpaymentamount paymentelement">Rs. :&nbsp;<span class="payamount">5000</span>
+                        </div>
+                        <!-- <div class="forpaymentsstatus paymentelement"><span class="paystatus paystatuspaid">Paid</span><img src="../Images/greentick.png" alt="status icon"  class="paymentitemstatus"/></div> -->
+                        <!-- <img src="../Images/edit.png" alt="edit payment item" class="gamedataimg"> -->
+                        <!-- <img src="../Images/bin.png" alt="delete user" class="delpaymentitem"> -->
+                    </div>
+
+                    <div class="paymentslistbox">
+                        <img class="profilepic" src="../Images/profilepic.jpg" alt="editprofile">
+                        <!-- <input type="text" class="username" value="User 1"> -->
+                        <div class="clientname paymentsinput">User 3</div>
+                        <div class="forpackage paymentelement">Package :&nbsp;<span
+                                class="clientpackage paymentsinput">B</span></div>
+                        <div class="forduration paymentelement"><span
+                                class="duration paymentsinput">06</span>&nbsp;Months</div>
+                        <div class="fordates paymentelement">
+                            <div class="forstartdate">Start Date :<span class="paymentsinput">23/08/2022</span></div>
+                            &nbsp;|&nbsp;<div class="forstartdate">End Date :<span
+                                    class="paymentsinput">25/07/2023</span></div>
+                        </div>
+                        <div class="forpaymentamount paymentelement">Rs. :&nbsp;<span class="payamount">10000</span>
+                        </div>
+                        <!-- <div class="forpaymentsstatus paymentelement"><span class="paystatus paystatuspaid">Paid</span><img src="../Images/greentick.png" alt="status icon"  class="paymentitemstatus"/></div> -->
+                        <!-- <img src="../Images/edit.png" alt="edit payment item" class="gamedataimg"> -->
+                        <!-- <img src="../Images/bin.png" alt="delete user" class="delpaymentitem"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="payments.js"></script>
+</body>
+</html>
