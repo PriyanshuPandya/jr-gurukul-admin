@@ -11,6 +11,16 @@ function fileToBase64(file) {
   });
 }
 
+async function wfgetthebase64(element){
+const file = element.files.item(0);
+    await fileToBase64(file)
+    .then( base64String => {
+        element.title = base64String;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
 async function changewfbg(){
     document.getElementById('wfbgname').innerText = document.getElementById('wfbg').files.item(0).name;
     const file = document.getElementById('wfbg').files.item(0);
@@ -49,13 +59,16 @@ const wf_additembtn = document.getElementById("wf_additembtn");
 const wfcontent = document.getElementById("wfcontent");
 const wfDeleteItemBtns = document.querySelectorAll(".wfdeleteitem");
 let noOfItemswf = 1;
+let wfitemid = 1;
 
 wf_additembtn.addEventListener("click", () => {
-
+  wfitemid++;
   const createnewwfitem = document.getElementById("wfitemtocopy");
   const newwfGameData = createnewwfitem.cloneNode(true); // copy with events
   createnewwfitem.parentNode.appendChild(newwfGameData);
   newwfGameData.querySelector(".wfItemNo").innerText = noOfItemswf + 1;
+  newwfGameData.querySelector(".forwfquestionImage").setAttribute("for","wfqueimg"+wfitemid);
+  newwfGameData.querySelector(".wfquestionImage").setAttribute("id","wfqueimg"+wfitemid);
   newwfGameData.querySelector(".wfquestionText").value = null;
   newwfGameData.querySelector(".wfquestionImage").value = null;
   newwfGameData.querySelector(".wfactualwords").value = null;
@@ -99,9 +112,9 @@ wfform.addEventListener("submit", (event) => {
     for (var i = 0; i < gameDataFields.length; i++) {
       var wfgame = {
         questionText: gameDataFields[i].querySelector(".wfquestionText")?gameDataFields[i].querySelector(".wfquestionText").value:"",
-        questionImage: gameDataFields[i].querySelector(".wfquestionImage")?gameDataFields[i].querySelector(".wfquestionImage").value:"",
+        questionImage: gameDataFields[i].querySelector(".wfquestionImage")?gameDataFields[i].querySelector(".wfquestionImage").title:"",
         actualword: gameDataFields[i].querySelector(".wfactualwords")?gameDataFields[i].querySelector(".wfactualwords").value:"",
-        randomletters: gameDataFields[i].querySelector(".wfrandomwords")?gameDataFields[i].querySelector(".wfactualwords").value:"",
+        randomletters: gameDataFields[i].querySelector(".wfrandomwords")?gameDataFields[i].querySelector(".wfrandomwords").value:"",
       };
       gameDataArray[i]=wfgame;
     }
@@ -128,11 +141,55 @@ wfform.addEventListener("submit", (event) => {
         timeup:passtimeup,
         lives:formData.get("wf_lives"),
         subject:formData.get("wf_subject"),
-        age_group:formData.get("wf_age"),
         age_min:formData.get("wf_agemin"),
         age_max:formData.get("wf_agemax"),
         gameData: gameDataArray
     };
     // Log the JSON object to the console
     console.log(JSON.stringify(jsonObject));
+
+    wfform.reset();
+    document.getElementById("wordformationgames").style.display = "none";
+    document.getElementById("wordformation").style.display = "block";
+    window.scrollTo(0,0);
+    showwfSuccessFlashMsg();
   });
+
+  const wfDeleteGameBtns = document.querySelectorAll(".wfgamedel");
+  for (let i = 0; i < wfDeleteGameBtns.length; i++) {
+    wfDeleteGameBtns[i].addEventListener("click", function() {
+     document.getElementById("forwfdelgame").style.display = "block";
+     document.getElementById("wordformation").style.opacity = 0.5;
+     document.getElementById("menu").style.opacity = 0.5;
+     document.getElementById("nav").style.opacity = 0.5;
+     document.getElementById("forwfdelgame").style.opacity = 1;
+  
+     document.getElementById("wfdelback").addEventListener("click",function(){
+      hidewfGameDelPopup();
+     })
+     document.getElementById("wfdelGameCancel").addEventListener("click",function(){
+      hidewfGameDelPopup();
+     })
+    })
+    document.getElementById("wfdelcnf").addEventListener("click",function(){
+      alert("Game Deleted");
+    })
+  };
+  
+  function hidewfGameDelPopup(){
+    document.getElementById("forwfdelgame").style.display = "none";
+    document.getElementById("wordformation").style.opacity = 1;
+    document.getElementById("menu").style.opacity = 1;
+    document.getElementById("nav").style.opacity = 1;
+  }
+
+  //for flash msg
+function showwfSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("wfflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}

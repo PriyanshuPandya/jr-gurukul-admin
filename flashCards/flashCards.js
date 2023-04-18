@@ -46,101 +46,48 @@ async function addfcbgaudio(){
     });
 }
 
+async function fcgetthebase64(element){
+  const file = element.files.item(0);
+      await fileToBase64(file)
+      .then( base64String => {
+          element.title = base64String;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
+
 const fc_additembtn = document.getElementById("fc_additembtn");
 const fcitems = document.getElementById("fcitems");
 const fcDeleteItemBtns = document.querySelectorAll(".fcdeleteitem");
 let noOfItemsfc = 3;
+let fcitemid = 3;
 
 fc_additembtn.addEventListener("click", () => {
-  // const createnewfcitem = document.getElementById("fcitemtocopoy");
-  // const newfcGameData = createnewfcitem.cloneNode(true); // copy with events
-  // createnewfcitem.parentNode.appendChild(newfcGameData);
-  // console.log(newfcGameData.querySelector(".fcItemNo").innerText);
+  fcitemid++;
+  const createnewfcitem = document.getElementById("fcitemtocopoy");
+  const newfcGameData = createnewfcitem.cloneNode(true); // copy with events
+  createnewfcitem.parentNode.appendChild(newfcGameData);
 
-    let newfc = document.createElement("div");
-    newfc.classList.add("item");
-    newfc.classList.add("fcitem");
-    fcitems.appendChild(newfc);
+  newfcGameData.querySelector(".fcItemNo").innerText = noOfItemsfc + 1;
+  newfcGameData.querySelector(".forfcquestionImage").setAttribute("for","fcqueimg"+fcitemid);
+  newfcGameData.querySelector(".fcquestionImage").setAttribute("id","fcqueimg"+fcitemid);
+  newfcGameData.querySelector(".forfcquestionAudio").setAttribute("for","fcqueaudio"+fcitemid);
+  newfcGameData.querySelector(".fcquestionAudio").setAttribute("id","fcqueaudio"+fcitemid);
 
-    let newfcitemNo = document.createElement("p");
-    newfcitemNo.classList.add("fcItemNo");
-    newfcitemNo.innerText = noOfItemsfc + 1;
-    newfc.appendChild(newfcitemNo);
+  newfcGameData.querySelector(".fcquestionText").value = null;
+  newfcGameData.querySelector(".fcquestionImage").value = null;
+  newfcGameData.querySelector(".fcquestionAudio").value = null;
 
-    let newfcitembox = document.createElement("span");
-    newfcitembox.classList.add("itembox");
-    newfcitembox.classList.add("fcgamedata");
-    newfc.appendChild(newfcitembox);
-
-    let forfcimg = document.createElement("span");
-    forfcimg.classList.add("forimage");
-    forfcimg.title = "Upload Instruction Image";
-    newfcitembox.appendChild(forfcimg);
-
-    let newfcimglabel = document.createElement("label");
-    newfcimglabel.setAttribute("for","itemimage");
-    forfcimg.appendChild(newfcimglabel);
-
-    let newfcitemimg = document.createElement("img");
-    newfcitemimg.classList.add("itemimg");
-    newfcitemimg.src = "../Images/image.png";
-    newfcitemimg.alt = "upload image";
-    newfcimglabel.appendChild(newfcitemimg);
-
-    let newfcimage = document.createElement("input");
-    newfcimage.setAttribute("type","file");
-    newfcimage.classList.add("fcquestionImage");
-    newfcimage.setAttribute("name","fcgamequeimg[]");
-    newfcimage.setAttribute("accept","image/*");
-    forfcimg.appendChild(newfcimage);
-
-    let forfcaudio = document.createElement("span");
-    forfcaudio.classList.add("foraudio");
-    forfcaudio.title = "Upload Instruction Audio";
-    newfcitembox.appendChild(forfcaudio);
-
-    let newfcaudioilabel = document.createElement("label");
-    newfcaudioilabel.setAttribute("for","itemaudio");
-    forfcaudio.appendChild(newfcaudioilabel);
-
-    let newfcitemaudio = document.createElement("img");
-    newfcitemaudio.classList.add("itemimg");
-    newfcitemaudio.classList.add("upaudio");
-    newfcitemaudio.src = "../Images/audioOn.png";
-    newfcitemaudio.alt = "upload audio";
-    newfcaudioilabel.appendChild(newfcitemaudio);
-
-    let newfcaudio = document.createElement("input");
-    newfcaudio.setAttribute("type","file");
-    newfcaudio.classList.add("fcquestionAudio");
-    newfcaudio.setAttribute("name","fcgamequeaudio[]");
-    newfcaudio.setAttribute("accept","audio/*");
-    forfcaudio.appendChild(newfcaudio);
-
-    let newfctext = document.createElement("input");
-    newfctext.classList.add("upquestion");
-    newfctext.classList.add("fcupque");
-    newfctext.classList.add("fcquestionText");
-    newfctext.setAttribute("type","text");
-    newfcitembox.appendChild(newfctext);
-
-    let newfcitemDelete = document.createElement("img");
-    newfcitemDelete.src = "../Images/bin.png";
-    newfcitemDelete.classList.add("itemimg");
-    newfcitemDelete.classList.add("del");
-    newfcitemDelete.classList.add("fcdeleteitem");
-    newfcitemDelete.title = "Delete this Instruction";
-    newfcitemDelete.alt = "delete it";
-    newfc.appendChild(newfcitemDelete);
-    newfcitemDelete.addEventListener("click", (event) => {
-        event.preventDefault();
-        const fcItemToRemove = event.target.parentNode;
-        fcitems.removeChild(fcItemToRemove);
-        updatefcItemNo();
-      });
-
+  newfcGameData.querySelector(".forfcdelete").classList.add("fcdeleteitem");
+  newfcGameData.querySelector(".fcdeleteitem").addEventListener("click", (event) => {
+    event.preventDefault();
+    const fcItemToRemove = event.target.parentNode;
+    fcitems.removeChild(fcItemToRemove);
+    updatefcItemNo();
+    });
     noOfItemsfc++;
-});
+  })
 
 fcDeleteItemBtns.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -158,8 +105,6 @@ function updatefcItemNo(){
   noOfItemsfc--;
 };
 
-
-
 const fcform = document.querySelector(".fcform");
 fcform.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -171,9 +116,9 @@ fcform.addEventListener("submit", (event) => {
 
     for (var i = 0; i < gameDataFields.length; i++) {
       var fcgame = {
-        questionText: gameDataFields[i].querySelector(".fcquestionText").value,
-        questionImage: gameDataFields[i].querySelector(".fcquestionImage").value,
-        questionAudio: gameDataFields[i].querySelector(".fcquestionAudio").value
+        questionText: gameDataFields[i].querySelector(".fcquestionText")?gameDataFields[i].querySelector(".fcquestionText").value:"",
+        questionImage: gameDataFields[i].querySelector(".fcquestionImage")?gameDataFields[i].querySelector(".fcquestionImage").title:"",
+        questionAudio: gameDataFields[i].querySelector(".fcquestionAudio")?gameDataFields[i].querySelector(".fcquestionAudio").title:"",
       };
       gameDataArray[i]=fcgame;
     }
@@ -200,11 +145,56 @@ fcform.addEventListener("submit", (event) => {
         timeup:passtimeup,
         lives:formData.get("fc_lives"),
         subject:formData.get("fc_subject"),
-        age_group:formData.get("fc_age"),
         age_min:formData.get("fc_agemin"),
         age_max:formData.get("fc_agemax"),
         gameData: gameDataArray
     };
     // Log the JSON object to the console
     console.log(JSON.stringify(jsonObject));
+
+    fcform.reset();
+    document.getElementById("flashcardsgames").style.display = "none";
+    document.getElementById("flashcards").style.display = "block";
+    window.scrollTo(0,0);
+    showfcSuccessFlashMsg();
   });
+
+
+  const fcDeleteGameBtns = document.querySelectorAll(".fcgamedel");
+  for (let i = 0; i < fcDeleteGameBtns.length; i++) {
+    fcDeleteGameBtns[i].addEventListener("click", function() {
+     document.getElementById("forfcdelgame").style.display = "block";
+     document.getElementById("flashcards").style.opacity = 0.5;
+     document.getElementById("menu").style.opacity = 0.5;
+     document.getElementById("nav").style.opacity = 0.5;
+     document.getElementById("forfcdelgame").style.opacity = 1;
+  
+     document.getElementById("fcdelback").addEventListener("click",function(){
+      hidefcGameDelPopup();
+     })
+     document.getElementById("fcdelGameCancel").addEventListener("click",function(){
+      hidefcGameDelPopup();
+     })
+    })
+    document.getElementById("fcdelcnf").addEventListener("click",function(){
+      alert("Game Deleted");
+    })
+  };
+  
+  function hidefcGameDelPopup(){
+    document.getElementById("forfcdelgame").style.display = "none";
+    document.getElementById("flashcards").style.opacity = 1;
+    document.getElementById("menu").style.opacity = 1;
+    document.getElementById("nav").style.opacity = 1;
+  }
+
+  //for flash msg
+function showfcSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("fcflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}

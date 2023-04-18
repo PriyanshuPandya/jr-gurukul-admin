@@ -72,3 +72,20 @@ function hideotbGameDelPopup(){
   document.getElementById("menu").style.opacity = 1;
   document.getElementById("nav").style.opacity = 1;
 }
+
+//for flash msg
+function showotbSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("otbflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
+
+// otbform.reset();
+// document.getElementById("openboxgames").style.display = "none";
+// document.getElementById("openbox").style.display = "block";
+// window.scrollTo(0,0);
+// showquizSuccessFlashMsg();

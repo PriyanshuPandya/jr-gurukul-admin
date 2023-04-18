@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="CSS/main.css" class="CSS">
     <link rel="stylesheet" href="CSS/showgame.css" class="CSS">
 
-    <link rel="stylesheet" href="../userList/userlist.css" class="CSS">
-    <link rel="stylesheet" href="../payments/payments.css" class="CSS">
+    <!-- <link rel="stylesheet" href="../userList/userlist.css" class="CSS">
+    <link rel="stylesheet" href="../payments/payments.css" class="CSS"> -->
 
     <link rel="stylesheet" href="../spinTheWheel/spinTheWheel.css" class="CSS">
     <link rel="stylesheet" href="../quiz/quiz.css" class="CSS">
@@ -477,7 +477,7 @@
                     <img src="../Images/cancel.png" id="spindelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
                 </div>
                 <div class="delGameData">
-                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="spinGameNo" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Spin The Wheel</span>"?<br>
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="spinGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Spin The Wheel</span>"?<br>
                         <span class="delGameMsg2">You Can't Undo this action !</span></div>
                     <div class="delGameWarn">
                         <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
@@ -503,6 +503,64 @@
                         <button class="createbtn" id="gotospin">Create New</button>
                     </div>
                 </div>
+
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="spinflashsuccess"></div>
+
+                <form class="filters" id="spinfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="spin_filname" id="spinfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <!-- <span class="forfilterssub">
+                                <img src="../Images/subject.png" class="tools2img" alt="subject">
+                                <select name="spinfilsub">
+                                    <option style="display:none">Choose Subject</option>
+                                    <option>Maths</option>
+                                    <option>Science</option>
+                                    <option>English</option>
+                                </select>
+                                <img src="../Images/down.png" id="down" alt="">
+                            </span> -->
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="spinagemin" name="spin_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="spinagemax" name="spin_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="spinfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="spinfil" id="">Maths
+                        <input type="checkbox" name="spinfil" id="">English
+                        <input type="checkbox" name="spinfil" id="">Science
+                    </div>
+                </form>
+               
 
                 <div class="forgamedata">
                     <div class="gamedataitem">
@@ -632,7 +690,7 @@
                                 </div>
 
                                 <div class="quizgamecontainer" id="quizgamecontainer">
-                                    <div class="quizgamedata" id="quizgamedata">
+                                    <div class="quizgamedata" id="quizitemtocopy">
                                         <div class="queheading qaheading">Question</div>
 
                                         <div class="quizquebox">
@@ -641,22 +699,22 @@
                                                 <span class="forimage" id="forimage" title="Upload Image">
                                                     <label for="itemimage"><img class="itemimg" id="upimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="quizgameQuestion" id="quizquestionImage"
+                                                    <input type="file" class="quizgameQuestion quizquestionImage" id="quizquestionImage"
                                                         name="quizquestionImage"
                                                         accept="image/*"><!--onchange="getquizimgname()-->
                                                 </span>
                                                 <span class="foraudio" id="foraudio" title="Upload Instruction Audio">
                                                     <label for="itemaudio"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="quizgameQuestion" id="quizquestionAudio"
+                                                    <input type="file" class="quizgameQuestion quizquestionAudio" id="quizquestionAudio"
                                                         name="quizquestionAudio"
                                                         accept="audio/*"><!--onchange="getquizaudioname()"-->
                                                 </span>
                                                 <input type="text" id="quizquestionText" name="quizquestionText" placeholder="Enter Question"
-                                                    class="upquestion quizupque quizgameQuestion"/>
+                                                    class="upquestion quizupque quizgameQuestion quizquestionText"/>
                                             </span>
-                                            <!-- <img class="itemimg del forquizdelete" onclick="removequizGame(this)" src="../Images/bin.png"
-                                                alt="delete it" title="Delete this Instruction"> -->
+                                            <img class="itemimg del forquizdelete" onclick="removequizGame(this)" src="../Images/bin.png"
+                                                alt="delete it" title="Delete this Instruction">
                                         </div>
 
                                         <div class="foropt">
@@ -669,8 +727,8 @@
                                         <div class="quizansbox">
                                             <!--Answers Options-->
                                             <!--Option 1-->
-                                            <div class="quizansitem">
-                                                <!-- <span class="optionname">&#97;</span> -->
+                                            <div class="quizansitem" id="quizoptcopy">
+                                                <span class="optionname">&#97;</span>
                                                 <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
                                                     title="Select Correct Answer" id="option1">
                                                 <span class="foroptionsimg" title="Upload Image as Option">
@@ -686,14 +744,14 @@
                                                         accept="audio/*">
                                                 </span>
                                                 <input type="text" placeholder="Enter Answer"
-                                                    class="upanswer quizoptans forquizansopt" />
+                                                    class="upanswer quizoptans quizanswerText forquizansopt" />
                                                 <img class="itemimg del delopt" id="ansoptText" onclick="removequizAnsOption(this)" src="../Images/bin.png" alt="delete it"
                                                     title="Delete Option">
                                             </div>
-                                        </div>
+                                        
 
                                             <!--Option 2-->
-                                            <!-- <div class="quizansitem">
+                                            <div class="quizansitem">
                                                 <span class="optionname">&#98;</span>
                                                 <input type="radio" name="forcorrect" class="forcorrect"
                                                     title="Select Correct Answer" id="option2">
@@ -713,7 +771,8 @@
                                                     class="upanswer quizoptans quizanswerText" />
                                                 <img class="itemimg del delopt" src="../Images/bin.png" alt="delete it"
                                                     title="Delete Option">
-                                            </div> -->
+                                            </div>
+                                        </div>
 
                                             <!--Option 3-->
                                             <!-- <div class="quizansitem " id="quizansitem">
@@ -764,10 +823,10 @@
                                 </div>
                             </div>
                                 
-                            <img class="itemimg del quizdelete" onclick="removequizGame(this)" src="../Images/bin.png"
-                                                alt="delete it" title="Delete this Question">
+                            <!-- <img class="itemimg del quizdelete" onclick="removequizGame(this)" src="../Images/bin.png"
+                                                alt="delete it" title="Delete this Question"> -->
                             <div class="addnewitem quizaddque">
-                                <button type="button quiz_additembtn" id="quiz_additembtn" class="addbtn" onclick="addquizGameData()">Add
+                                <button type="button quiz_additembtn" id="quiz_additembtn" class="addbtn">Add
                                     Question</button>
                             </div>
 
@@ -896,7 +955,7 @@
                     <img src="../Images/cancel.png" id="quizdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
                 </div>
                 <div class="delGameData">
-                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="spinGameNo" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Quiz</span>"?<br>
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="spinGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Quiz</span>"?<br>
                         <span class="delGameMsg2">You Can't Undo this action !</span></div>
                     <div class="delGameWarn">
                         <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
@@ -923,6 +982,52 @@
                         <button class="createbtn" id="gotoquiz">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="quizflashsuccess"></div>
+
+                <form class="filters" id="quizfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="quiz_filname" id="quizfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="quizagemin" name="quiz_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="quizagemax" name="quiz_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="quizfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="quizfilsub1" id="">Maths
+                        <input type="checkbox" name="quizfilsub2" id="">English
+                        <input type="checkbox" name="quizfilsub3" id="">Science
+                    </div>
+                </form>
 
                 <div class="forgamedata">
                     <div class="gamedataitem">
@@ -1024,7 +1129,7 @@
                                     <label for="mtfbg"><img class="imageurl" id="imageurl"
                                             src="../matchTheFollowing/logo.jpg" alt="upload image"></label>
                                     <input type="file" id="mtfbg" name="mtf_bg" accept="image/*" required
-                                    oninput="mtfgetbase64(this, 'mtfbgname')">
+                                    oninput="changemtfbg()">
                                 </span>
 
                                 <span class="forthumb" id="forthumb">
@@ -1065,10 +1170,10 @@
                                         <div class="formtfque">
                                             <span class="itembox mtfitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formtfquestionImage" for="mtfqueimg1"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="mtfquestionImage" oninput="mtfgetbase64(this, null)"
-                                                        name="itemimage" accept="image/*">
+                                                    <input type="file" class="mtfquestionImage" onchange="mtfgetthebase64(this)"
+                                                        name="itemimage" id="mtfqueimg1" accept="image/*">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion mtfupque mtfquestionText" />
@@ -1078,12 +1183,12 @@
                                         <div class="formtfans">
                                             <span class="itembox mtfitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formtfanswerImage" for="mtfansimg1"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
                                                     <input type="file" class="mtfanswerImage" 
-                                                        name="itemimage" accept="image/*">
+                                                        name="itemimage" id="mtfansimg1" onchange="mtfgetthebase64(this)" accept="image/*">
                                                 </span>
-                                                <input type="text" placeholder="Enter Answer" oninput="mtfgetbase64(this, null)"
+                                                <input type="text" placeholder="Enter Answer"
                                                     class="upquestion mtfupque mtfanswerText" />
                                             </span>
                                             <img class="itemimg del formtfdelete" src="../Images/bin.png"
@@ -1097,9 +1202,9 @@
                                         <div class="formtfque">
                                             <span class="itembox mtfitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formtfquestionImage" for="mtfqueimg2"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="mtfquestionImage" oninput="mtfgetbase64(this,null)"
+                                                    <input type="file" id="mtfqueimg2" class="mtfquestionImage" onchange="mtfgetthebase64(this)"
                                                         name="itemimage" accept="image/*">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
@@ -1110,10 +1215,10 @@
                                         <div class="formtfans">
                                             <span class="itembox mtfitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formtfanswerImage" for="mtfansimg2"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="mtfanswerImage" oninput="mtfgetbase64(this,null)"
-                                                        name="itemimage" accept="image/*">
+                                                    <input type="file" class="mtfanswerImage" onchange="mtfgetthebase64(this)"
+                                                        name="itemimage" id="mtfansimg2" accept="image/*">
                                                 </span>
                                                 <input type="text" placeholder="Enter Answer"
                                                     class="upquestion mtfupque mtfanswerText" />
@@ -1129,10 +1234,10 @@
                                         <div class="formtfque">
                                             <span class="itembox mtfitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formtfquestionImage" for="mtfqueimg3"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="mtfquestionImage" oninput="mtfgetbase64(this,null)"
-                                                        name="itemimage" accept="image/*">
+                                                    <input type="file" class="mtfquestionImage" onchange="mtfgetthebase64(this)"
+                                                        name="itemimage" id="mtfqueimg3" accept="image/*">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion mtfupque mtfquestionText" />
@@ -1142,10 +1247,10 @@
                                         <div class="formtfans">
                                             <span class="itembox mtfitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formtfanswerImage" for="mtfansimg3"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="mtfanswerImage" oninput="mtfgetbase64(this,null)"
-                                                        name="itemimage" accept="image/*">
+                                                    <input type="file" class="mtfanswerImage" onchange="mtfgetthebase64(this)"
+                                                        name="itemimage" id="mtfansimg3" accept="image/*">
                                                 </span>
                                                 <input type="text" placeholder="Enter Answer"
                                                     class="upquestion mtfupque mtfanswerText" />
@@ -1288,7 +1393,7 @@
                     <img src="../Images/cancel.png" id="mtfdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
                 </div>
                 <div class="delGameData">
-                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="quizGameNo" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Match The Following</span>"?<br>
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="mtfGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Match The Following</span>"?<br>
                         <span class="delGameMsg2">You Can't Undo this action !</span></div>
                     <div class="delGameWarn">
                         <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
@@ -1314,6 +1419,52 @@
                         <button class="createbtn" id="gotomtf">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="mtfflashsuccess"></div>
+
+                <form class="filters" id="mtffilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="mtf_filname" id="mtffilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="mtfagemin" name="mtf_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="mtfagemax" name="mtf_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="mtffilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="mtffilsub1" id="">Maths
+                        <input type="checkbox" name="mtffilsub2" id="">English
+                        <input type="checkbox" name="mtffilsub3" id="">Science
+                    </div>
+                </form>
 
                 <div class="forgamedata">
                     <div class="gamedataitem">
@@ -1373,7 +1524,7 @@
             <!-----------------------------------------------openbox--------------------------------------------------->
             <div class="openboxgames" id="openboxgames">
 
-                <div class="gametop">
+                <!-- <div class="gametop">
                     <div class="nameandlogo">
                         <img src="../openTheBox/logo.jpg" class="gamelogo" alt="openbox logo">
                         <div class="gamename">
@@ -1473,11 +1624,11 @@
 
                                 <div class="ansheading qaheading">Answers</div>
 
-                                <div class="openboxansbox">
+                                <div class="openboxansbox"> -->
 
                                     <!--Answers Options-->
                                     <!--Option 1-->
-                                    <div class="openboxansitem leftoption" id="openboxansitem">
+                                    <!-- <div class="openboxansitem leftoption" id="openboxansitem">
                                         <span class="optionname">a.</span>
                                         <input type="radio" name="forcorrect" class="forcorrect"
                                             title="Select Correct Answer" id="option1">
@@ -1492,10 +1643,10 @@
                                             <input type="file" name="optionaudio" accept="audio/*">
                                             <input type="text" placeholder="Enter Answer" class="upanswer" />
                                         </span>
-                                    </div>
+                                    </div> -->
 
                                     <!--Option 2-->
-                                    <div class="openboxansitem rightoption" id="openboxansitem">
+                                    <!-- <div class="openboxansitem rightoption" id="openboxansitem">
                                         <span class="optionname">b.</span>
                                         <input type="radio" name="forcorrect" class="forcorrect"
                                             title="Select Correct Answer" id="option2">
@@ -1520,9 +1671,9 @@
                             </div>
                             <div class="tools">
 
-                                <div class="toolslist">
+                                <div class="toolslist"> -->
                                     <!--tools 1st line-->
-                                    <div class="tools1">
+                                    <!-- <div class="tools1">
                                         <div class="forsound" id="forsound">
                                             <label for="otbbgaudio"><img class="soundurl tools1img" id="soundurl"
                                                     src="../Images/audioOn.png" alt="upload background audio"><span
@@ -1552,10 +1703,10 @@
                                             <div class="livestext">No. of Lives</div>
                                             <input type="number" class="lives" min="0" value="3" name="otb_lives" />
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!--tools 2nd line-->
-                                    <div class="tools2">
+                                    <!-- <div class="tools2">
                                         <div class="forsubject" title="Choose Subject">
                                             <img src="../Images/subject.png" class="tools2img" alt="subject">
                                             <select name="otb_subject">
@@ -1565,7 +1716,7 @@
                                                 <option>English</option>
                                             </select>
                                             <img src="../Images/down.png" id="down" alt="">
-                                        </div>
+                                        </div> -->
 
                                         <!-- <div class="foragegroup" title="Select Age Group">
                                             <img src="../Images/age.png" class="tools2img" alt="subject">
@@ -1581,7 +1732,7 @@
 
 
 
-                                        <div class="foragegroup" title="Select Age Group">
+                                        <!-- <div class="foragegroup" title="Select Age Group">
                                             <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
                                             <span>Age Group</span>
                                             <div class="forminsec">
@@ -1634,8 +1785,8 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-            </div>
+                </div>-->
+            </div> 
 
 
             <!-------------------------------------------openbox Main--------------------------------------------->
@@ -1646,7 +1797,7 @@
                     <img src="../Images/cancel.png" id="otbdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
                 </div>
                 <div class="delGameData">
-                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="otbGameNo" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Open the Box</span>"?<br>
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="otbGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Open the Box</span>"?<br>
                         <span class="delGameMsg2">You Can't Undo this action !</span></div>
                     <div class="delGameWarn">
                         <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
@@ -1672,6 +1823,52 @@
                         <button class="createbtn" id="gotootb">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="otbflashsuccess"></div>
+
+                <form class="filters" id="otbfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="otb_filname" id="otbfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="otbagemin" name="otb_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="otbagemax" name="otb_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="otbfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="otbfilsub1" id="">Maths
+                        <input type="checkbox" name="otbfilsub2" id="">English
+                        <input type="checkbox" name="otbfilsub3" id="">Science
+                    </div>
+                </form>
 
                 <div class="forgamedata">
                     <div class="gamedataitem">
@@ -1809,10 +2006,10 @@
                                             <p class="wfItemNo">1</p>
                                             <span class="itembox">
                                                 <span class="forimage" title="Upload Instruction Image">
-                                                    <label for="itemimage"><img class="itemimg"
-                                                            src="../Images/image.png" alt="upload image"></label>
+                                                    <label class="forwfquestionImage" for="wfqueimg1"><img class="itemimg"
+                                                       src="../Images/image.png" alt="upload image"></label>
                                                     <input type="file" name="itemimage" class="wfquestionImage"
-                                                        accept="image/*">
+                                                        accept="image/*" id="wfqueimg1" onchange="wfgetthebase64(this)">
                                                 </span>
                                                 <input type="text" class="upquestion wfupque wfquestionText" />
                                             </span>
@@ -1957,6 +2154,26 @@
             </div>
 
             <!----------------------------------------wordformation Main------------------------------------------------------------->
+            <div class="ondeletegame forwfdelgame popup" id="forwfdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="wfdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="wfGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Word Fromation</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="wfdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="wfdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="wordformation" id="wordformation">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -1970,6 +2187,53 @@
                         <button class="createbtn" id="gotowf">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="wfflashsuccess"></div>
+
+                <form class="filters" id="wffilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="wf_filname" id="wffilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="wfagemin" name="wf_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="wfagemax" name="wf_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="quizfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="quizfilsub1" id="">Maths
+                        <input type="checkbox" name="quizfilsub2" id="">English
+                        <input type="checkbox" name="quizfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -1978,7 +2242,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg wfgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -1988,7 +2252,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg wfgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -1998,7 +2262,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg wfgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2008,7 +2272,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg wfgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2018,7 +2282,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg wfgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -2105,16 +2369,16 @@
                                             <p class="mwItemNo">1</p>
                                             <span class="itembox mwitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="formwquestionImage" for="mwqueimg1"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="mwquestionImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <input type="file" id="mwqueimg1" class="mwquestionImage" name="itemimage"
+                                                        accept="image/*" onchange="mwgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="formwquestionAudio" for="mwqueaudio1"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="mwquestionAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="mwqueaudio1" onchange="mwgetthebase64(this)">
                                                     <input type="text" placeholder="Enter Question"
                                                         class="upquestion mwupque mwquestionText" />
                                                 </span>
@@ -2139,18 +2403,18 @@
                                             <input type="checkbox" class="forcorrect formwcheck mwischecked1"
                                                 id="option1" checked>
                                             <span class="foroptionsimg" title="Upload Image as Option">
-                                                <label for="itemimage"><img class="optionimg" id="upimg"
+                                                <label class="formwanswer1Image" for="mwans1img1"><img class="optionimg" id="upimg"
                                                         src="../Images/image.png" alt="upload image"></label>
-                                                <input type="file" class="mwanswer1Image" id="itemimage"
-                                                    name="itemimage" accept="image/*">
+                                                <input type="file" class="mwanswer1Image" id="mwans1img1" 
+                                                    name="itemimage" accept="image/*" onchange="mwgetthebase64(this)">
                                             </span>
                                             <span class="foroptionsaudio" title="Upload Audio as Option">
-                                                <label for="optionaudio"><img class="optionimg optioinimgaudio"
+                                                <label class="formwanswer1Audio" for="mwans1audio1"><img class="optionimg optioinimgaudio"
                                                         src="../Images/audioOn.png" alt="upload image"></label>
                                                 <input type="file" class="mwanswer1Audio" name="optionaudio"
-                                                    accept="audio/*">
+                                                    accept="audio/*" id="mwans1audio1" onchange="mwgetthebase64(this)">
                                                 <input type="text" placeholder="Enter Answer"
-                                                    class="upanswer mwanswer1Text" />
+                                                    class="upanswer mwanswer1Text"/>
                                             </span>
                                         </div>
 
@@ -2159,16 +2423,16 @@
                                             <input type="checkbox" class="forcorrect formwcheck mwischecked2"
                                                 id="option2">
                                             <span class="foroptionsimg" title="Upload Image as Option">
-                                                <label for="itemimage"><img class="optionimg" id="upimg"
+                                                <label class="formwanswer2Image" for="mwans2img1"><img class="optionimg" id="upimg"
                                                         src="../Images/image.png" alt="upload image"></label>
-                                                <input type="file" class="mwanswer2Image" id="itemimage"
-                                                    name="itemimage" accept="image/*">
+                                                <input type="file" class="mwanswer2Image" id="mwans2img1"
+                                                    name="itemimage" accept="image/*" onchange="mwgetthebase64(this)">
                                             </span>
                                             <span class="foroptionsaudio" title="Upload Audio as Option">
-                                                <label for="optionaudio"><img class="optionimg optioinimgaudio"
+                                                <label class="formwanswer2Audio" for="mwans2audio1"><img class="optionimg optioinimgaudio"
                                                         src="../Images/audioOn.png" alt="upload image"></label>
                                                 <input type="file" class="mwanswer2Audio" name="optionaudio"
-                                                    accept="audio/*">
+                                                    accept="audio/*" id="mwans2audio1" onchange="mwgetthebase64(this)">
                                                 <input type="text" placeholder="Enter Answer"
                                                     class="upanswer mwanswer2Text" />
                                             </span>
@@ -2301,6 +2565,26 @@
             </div>
 
             <!-------------------------------------------missingword Main------------------------------------------------->
+            <div class="ondeletegame formwdelgame popup" id="formwdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="mwdelGameCancel" class=" delGamePopupImg delGameCancelBtn" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="mwGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Missing Word</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="mwdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="mwdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="missingword" id="missingword">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -2314,6 +2598,53 @@
                         <button class="createbtn" id="gotomw">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="mwflashsuccess"></div>
+
+                <form class="filters" id="mwfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="mw_filname" id="mwfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="mwagemin" name="mw_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="mwagemax" name="mw_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="mwfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="mwfilsub1" id="">Maths
+                        <input type="checkbox" name="mwfilsub2" id="">English
+                        <input type="checkbox" name="mwfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -2322,7 +2653,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg mwgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2332,7 +2663,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg mwgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2342,7 +2673,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg mwgamedel" alt="delete">
                         </div>
                     </div>
 
@@ -2353,7 +2684,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg mwgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2363,7 +2694,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg mwgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -2590,6 +2921,26 @@
 
 
             <!-------------------------------------------anagram Main------------------------------------------------->
+            <div class="ondeletegame foragmdelgame popup" id="foragmdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="agmdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="agmGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Anagram</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="agmdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="agmdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="anagram" id="anagram">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -2604,6 +2955,53 @@
                         <button class="createbtn" id="gotoagm">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="agmflashsuccess"></div>
+
+                <form class="filters" id="agmfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="agm_filname" id="agmfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="agmagemin" name="agm_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="agmagemax" name="agm_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="agmfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="agmfilsub1" id="">Maths
+                        <input type="checkbox" name="agmfilsub2" id="">English
+                        <input type="checkbox" name="agmfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -2612,7 +3010,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg agmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2622,7 +3020,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg agmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2632,7 +3030,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg agmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2642,7 +3040,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg agmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2652,7 +3050,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg agmgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -2740,14 +3138,14 @@
                                             <p class="gsItemNo gs1ItemNo">1</p>
                                             <span class="itembox gsitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg gsitemimg"
+                                                    <label class="forgs1answerImage" for="gs1Image1"><img class="itemimg gsitemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input class="gs1questionImage" type="file" name="itemimage" accept="image/*">
+                                                    <input class="gs1questionImage" id="gs1Image1" type="file" name="itemimage" accept="image/*" onchange="gsgetthebase64(this)"/>
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio gsitemimg"
+                                                    <label class="forgs1answerAudio" for="gs1Audio1"><img class="itemimg upaudio gsitemimg"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input class="gs1questionAudio" type="file" name="itemaudio" accept="audio/*">
+                                                    <input class="gs1questionAudio" id="gs1Audio1" type="file" name="itemaudio" accept="audio/*" onchange="gsgetthebase64(this)"/>
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque gs1questionText" />
@@ -2760,14 +3158,14 @@
                                             <p class="gsItemNo gs1ItemNo">2</p>
                                             <span class="itembox gsitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg gsitemimg"
+                                                    <label class="forgs1answerImage" for="gs1Image2"><img class="itemimg gsitemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input class="gs1questionImage" type="file" name="itemimage" accept="image/*">
+                                                    <input class="gs1questionImage" type="file" id="gs1Image2" name="itemimage" accept="image/*" onchange="gsgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio gsitemimg"
+                                                    <label class="forgs1answerAudio" for="gs1Audio2"><img class="itemimg upaudio gsitemimg"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input class="gs1questionAudio" type="file" name="itemaudio" accept="audio/*">
+                                                    <input class="gs1questionAudio" type="file" id="gs1Audio2" name="itemaudio" accept="audio/*" onchange="gsgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque gs1questionText" />
@@ -2792,14 +3190,14 @@
                                             <p class="gsItemNo gs2ItemNo">1</p>
                                             <span class="itembox gsitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg gsitemimg"
+                                                    <label class="forgs2answerImage" for="gs2Image1"><img class="itemimg gsitemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="gs2questionImage" name="itemimage" accept="image/*">
+                                                    <input type="file" class="gs2questionImage" name="itemimage" id="gs2Image1" accept="image/*" onchange="gsgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio gsitemimg"
+                                                    <label class="forgs2answerAudio" for="gs2Audio1"><img class="itemimg upaudio gsitemimg"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="gs2questionAudio" name="itemaudio" accept="audio/*">
+                                                    <input type="file" class="gs2questionAudio" id="gs2Audio1" name="itemaudio" accept="audio/* " onchange="gsgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque gs2questionText" />
@@ -2812,14 +3210,14 @@
                                             <p class="gsItemNo gs2ItemNo">2</p>
                                             <span class="itembox gsitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg gsitemimg"
+                                                    <label class="forgs2answerImage" for="gs2Image2"><img class="itemimg gsitemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="gs2questionImage" name="itemimage" accept="image/*">
+                                                    <input type="file" class="gs2questionImage" id="gs2Image2" name="itemimage" accept="image/*" onchange="gsgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio gsitemimg"
+                                                    <label class="forgs2answerAudio" for="gs2Audio2"><img class="itemimg upaudio gsitemimg"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="gs2questionAudio" name="itemaudio" accept="audio/*">
+                                                    <input type="file" class="gs2questionAudio" name="itemaudio" id="gs2Audio2" accept="audio/*" onchange="gsgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque gs2questionText" />
@@ -2956,6 +3354,26 @@
             </div>
 
             <!-------------------------------------------groupsort Main------------------------------------------------->
+            <div class="ondeletegame forgsdelgame popup" id="forgsdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="gsdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="gsGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Group Sort</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="gsdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="gsdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="groupsort" id="groupsort">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -2969,6 +3387,53 @@
                         <button class="createbtn" id="gotogs">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="gsflashsuccess"></div>
+
+                <form class="filters" id="gsfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="_figslname" id="gsfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="gsagemin" name="gs_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="gsagemax" name="gs_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="gsfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="gsfilsub1" id="">Maths
+                        <input type="checkbox" name="gsfilsub2" id="">English
+                        <input type="checkbox" name="gsfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -2977,7 +3442,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg gsgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2987,7 +3452,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg gsgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -2997,7 +3462,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg gsgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3007,7 +3472,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg gsgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3017,7 +3482,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg gsgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -3107,16 +3572,16 @@
                                         <div class="forftmque">
                                             <span class="itembox ftmitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="forftmquestionImage" for="ftmqueimg1"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="ftmquestionImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <input type="file" class="ftmquestionImage" id="ftmqueimg1" name="itemimage"
+                                                        accept="image/*" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="forftmquestionAudio" for="ftmqueaudio1"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="ftmquestionAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="ftmqueaudio1" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque ftmquestionText" />
@@ -3126,16 +3591,16 @@
                                         <div class="forftmans">
                                             <span class="itembox ftmitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="forftmanswerImage" for="ftmansimg1"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
                                                     <input type="file" class="ftmanswerImage" name="itemimage"
-                                                        accept="image/*">
+                                                        accept="image/*" id="ftmansimg1" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="forftmanswerAudio" for="ftmansaudio1"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="ftmanswerAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="ftmansaudio1" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Answer"
                                                     class="upquestion gsupque ftmanswerText" />
@@ -3151,16 +3616,16 @@
                                         <div class="forftmque">
                                             <span class="itembox ftmitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="forftmquestionImage" for="ftmqueimg2"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="ftmquestionImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <input type="file" class="ftmquestionImage" id="ftmqueimg2" name="itemimage"
+                                                        accept="image/*" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="forftmquestionAudio"  for="ftmqueaudio2"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="ftmquestionAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="ftmqueaudio2" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque ftmquestionText" />
@@ -3170,16 +3635,16 @@
                                         <div class="forftmans">
                                             <span class="itembox ftmitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="forftmanswerImage" for="ftmansimg2"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
                                                     <input type="file" class="ftmanswerImage" name="itemimage"
-                                                        accept="image/*">
+                                                        accept="image/*" id="ftmansimg2" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="forftmanswerAudio" for="ftmansaudio2"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="ftmanswerAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="ftmansaudio2" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Answer"
                                                     class="upquestion gsupque ftmanswerText" />
@@ -3195,16 +3660,16 @@
                                         <div class="forftmque">
                                             <span class="itembox ftmitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="forftmquestionImage" for="ftmqueimg3"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="ftmquestionImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <input type="file" class="ftmquestionImage" id="ftmqueimg3" name="itemimage"
+                                                        accept="image/*" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="forftmquestionAudio" for="ftmqueaudio3"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="ftmquestionAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="ftmqueaudio3" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <input type="text" placeholder="Enter Question"
                                                     class="upquestion gsupque ftmquestionText" />
@@ -3214,16 +3679,16 @@
                                         <div class="forftmans">
                                             <span class="itembox ftmitembox">
                                                 <span class="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg"
+                                                    <label class="forftmanswerImage" for="ftmansimg3"><img class="itemimg"
                                                             src="../Images/image.png" alt="upload image"></label>
                                                     <input type="file" class="ftmanswerImage" name="itemimage"
-                                                        accept="image/*">
+                                                        accept="image/*" id="ftmansimg3" onchange="ftmgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label class="forftmanswerAudio" for="ftmansaudio3"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
                                                     <input type="file" class="ftmanswerAudio" name="itemaudio"
-                                                        accept="audio/*">
+                                                        accept="audio/*" id="ftmansaudio3" onchange="ftmgetthebase64(this)"/>
                                                 </span>
                                                 <input type="text" placeholder="Enter Answer"
                                                     class="upquestion gsupque ftmanswerText" />
@@ -3347,6 +3812,26 @@
 
 
             <!-------------------------------------------findthematch Main------------------------------------------------->
+            <div class="ondeletegame forftmdelgame popup" id="forftmdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="ftmdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="ftmGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Find The Match</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="ftmdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="ftmdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="findthematch" id="findthematch">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -3360,6 +3845,53 @@
                         <button class="createbtn" id="gotoftm">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="ftmflashsuccess"></div>
+
+                <form class="filters" id="ftmfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="ftm_filname" id="ftmfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="ftmagemin" name="ftm_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="ftmagemax" name="ftm_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="ftmfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="ftmfilsub1" id="">Maths
+                        <input type="checkbox" name="ftmfilsub2" id="">English
+                        <input type="checkbox" name="ftmfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -3368,7 +3900,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg ftmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3378,7 +3910,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg ftmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3388,7 +3920,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg ftmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3398,7 +3930,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg ftmgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3408,7 +3940,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg ftmgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -3494,22 +4026,22 @@
                                         <p class="fcItemNo">1</p>
                                         <span class="itembox fcgamedata">
                                             <span class="forimage" title="Upload Instruction Image">
-                                                <label for="itemimage"><img class="itemimg" src="../Images/image.png"
+                                                <label class="forfcquestionImage" for="fcqueimg1"><img class="itemimg" src="../Images/image.png"
                                                         alt="upload image"></label>
-                                                <input class="fcquestionImage" type="file" name="fcgamequeimg[]"
-                                                    accept="image/*">
+                                                <input class="fcquestionImage" id="fcqueimg1" type="file" name="fcgamequeimg[]"
+                                                    accept="image/*" onchange="fcgetthebase64(this)">
                                             </span>
                                             <span class="foraudio" title="Upload Instruction Audio">
-                                                <label for="itemaudio"><img class="itemimg upaudio"
+                                                <label class="forfcquestionAudio" for="fcqueaudio1"><img class="itemimg upaudio"
                                                         src="../Images/audioOn.png" alt="upload audio"></label>
-                                                <input type="file" class="fcquestionAudio" name="fcgamequeaudio[]"
-                                                    accept="audio/*">
+                                                <input type="file" class="fcquestionAudio" id="fcqueaudio1" name="fcgamequeaudio[]"
+                                                    accept="audio/*" onchange="fcgetthebase64(this)">
                                             </span>
 
                                             <input type="text" name="fcgamequetext[]"
                                                 class="upquestion fcupque fcquestionText" />
                                         </span>
-                                        <img class="itemimg del fcdeleteitem" src="../Images/bin.png" alt="delete it"
+                                        <img class="itemimg del forfcdelete" src="../Images/bin.png" alt="delete it"
                                             title="Delete this Instruction">
                                     </div>
 
@@ -3518,22 +4050,22 @@
                                         <p class="fcItemNo">2</p>
                                         <span class="itembox fcgamedata">
                                             <span class="forimage" title="Upload Instruction Image">
-                                                <label for="itemimage"><img class="itemimg" src="../Images/image.png"
+                                                <label class="forfcquestionImage" for="fcqueimg2"><img class="itemimg" src="../Images/image.png"
                                                         alt="upload image"></label>
-                                                <input class="fcquestionImage" type="file" name="fcgamequeimg[]"
-                                                    accept="image/*">
+                                                <input class="fcquestionImage" type="file" id="fcqueimg2" name="fcgamequeimg[]"
+                                                    accept="image/*" onchange="fcgetthebase64(this)">
                                             </span>
                                             <span class="foraudio" title="Upload Instruction Audio">
-                                                <label for="itemaudio"><img class="itemimg upaudio"
+                                                <label class="forfcquestionAudio" for="fcqueaudio2"><img class="itemimg upaudio"
                                                         src="../Images/audioOn.png" alt="upload audio"></label>
-                                                <input type="file" class="fcquestionAudio" name="fcgamequeaudio[]"
-                                                    accept="audio/*">
+                                                <input type="file" class="fcquestionAudio" id="fcqueaudio2" name="fcgamequeaudio[]"
+                                                    accept="audio/*" onchange="fcgetthebase64(this)">
                                             </span>
 
                                             <input type="text" name="fcgamequetext[]"
                                                 class="upquestion fcupque fcquestionText" />
                                         </span>
-                                        <img class="itemimg del fcdeleteitem" src="../Images/bin.png" alt="delete it"
+                                        <img class="itemimg del fcdeleteitem forfcdelete" src="../Images/bin.png" alt="delete it"
                                             title="Delete this Instruction">
                                     </div>
 
@@ -3542,22 +4074,22 @@
                                         <p class="fcItemNo">3</p>
                                         <span class="itembox fcgamedata">
                                             <span class="forimage" title="Upload Instruction Image">
-                                                <label for="itemimage"><img class="itemimg" src="../Images/image.png"
+                                                <label class="forfcquestionImage" for="fcqueimg3"><img class="itemimg" src="../Images/image.png"
                                                         alt="upload image"></label>
-                                                <input class="fcquestionImage" type="file" name="fcgamequeimg[]"
-                                                    accept="image/*">
+                                                <input class="fcquestionImage" type="file" id="fcqueimg3" name="fcgamequeimg[]"
+                                                    accept="image/*" onchange="fcgetthebase64(this)">
                                             </span>
                                             <span class="foraudio" title="Upload Instruction Audio">
-                                                <label for="itemaudio"><img class="itemimg upaudio"
+                                                <label class="forfcquestionAudio" for="fcqueaudio3"><img class="itemimg upaudio"
                                                         src="../Images/audioOn.png" alt="upload audio"></label>
-                                                <input class="fcquestionAudio" type="file" name="fcgamequeaudio[]"
-                                                    accept="audio/*">
+                                                <input class="fcquestionAudio" type="file" id="fcqueaudio3" name="fcgamequeaudio[]"
+                                                    accept="audio/*" onchange="fcgetthebase64(this)">
                                             </span>
 
                                             <input type="text" name="fcgamequetext[]"
                                                 class="upquestion fcupque fcquestionText" />
                                         </span>
-                                        <img class="itemimg del fcdeleteitem" src="../Images/bin.png" alt="delete it"
+                                        <img class="itemimg del fcdeleteitem forfcdelete" src="../Images/bin.png" alt="delete it"
                                             title="Delete this Instruction">
                                     </div>
                                 </div>
@@ -3684,6 +4216,26 @@
             </div>
 
             <!-------------------------------------------flashcards Main------------------------------------------------->
+            <div class="ondeletegame forfcdelgame popup" id="forfcdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="fcdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="fcGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Flash Cards</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="fcdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="fcdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="flashcards" id="flashcards">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -3697,6 +4249,53 @@
                         <button class="createbtn" id="gotofc">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="fcflashsuccess"></div>
+
+                <form class="filters" id="fcfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="fc_filname" id="fcfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="fcagemin" name="fc_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="fcagemax" name="fc_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="fcfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="fcfilsub1" id="">Maths
+                        <input type="checkbox" name="fcfilsub2" id="">English
+                        <input type="checkbox" name="fcfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -3705,7 +4304,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg fcgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3715,7 +4314,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg fcgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3725,7 +4324,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg fcgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3735,7 +4334,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg fcgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -3745,7 +4344,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg fcgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -3970,6 +4569,26 @@
             </div>
 
             <!--------------------------------------------unjumble Main------------------------------------------------->
+            <div class="ondeletegame forunjbdelgame popup" id="forunjbdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="unjbdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="unjbGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>Unjumble</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="unjbdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="unjbdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="unjumble" id="unjumble">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -3983,6 +4602,53 @@
                         <button class="createbtn" id="gotounjb">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="unjbflashsuccess"></div>
+
+                <form class="filters" id="unjbfilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="unjb_filname" id="unjbfilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="ungbagemin" name="unjb_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="unjbagemax" name="unjb_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="unjbfilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="unjbfilsub1" id="">Maths
+                        <input type="checkbox" name="unjbfilsub2" id="">English
+                        <input type="checkbox" name="unjbfilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -3991,7 +4657,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg unjbgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4001,7 +4667,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg unjbgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4011,7 +4677,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg unjbgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4021,7 +4687,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg unjbgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4031,7 +4697,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg unjbgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -4115,9 +4781,9 @@
                                         <div class="fortruesecheading">
                                             <input type="text" id="tofanswer1text" value="True" class="tofname" autofocus>
                                             <span class="forimage" title="Upload Image">
-                                                <label for="itemimage"><img class="itemimg tofitemimg"
+                                                <label for="tof1answerImage"><img class="itemimg tofitemimg"
                                                         src="../Images/image.png" alt="upload image"></label>
-                                                <input type="file" id="tofanswer1image" name="itemimage" accept="image/*">
+                                                <input type="file" id="tof1answerImage" name="itemimage" accept="image/*" onchange="tofgetthebase64(this)">
                                             </span>
                                         </div>
 
@@ -4126,14 +4792,14 @@
                                                 <p class="tof1ItemNo tofItemNo">1</p>
                                                 <span class="itembox tofitembox">
                                                     <span class="forimage" title="Upload Image">
-                                                        <label for="itemimage"><img class="itemimg tofitemimg"
+                                                        <label class="fortof1questionImage" for="tof1Image1"><img class="itemimg tofitemimg"
                                                                 src="../Images/image.png" alt="upload image"></label>
-                                                        <input type="file" class="tof1questionImage" name="itemimage" accept="image/*">
+                                                        <input type="file" class="tof1questionImage" id="tof1Image1" name="itemimage" id="" accept="image/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <span class="foraudio" title="Upload Instruction Audio">
-                                                        <label for="itemaudio"><img class="itemimg upaudio tofitemimg"
+                                                        <label class="fortof1questionAudio" for="tof1Audio1"><img class="itemimg upaudio tofitemimg"
                                                                 src="../Images/audioOn.png" alt="upload image"></label>
-                                                        <input type="file" class="tof1questionAudio" name="itemaudio" accept="audio/*">
+                                                        <input type="file" class="tof1questionAudio" name="itemaudio" accept="audio/*" id="tof1Audio1" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <input type="text" class="upquestion tofupque tof1questionText" />
                                                 </span>
@@ -4145,14 +4811,14 @@
                                                 <p class="tof1ItemNo tofItemNo">2</p>
                                                 <span class="itembox tofitembox">
                                                     <span class="forimage" title="Upload Image">
-                                                        <label for="itemimage"><img class="itemimg tofitemimg"
+                                                        <label class="fortof1questionImage" for="tof1Image2"><img class="itemimg tofitemimg"
                                                                 src="../Images/image.png" alt="upload image"></label>
-                                                        <input type="file" class="tof1questionImage" name="itemimage" accept="image/*">
+                                                        <input type="file" class="tof1questionImage" id="tof1Image2" name="itemimage" accept="image/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <span class="foraudio" title="Upload Instruction Audio">
-                                                        <label for="itemaudio"><img class="itemimg upaudio tofitemimg"
+                                                        <label class="fortof1questionAudio" for="tof1Audio2"><img class="itemimg upaudio tofitemimg"
                                                                 src="../Images/audioOn.png" alt="upload image"></label>
-                                                        <input type="file" class="tof1questionAudio" name="itemaudio" accept="audio/*">
+                                                        <input type="file" class="tof1questionAudio" id="tof1Audio2" name="itemaudio" accept="audio/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <input type="text" class="upquestion tofupque tof1questionText" />
                                                 </span>
@@ -4168,13 +4834,14 @@
 
                                     </div>
 
+
                                     <div class="forfalsesection">
                                         <div class="forfalsesecheading">
                                             <input type="text" id="tofanswer2text" value="False" class="tofname" autofocus>
                                             <span class="forimage" title="Upload Image">
-                                                <label for="itemimage"><img class="itemimg tofitemimg"
+                                                <label for="tof2answerImage"><img class="itemimg tofitemimg"
                                                         src="../Images/image.png" alt="upload image"></label>
-                                                <input type="file" id="tofanswer2image" name="itemimage" accept="image/*">
+                                                <input type="file" id="tof2answerImage" name="itemimage" accept="image/*" onchange="tofgetthebase64(this)">
                                             </span>
                                         </div>
 
@@ -4183,14 +4850,14 @@
                                                 <p class="tof2ItemNo tofItemNo">1</p>
                                                 <span class="itembox tofitembox">
                                                     <span class="forimage" title="Upload Image">
-                                                        <label for="itemimage"><img class="itemimg tofitemimg"
+                                                        <label class="fortof2questionImage" for="tof2Image1"><img class="itemimg tofitemimg"
                                                                 src="../Images/image.png" alt="upload image"></label>
-                                                        <input type="file" class="tof2questionImage" name="itemimage" accept="image/*">
+                                                        <input type="file" class="tof2questionImage" id="tof2Image1" name="itemimage" accept="image/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <span class="foraudio" title="Upload Instruction Audio">
-                                                        <label for="itemaudio"><img class="itemimg upaudio tofitemimg"
+                                                        <label class="fortof2questionAudio" for="tof2Audio1"><img class="itemimg upaudio tofitemimg"
                                                                 src="../Images/audioOn.png" alt="upload image"></label>
-                                                        <input type="file" class="tof2questionAudio" name="itemaudio" accept="audio/*">
+                                                        <input type="file" class="tof2questionAudio" id="tof2Audio1" name="itemaudio" accept="audio/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <input type="text" class="upquestion tofupque tof2questionText" />
                                                 </span>
@@ -4202,14 +4869,14 @@
                                                 <p class="tof2ItemNo tofItemNo">2</p>
                                                 <span class="itembox tofitembox">
                                                     <span class="forimage" title="Upload Image">
-                                                        <label for="itemimage"><img class="itemimg tofitemimg"
+                                                        <label class="fortof2questionImage" for="tof2Image2"><img class="itemimg tofitemimg"
                                                                 src="../Images/image.png" alt="upload image"></label>
-                                                        <input type="file" class="tof2questionImage" name="itemimage" accept="image/*">
+                                                        <input type="file" class="tof2questionImage" id="tof2Image2" name="itemimage" accept="image/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <span class="foraudio" title="Upload Instruction Audio">
-                                                        <label for="itemaudio"><img class="itemimg upaudio tofitemimg"
+                                                        <label class="fortof2questionAudio" for="tof2Audio2"><img class="itemimg upaudio tofitemimg"
                                                                 src="../Images/audioOn.png" alt="upload image"></label>
-                                                        <input type="file" class="tof2questionAudio" name="itemaudio" accept="audio/*">
+                                                        <input type="file" class="tof2questionAudio" id="tof2Audio2" name="itemaudio" accept="audio/*" onchange="tofgetthebase64(this)">
                                                     </span>
                                                     <input type="text" class="upquestion tofupque tof2questionText" />
                                                 </span>
@@ -4342,6 +5009,26 @@
             </div>
 
             <!--------------------------------------------trueorfalse Main------------------------------------------------->
+            <div class="ondeletegame fortofdelgame popup" id="fortofdelgame">
+
+                <div class="delGameHead">
+                    <span class="delGameHeading">Delete Game?</span>
+                    <img src="../Images/cancel.png" id="tofdelGameCancel" class="delGameCancelBtn delGamePopupImg" alt="cancel delete">
+                </div>
+                <div class="delGameData">
+                    <div class="delGameMsg" align="justify">Are you sure you want to delete Activity &nbsp;"<span id="tofGameName" class="delGameName">Game:1</span>"&nbsp;of&nbsp;"<span  class=delGameName>True Or False</span>"?<br>
+                        <span class="delGameMsg2">You Can't Undo this action !</span></div>
+                    <div class="delGameWarn">
+                        <div class="delGameWarnhead"><img src="../Images/warn.png" class="delGamePopupImg" alt="warning">Warning</div>
+                        <div class="delgameWarnData">By Deleting this Activity all enrolled users and The Admin (You) will loose access to it.</div>
+                    </div>
+                </div>
+                <div class="delGameButtons">
+                    <button type="submit" class="delGameBtn delGameBack" id="tofdelback">Back to Games</button>
+                    <button type="submit" class="delGameBtn delGameCnf" id="tofdelcnf">Confirm Delete</button>
+                </div>
+            </div>
+            
             <div class="trueorfalse" id="trueorfalse">
                 <div class="gametop">
                     <div class="nameandlogo">
@@ -4355,6 +5042,53 @@
                         <button class="createbtn" id="gototof">Create New</button>
                     </div>
                 </div>
+
+                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
+                <div id="tofflashsuccess"></div>
+
+                <form class="filters" id="toffilform">
+                    <div class="filheading">
+                        <span class="filterheading">Filters</span>
+                        <img src="../Images/filters.png">
+                    </div>
+                    <div class="forgamefilters">
+                        <span class="forfiltersname">
+                            <img src="../Images/name.png" alt="filter by name">
+                            <strong>&nbsp;By Activity Name :</strong>
+                            <input type="text" name="tof_filname" id="toffilname" placeholder="Search Game">
+                        </span>
+                        <span class="filsubage">
+                            <span class="forfiltersage">
+                                <div class="foragegroup" title="Select Age Group">
+                                    <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                    <strong>By Age :</strong>
+                                    <div class="forminsec">
+                                        <div class="foragemin">
+                                            <span class="timetext">Minimum</span>
+                                            <input type="number" class="seconds" id="tofagemin" name="tof_filagemin"
+                                                min="0" max="20">
+                                        </div>
+                                        <div class="foragemax">
+                                            <span class="timetext">Maximum</span>
+                                            <input type="number" class="seconds" id="tofagemax" name="tof_filagemax"
+                                                min="1" max="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <div class="forfilsearchbtn">
+                            <button type="submit" id="toffilsearchbtn" class="filsearch addbtn">Search</button>
+                        </div>  
+                    </div>
+                    <div class="forfiltersub">
+                        <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
+                        <input type="checkbox" name="toffilsub1" id="">Maths
+                        <input type="checkbox" name="toffilsub2" id="">English
+                        <input type="checkbox" name="toffilsub3" id="">Science
+                    </div>
+                </form>
+
                 <div class="forgamedata">
                     <div class="gamedataitem">
                         <div class="gamedatainfo">
@@ -4363,7 +5097,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg tofgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4373,7 +5107,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg tofgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4383,7 +5117,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg tofgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4393,7 +5127,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg tofgamedel" alt="delete">
                         </div>
                     </div>
                     <div class="gamedataitem">
@@ -4403,7 +5137,7 @@
                         </div>
                         <div class="gamedatamodify">
                             <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                            <img src="../Images/bin.png" class="gamedataimg" alt="delete">
+                            <img src="../Images/bin.png" class="gamedataimg tofgamedel" alt="delete">
                         </div>
                     </div>
                 </div>
@@ -4412,7 +5146,7 @@
     </main>
     <!--Link the Scripts-->
     <script src="showgame.js"></script>
-    <script src="shownavbar.js"></script>
+    <!-- <script src="shownavbar.js"></script> -->
 
     <!-- <script src="../userList/userlist.js"></script> -->
     <!-- <script src="../payments/payments.js"></script> -->
@@ -4420,7 +5154,7 @@
     <script src="../spinTheWheel/spinthewheel.js"></script>
     <script src="../quiz/quiz.js"></script>
     <script src="../matchTheFollowing/matchthefollowing.js"></script>
-    <script src="../openTheBox/openTheBox.js"></script>
+    <!-- <script src="../openTheBox/openTheBox.js"></script> -->
     <script src="../wordFormation/wordFormation.js"></script>
     <script src="../missingWord/missingWord.js"></script>
     <script src="../anagram/anagram.js"></script>

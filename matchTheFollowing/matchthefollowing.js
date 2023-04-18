@@ -11,24 +11,30 @@ function fileToBase64(file) {
   });
 }
 
-async function mtfgetbase64(element, filenameId){
-    if (filenameId) {
-      document.getElementById(filenameId).innerText = element.files.item(0).name;
-    }
-    const file = element.files.item(0);
-    console.log("eskjgfghreog");
+async function changemtfbg(){
+  document.getElementById('mtfbgname').innerText = document.getElementById('mtfbg').files.item(0).name;
+  const file = document.getElementById('mtfbg').files.item(0);
+  await fileToBase64(file)
+  .then( base64String => {
+    mtfbg = base64String;
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+async function mtfgetthebase64(element){
+const file = element.files.item(0);
     await fileToBase64(file)
     .then( base64String => {
-      if (filenameId) {
-        mtfbg = base64String;
-      } else {
         element.title = base64String;
-      }
     })
     .catch(error => {
       console.error(error);
     });
-}
+  }
+
+
 async function changemtfthumb(){
     document.getElementById('mtfthumbname').innerText = document.getElementById('mtfthumb').files.item(0).name;
     const file = document.getElementById('mtfthumb').files.item(0);
@@ -58,14 +64,18 @@ const mtf_additembtn = document.getElementById("mtf_additembtn");
 const mtfitems = document.getElementById("mtfitems");
 const mtfDeleteItemBtns = document.querySelectorAll(".mtfdeleteitem");
 let noOfItemsmtf = 3;
-
+let mtfitemid = 3;
 
 mtf_additembtn.addEventListener("click", () => {
-
+  mtfitemid++;
   const createnewmtfitem = document.getElementById("mtfitemtocopy");
   const newmtfGameData = createnewmtfitem.cloneNode(true); // copy with events
   createnewmtfitem.parentNode.appendChild(newmtfGameData);
   newmtfGameData.querySelector(".mtfItemNo").innerText = noOfItemsmtf + 1;
+  newmtfGameData.querySelector(".formtfquestionImage").setAttribute("for","mtfqueimg"+mtfitemid);
+  newmtfGameData.querySelector(".mtfquestionImage").setAttribute("id","mtfqueimg"+mtfitemid);
+  newmtfGameData.querySelector(".formtfanswerImage").setAttribute("for","mtfansimg"+mtfitemid);
+  newmtfGameData.querySelector(".mtfanswerImage").setAttribute("id","mtfansimg"+mtfitemid);
   newmtfGameData.querySelector(".mtfquestionText").value = null;
   newmtfGameData.querySelector(".mtfquestionImage").value = null;
   newmtfGameData.querySelector(".mtfanswerText").value = null;
@@ -110,9 +120,9 @@ mtfform.addEventListener("submit", (event) => {
 
     for (var i = 0; i < gameDataFields.length; i++) {
       var mtfgame = {
-        questionText: gameDataFields[i].querySelector(".mtfquestionText")?gameDataFields[i].querySelector(".mtfquestionText").title:"",
+        questionText: gameDataFields[i].querySelector(".mtfquestionText")?gameDataFields[i].querySelector(".mtfquestionText").value:"",
         questionImage: gameDataFields[i].querySelector(".mtfquestionImage")?gameDataFields[i].querySelector(".mtfquestionImage").title:"",
-        answerText: gameDataFields[i].querySelector(".mtfanswerText")?gameDataFields[i].querySelector(".mtfanswerText").title:"",
+        answerText: gameDataFields[i].querySelector(".mtfanswerText")?gameDataFields[i].querySelector(".mtfanswerText").value:"",
         answerImage: gameDataFields[i].querySelector(".mtfanswerImage")?gameDataFields[i].querySelector(".mtfanswerImage").title:""
       };
       gameDataArray[i]=mtfgame;
@@ -140,13 +150,18 @@ mtfform.addEventListener("submit", (event) => {
         timeup:passtimeup,
         lives:formData.get("mtf_lives"),
         subject:formData.get("mtf_subject"),
-        age_group:formData.get("mtf_age"),
         age_min:formData.get("mtf_agemin"),
         age_max:formData.get("mtf_agemax"),
         gameData: gameDataArray
     };
     // Log the JSON object to the console
     console.log(JSON.stringify(jsonObject));
+
+    mtfform.reset();
+    document.getElementById("matchthefollowinggames").style.display = "none";
+    document.getElementById("matchthefollowing").style.display = "block";
+    window.scrollTo(0,0);
+    showmtfSuccessFlashMsg();
   });
 
   const mtfDeleteGameBtns = document.querySelectorAll(".mtfgamedel");
@@ -176,3 +191,14 @@ function hidemtfGameDelPopup(){
   document.getElementById("menu").style.opacity = 1;
   document.getElementById("nav").style.opacity = 1;
 }
+
+  //for flash msg
+  function showmtfSuccessFlashMsg() {
+    const flashMessage = document.createElement("div");
+    flashMessage.classList.add("flashsuccess");
+    flashMessage.textContent = "Game Added Successfully";
+    document.getElementById("mtfflashsuccess").appendChild(flashMessage);
+    setTimeout(function() {
+      flashMessage.remove();
+    }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+  }

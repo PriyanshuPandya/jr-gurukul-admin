@@ -137,10 +137,55 @@ unjbform.addEventListener("submit", (event) => {
     timeup:passtimeup,
     lives:formData.get("unjb_lives"),
     subject:formData.get("unjb_subject"),
-    age_group:formData.get("unjb_age"),
     age_min:formData.get("unjb_agemin"),
     age_max:formData.get("unjb_agemax"),
     gameData: unjbgameData
   };
   console.log(JSON.stringify(data));
+
+  unjbform.reset();
+  document.getElementById("unjumblegames").style.display = "none";
+  document.getElementById("unjumble").style.display = "block";
+  window.scrollTo(0,0);
+  showunjbSuccessFlashMsg();
 });
+
+
+const unjbDeleteGameBtns = document.querySelectorAll(".unjbgamedel");
+for (let i = 0; i < unjbDeleteGameBtns.length; i++) {
+  unjbDeleteGameBtns[i].addEventListener("click", function() {
+   document.getElementById("forunjbdelgame").style.display = "block";
+   document.getElementById("unjumble").style.opacity = 0.5;
+   document.getElementById("menu").style.opacity = 0.5;
+   document.getElementById("nav").style.opacity = 0.5;
+   document.getElementById("forunjbdelgame").style.opacity = 1;
+
+   document.getElementById("unjbdelback").addEventListener("click",function(){
+    hideunjbGameDelPopup();
+   })
+   document.getElementById("unjbdelGameCancel").addEventListener("click",function(){
+    hideunjbGameDelPopup();
+   })
+  })
+  document.getElementById("unjbdelcnf").addEventListener("click",function(){
+    alert("Game Deleted");
+  })
+};
+
+function hideunjbGameDelPopup(){
+  document.getElementById("forunjbdelgame").style.display = "none";
+  document.getElementById("unjumble").style.opacity = 1;
+  document.getElementById("menu").style.opacity = 1;
+  document.getElementById("nav").style.opacity = 1;
+}
+
+//for flash msg
+function showunjbSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("unjbflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}

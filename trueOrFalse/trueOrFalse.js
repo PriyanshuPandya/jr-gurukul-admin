@@ -45,6 +45,17 @@ async function addtofbgaudio(){
     });
 }
 
+async function tofgetthebase64(element){
+  const file = element.files.item(0);
+  await fileToBase64(file)
+  .then( base64String => {
+      element.title = base64String;
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
 const tof1_additembtn = document.getElementById("tof1_additembtn");
 const tof2_additembtn = document.getElementById("tof2_additembtn");
 const tofitems1 = document.getElementById("tofitems1");
@@ -53,13 +64,22 @@ const tof1DeleteItemBtns = document.querySelectorAll(".tof1deleteitem");
 const tof2DeleteItemBtns = document.querySelectorAll(".tof2deleteitem");
 let noOfItemstof1 = 2;
 let noOfItemstof2 = 2;
+let tof1itemid = 2;
+let tof2itemid = 2;
 
 tof1_additembtn.addEventListener("click", () => {
-
+  tof1itemid++;
   const createnewtofitem = document.getElementById("tof1itemtocopy");
   const newtof1item = createnewtofitem.cloneNode(true); // copy with events
   createnewtofitem.parentNode.appendChild(newtof1item);
   newtof1item.querySelector(".tof1ItemNo").innerText = noOfItemstof1 + 1;
+
+  newtof1item.querySelector(".fortof1questionImage").setAttribute("for","tof1Image"+tof1itemid);
+  newtof1item.querySelector(".tof1questionImage").setAttribute("id","tof1Image"+tof1itemid);
+
+  newtof1item.querySelector(".fortof1questionAudio").setAttribute("for","tof1Audio"+tof1itemid);
+  newtof1item.querySelector(".tof1questionAudio").setAttribute("id","tof1Audio"+tof1itemid);
+
   newtof1item.querySelector(".tof1questionText").value = null;
   newtof1item.querySelector(".tof1questionImage").value = null;
   newtof1item.querySelector(".tof1questionAudio").value = null;
@@ -93,11 +113,18 @@ function updatetof1ItemNo(){
 
 
 tof2_additembtn.addEventListener("click", () => {
-
+  tof2itemid++;
     const createnewtofitem = document.getElementById("tof2itemtocopy");
     const newtof2item = createnewtofitem.cloneNode(true); // copy with events
     createnewtofitem.parentNode.appendChild(newtof2item);
     newtof2item.querySelector(".tof2ItemNo").innerText = noOfItemstof2 + 1;
+
+    newtof2item.querySelector(".fortof2questionImage").setAttribute("for","tof2Image"+tof2itemid);
+    newtof2item.querySelector(".tof2questionImage").setAttribute("id","tof2Image"+tof2itemid);
+  
+    newtof2item.querySelector(".fortof2questionAudio").setAttribute("for","tof2Audio"+tof2itemid);
+    newtof2item.querySelector(".tof2questionAudio").setAttribute("id","tof2Audio"+tof2itemid);
+
     newtof2item.querySelector(".tof2questionText").value = null;
     newtof2item.querySelector(".tof2questionImage").value = null;
     newtof2item.querySelector(".tof2questionAudio").value = null;
@@ -143,20 +170,20 @@ tofform.addEventListener("submit", (event) => {
       for (var i = 0; i < tof1Fields.length; i++) {
         var tof1game = {
           questionText: tof1Fields[i].querySelector(".tof1questionText")?tof1Fields[i].querySelector(".tof1questionText").value:"",
-          questionImage: tof1Fields[i].querySelector(".tof1questionImage")?tof1Fields[i].querySelector(".tof1questionImage").value:"",
-          questionAudio: tof1Fields[i].querySelector(".tof1questionAudio")?tof1Fields[i].querySelector(".tof1questionAudio").value:"",
+          questionImage: tof1Fields[i].querySelector(".tof1questionImage")?tof1Fields[i].querySelector(".tof1questionImage").title:"",
+          questionAudio: tof1Fields[i].querySelector(".tof1questionAudio")?tof1Fields[i].querySelector(".tof1questionAudio").title:"",
           answerText:document.getElementById("tofanswer1text").value,
-          answerImage:document.getElementById("tofanswer1image").value
+          answerImage:document.getElementById("tof1answerImage").title
           };
         gameDataArray[i]=tof1game;
       }
       for (var j = 0; j < tof2Fields.length; j++){
           var tof2game = {
               questionText: tof2Fields[j].querySelector(".tof2questionText")?tof2Fields[j].querySelector(".tof2questionText").value:"",
-              questionImage: tof2Fields[j].querySelector(".tof2questionImage")?tof2Fields[j].querySelector(".tof2questionImage").value:"",
-              questionAudio: tof2Fields[j].querySelector(".tof2questionAudio")?tof2Fields[j].querySelector(".tof2questionAudio").value:"",
+              questionImage: tof2Fields[j].querySelector(".tof2questionImage")?tof2Fields[j].querySelector(".tof2questionImage").title:"",
+              questionAudio: tof2Fields[j].querySelector(".tof2questionAudio")?tof2Fields[j].querySelector(".tof2questionAudio").title:"",
               answerText:document.getElementById("tofanswer2text").value,
-              answerImage:document.getElementById("tofanswer2image").value
+              answerImage:document.getElementById("tof2answerImage").title
               };
           gameDataArray[i+j]=tof2game;
       }
@@ -183,11 +210,55 @@ tofform.addEventListener("submit", (event) => {
         timeup:passtimeup,
         lives:formData.get("tof_lives"),
         subject:formData.get("tof_subject"),
-        age_group:formData.get("tof_age"),
         age_min:formData.get("tof_agemin"),
         age_max:formData.get("tof_agemax"),
         gameData: gameDataArray
     };
     // Log the JSON object to the console
     console.log(JSON.stringify(jsonObject));
+
+    tofform.reset();
+    document.getElementById("trueorfalsegames").style.display = "none";
+    document.getElementById("trueorfalse").style.display = "block";
+    window.scrollTo(0,0);
+    showtofSuccessFlashMsg();
   });
+
+  const tofDeleteGameBtns = document.querySelectorAll(".tofgamedel");
+for (let i = 0; i < tofDeleteGameBtns.length; i++) {
+  tofDeleteGameBtns[i].addEventListener("click", function() {
+   document.getElementById("fortofdelgame").style.display = "block";
+   document.getElementById("trueorfalse").style.opacity = 0.5;
+   document.getElementById("menu").style.opacity = 0.5;
+   document.getElementById("nav").style.opacity = 0.5;
+   document.getElementById("fortofdelgame").style.opacity = 1;
+
+   document.getElementById("tofdelback").addEventListener("click",function(){
+    hidetofGameDelPopup();
+   })
+   document.getElementById("tofdelGameCancel").addEventListener("click",function(){
+    hidetofGameDelPopup();
+   })
+  })
+  document.getElementById("tofdelcnf").addEventListener("click",function(){
+    alert("Game Deleted");
+  })
+};
+
+function hidetofGameDelPopup(){
+  document.getElementById("fortofdelgame").style.display = "none";
+  document.getElementById("trueorfalse").style.opacity = 1;
+  document.getElementById("menu").style.opacity = 1;
+  document.getElementById("nav").style.opacity = 1;
+}
+
+//for flash msg
+function showtofSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("tofflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}

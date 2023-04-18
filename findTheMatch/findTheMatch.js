@@ -45,17 +45,39 @@ async function addftmbgaudio(){
     });
 }
 
+async function ftmgetthebase64(element){
+  const file = element.files.item(0);
+      await fileToBase64(file)
+      .then( base64String => {
+          element.title = base64String;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
+
 const ftm_additembtn = document.getElementById("ftm_additembtn");
 const ftmitems = document.getElementById("ftmitems");
 const ftmDeleteItemBtns = document.querySelectorAll(".ftmdeleteitem");
 let noOfItemsftm = 3;
+let ftmitemid = 3;
 
 ftm_additembtn.addEventListener("click", () => {
-
+  ftmitemid++;
   const createnewftmitem = document.getElementById("ftmitemtocopy");
   const newftmGameData = createnewftmitem.cloneNode(true); // copy with events
   createnewftmitem.parentNode.appendChild(newftmGameData);
   newftmGameData.querySelector(".ftmItemNo").innerText = noOfItemsftm + 1;
+  newftmGameData.querySelector(".forftmquestionImage").setAttribute("for","ftmqueimg"+ftmitemid);
+  newftmGameData.querySelector(".ftmquestionImage").setAttribute("id","ftmqueimg"+ftmitemid);
+  newftmGameData.querySelector(".forftmquestionAudio").setAttribute("for","ftmqueaudio"+ftmitemid);
+  newftmGameData.querySelector(".ftmquestionAudio").setAttribute("id","ftmqueaudio"+ftmitemid);
+
+  newftmGameData.querySelector(".forftmanswerImage").setAttribute("for","ftmansimg"+ftmitemid);
+  newftmGameData.querySelector(".ftmanswerImage").setAttribute("id","ftmansimg"+ftmitemid);
+  newftmGameData.querySelector(".forftmanswerAudio").setAttribute("for","ftmansaudio"+ftmitemid);
+  newftmGameData.querySelector(".ftmanswerAudio").setAttribute("id","ftmansaudio"+ftmitemid);
+
   newftmGameData.querySelector(".ftmquestionText").value = null;
   newftmGameData.querySelector(".ftmquestionImage").value = null;
   newftmGameData.querySelector(".ftmquestionAudio").value = null;
@@ -101,11 +123,11 @@ ftmform.addEventListener("submit", (event) => {
     for (var i = 0; i < gameDataFields.length; i++) {
       var ftmgame = {
         questionText: gameDataFields[i].querySelector(".ftmquestionText")?gameDataFields[i].querySelector(".ftmquestionText").value:"",
-        questionImage: gameDataFields[i].querySelector(".ftmquestionImage")?gameDataFields[i].querySelector(".ftmquestionImage").value:"",
-        questionAudio: gameDataFields[i].querySelector(".ftmquestionVideo")?gameDataFields[i].querySelector(".ftmquestionVideo").value:"",
+        questionImage: gameDataFields[i].querySelector(".ftmquestionImage")?gameDataFields[i].querySelector(".ftmquestionImage").title:"",
+        questionAudio: gameDataFields[i].querySelector(".ftmquestionAudio")?gameDataFields[i].querySelector(".ftmquestionAudio").title:"",
         answerText: gameDataFields[i].querySelector(".ftmanswerText")?gameDataFields[i].querySelector(".ftmanswerText").value:"",
-        answerImage: gameDataFields[i].querySelector(".ftmanswerImage")?gameDataFields[i].querySelector(".ftmanswerImage").value:"",
-        answerAudio: gameDataFields[i].querySelector(".ftmanswerVideo")?gameDataFields[i].querySelector(".ftmanswerVideo").value:""
+        answerImage: gameDataFields[i].querySelector(".ftmanswerImage")?gameDataFields[i].querySelector(".ftmanswerImage").title:"",
+        answerAudio: gameDataFields[i].querySelector(".ftmanswerAudio")?gameDataFields[i].querySelector(".ftmanswerAudio").title:""
       };
       gameDataArray[i]=ftmgame;
     }
@@ -132,11 +154,57 @@ ftmform.addEventListener("submit", (event) => {
         timeup:passtimeup,
         lives:formData.get("ftm_lives"),
         subject:formData.get("ftm_subject"),
-        age_group:formData.get("ftm_age"),
+        // age_group:formData.get("ftm_age"),
         age_min:formData.get("ftm_agemin"),
         age_max:formData.get("ftm_agemax"),
         gameData: gameDataArray
     };
     // Log the JSON object to the console
     console.log(JSON.stringify(jsonObject));
+
+    ftmform.reset();
+    document.getElementById("findthematchgames").style.display = "none";
+    document.getElementById("findthematch").style.display = "block";
+    window.scrollTo(0,0);
+    showftmSuccessFlashMsg();
   });
+
+
+  const ftmDeleteGameBtns = document.querySelectorAll(".ftmgamedel");
+for (let i = 0; i < ftmDeleteGameBtns.length; i++) {
+  ftmDeleteGameBtns[i].addEventListener("click", function() {
+   document.getElementById("forftmdelgame").style.display = "block";
+   document.getElementById("findthematch").style.opacity = 0.5;
+   document.getElementById("menu").style.opacity = 0.5;
+   document.getElementById("nav").style.opacity = 0.5;
+   document.getElementById("forftmdelgame").style.opacity = 1;
+
+   document.getElementById("ftmdelback").addEventListener("click",function(){
+    hideftmGameDelPopup();
+   })
+   document.getElementById("ftmdelGameCancel").addEventListener("click",function(){
+    hideftmGameDelPopup();
+   })
+  })
+  document.getElementById("ftmdelcnf").addEventListener("click",function(){
+    alert("Game Deleted");
+  })
+};
+
+function hideftmGameDelPopup(){
+  document.getElementById("forftmdelgame").style.display = "none";
+  document.getElementById("findthematch").style.opacity = 1;
+  document.getElementById("menu").style.opacity = 1;
+  document.getElementById("nav").style.opacity = 1;
+}
+
+//for flash msg
+function showftmSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("ftmflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}

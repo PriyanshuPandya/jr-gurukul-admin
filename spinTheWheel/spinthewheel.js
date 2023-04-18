@@ -1,6 +1,11 @@
 // let  forimage = document.getElementById('forimage');
 // let foraudio = document.getElementById('foraudio');
 // let upquestion = document.getElementById('upquestion');
+
+// import {showSuccessFlashMsg} from "../basic/showgame.js";
+
+
+
 let spinbg = "";
 let spinthumb = "";
 let spinsound="";
@@ -160,10 +165,16 @@ spinform.addEventListener("submit", (event) => {
     subject:formData.get("spinthewheel_subject"),
     age_min:formData.get("spinthewheel_agemin"),
     age_max:formData.get("spinthewheel_agemax"),
-    // age_group:formData.get("spinthewheel_age"),
     gameData: spingameData
   };
   console.log(JSON.stringify(data));
+
+  spinform.reset();
+  document.getElementById("spinthewheelgames").style.display = "none";
+  document.getElementById("spinthewheel").style.display = "block";
+  window.scrollTo(0,0);
+  showspinSuccessFlashMsg();
+
 });
 
 
@@ -195,9 +206,28 @@ function hidespinGameDelPopup(){
   document.getElementById("nav").style.opacity = 1;
 }
 
+//for flash msg
+function showspinSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("spinflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
 
+//for filters json
+const spinfilform = document.querySelector("#spinfilform");
+spinfilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const spinfilData = Array.from(spinfilform.querySelectorAll("spinfil"));
 
-// for (let i = 0; i < spinDeleteItemBtns.length; i++) {
-//   spinDeleteItemBtns[i].addEventListener("click", function() {
-//     spinDeleteItemBtns[i].classList.toggle("red");
-//   })};
+  const filData = {
+    fil_name:spinfilform.querySelector("spin_filname"),
+    fil_agemin:spinfilform.querySelector("spin_filagemin"),
+    fil_agmemax:spinfilform.querySelector("spin_filagemax"),
+    fil_subject:spinfilData
+  }
+  console.log(JSON.stringify(filData));
+})

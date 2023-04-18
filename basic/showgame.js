@@ -1443,3 +1443,15 @@ function hidetempitems(){
 
     istempopen = false;
 }
+
+
+//generic functon for Create-Game Success flash message
+// export function showSuccessFlashMsg() {
+//     const flashMessage = document.createElement("div");
+//     flashMessage.classList.add("flashsuccess");
+//     flashMessage.textContent = "Game Added Successfully";
+//     document.getElementById("flashsuccess").appendChild(flashMessage);
+//     setTimeout(function() {
+//       flashMessage.remove();
+//     }, 3000); // Set the timeout for the message to be displayed (in milliseconds)
+// }

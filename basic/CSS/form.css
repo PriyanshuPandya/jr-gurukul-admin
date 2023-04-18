@@ -277,7 +277,7 @@
 }
 
 /*upload audio/image onclicking icon*/
-/* .forimage input[type="file"],  */
+.forimage input[type="file"], 
 .foraudio input[type="file"] {
     display: none;
 }
@@ -499,7 +499,7 @@
     flex-direction: column;
     justify-content:center;
     margin-bottom:2vh;
-    margin-top:10vh;
+    margin-top:5vh;
     margin-left:5%;
 }
 
@@ -584,7 +584,8 @@
 }
 
 .delGameCancelBtn{
-    margin-left: 12.5vw;
+    margin-left: 13vw;
+    cursor: pointer;
 }
 
 .delGamePopupImg{
@@ -639,10 +640,10 @@
 
 .delGameBtn{
     all: unset;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: bolder;
     cursor: pointer;
-    padding:0.33rem 1rem;
+    padding:0.4rem 1.2rem;
     border:0.05rem solid rgb(22, 142, 228);
     background-color: rgb(50, 162, 243);
     border-radius:0.2rem; 
@@ -655,64 +656,97 @@
     color:var(--darkgray);
 }
 
-
-/* .other{
-    position:relative;
-    z-index: 0;
-    margin-top:20vh;
-    margin-left:20vw;
-    border: 1px solid var(--darkgray);
-    border-radius: 15px;
+/*-------------------------------------------for filters----------------------------------*/
+.forgamefilters{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    background-image: linear-gradient(135deg,#f0fbff,#d1fafa);
-    padding:2.5vh;
-    padding-top:5vh;
+    font-size: 0.75rem;
+    justify-content: center;
+    padding-top: 1vh;
 }
 
-h3{
-    color:#1c13a0;
-    font-weight: bolder;
+.forfiltersname input{
+    width:10vw;
+    margin-right:15vw;
+    font-size: 0.75rem;
+    padding:0.1rem;
+    /* border-radius: 0.25rem; */
 }
 
-#uname{
-    font-weight: bolder;
-    font-size: larger;
+.filsubage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-h4{
-    color:var(--blue);
-    font-weight: bolder;
+.foragegroup strong{
+    font-size: 0.7rem;
 }
 
-
-.btns{
-    margin-top:10px;
-    margin-right:10px;
-    height:45px;
-    width:170px;
-    font-size:19px;
-    background-color: rgb(52, 3, 69);
-    color:#d7aaff;
-    border: 5px solid #230350;
-    box-shadow: 6px 6px 6px 0px rgba(18, 113, 255, 0.3);
-    font-family: 'Ubuntu', sans-serif;
-    border-radius:17.5px;
+.foragegroup{
+    margin-left: 2vw;
+}
+.filsearch{
+    margin-left:5vw;
+    /* margin-top: 3vh; */
 }
 
-.btns:hover{
-    scale:1.1;
+.forfiltersub{
+    margin-top:2vh;
+     display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+    margin-left: 2.3vw;
+    padding-bottom: 1vh;
+}
+
+.forfiltersub input{
+    margin-left: 1vw;
+    margin-right: 0.15vw;
     cursor: pointer;
-    color:#ffffff;
-} */
+}
 
-/* .popup img{
-    width:5rem;
-    border:1px solid rgb(25, 1, 79);
-    border-radius: 35px;
-    position:absolute;
-    z-index:1;
-    margin-top:15vh;
-    margin-left:30.5vw;
-} */
+.filters{
+    margin-left: 8vw;
+    margin-right: 8vw;
+    border: 0.1rem solid #bebebe;
+    border-radius: 0.25rem;
+    margin-top: 7vh;
+}
+.filters:hover{
+    border-color: var(--lightblue);
+}
+
+.filheading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 0.85rem;
+    margin-left:1vw;
+    margin-top:-3vh;
+}
+
+.filheading img, .forfiltersname img{
+    width:0.9rem;
+    margin-left:0.3rem;
+}
+
+.forfiltersname{
+    font-size: 0.7rem;
+}
+
+/*-------------------------------------------------------------Add game Success flash msg --------------------------------------------------------------*/
+.flashsuccess {
+    background-image:linear-gradient(to right,  rgb(36, 172, 41), rgb(7, 148, 7));
+    color: white;
+    box-shadow: 0px 3px 5px 3px rgba(14, 47, 0, 0.2);
+    padding: 5px;
+    width:80%;
+    margin-bottom: 10px;
+    border-radius:5px;
+    text-align: center;
+    margin-left:10%;
+    margin-top: 10px;
+  }

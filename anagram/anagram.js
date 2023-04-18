@@ -134,10 +134,54 @@ agmform.addEventListener("submit", (event) => {
     timeup:passtimeup,
     lives:formData.get("agm_lives"),
     subject:formData.get("agm_subject"),
-    age_group:formData.get("agm_age"),
     age_min:formData.get("agm_agemin"),
     age_max:formData.get("agm-agemax"),
     gameData: agmgameData
   };
   console.log(JSON.stringify(data));
+
+  agmform.reset();
+  document.getElementById("anagramgames").style.display = "none";
+  document.getElementById("anagram").style.display = "block";
+  window.scrollTo(0,0);
+  showagmSuccessFlashMsg();
 });
+
+const agmDeleteGameBtns = document.querySelectorAll(".agmgamedel");
+for (let i = 0; i < agmDeleteGameBtns.length; i++) {
+  agmDeleteGameBtns[i].addEventListener("click", function() {
+   document.getElementById("foragmdelgame").style.display = "block";
+   document.getElementById("anagram").style.opacity = 0.5;
+   document.getElementById("menu").style.opacity = 0.5;
+   document.getElementById("nav").style.opacity = 0.5;
+   document.getElementById("foragmdelgame").style.opacity = 1;
+
+   document.getElementById("agmdelback").addEventListener("click",function(){
+    hideagmGameDelPopup();
+   })
+   document.getElementById("agmdelGameCancel").addEventListener("click",function(){
+    hideagmGameDelPopup();
+   })
+  })
+  document.getElementById("agmdelcnf").addEventListener("click",function(){
+    alert("Game Deleted");
+  })
+};
+
+function hideagmGameDelPopup(){
+  document.getElementById("foragmdelgame").style.display = "none";
+  document.getElementById("anagram").style.opacity = 1;
+  document.getElementById("menu").style.opacity = 1;
+  document.getElementById("nav").style.opacity = 1;
+}
+
+//for flash msg
+function showagmSuccessFlashMsg() {
+  const flashMessage = document.createElement("div");
+  flashMessage.classList.add("flashsuccess");
+  flashMessage.textContent = "Game Added Successfully";
+  document.getElementById("agmflashsuccess").appendChild(flashMessage);
+  setTimeout(function() {
+    flashMessage.remove();
+  }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
