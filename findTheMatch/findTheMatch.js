@@ -79,11 +79,11 @@ ftm_additembtn.addEventListener("click", () => {
   newftmGameData.querySelector(".ftmanswerAudio").setAttribute("id","ftmansaudio"+ftmitemid);
 
   newftmGameData.querySelector(".ftmquestionText").value = null;
-  newftmGameData.querySelector(".ftmquestionImage").value = null;
-  newftmGameData.querySelector(".ftmquestionAudio").value = null;
+  newftmGameData.querySelector(".ftmquestionImage").title = null;
+  newftmGameData.querySelector(".ftmquestionAudio").title = null;
   newftmGameData.querySelector(".ftmanswerText").value = null;
-  newftmGameData.querySelector(".ftmanswerImage").value = null;
-  newftmGameData.querySelector(".ftmanswerAudio").value = null;
+  newftmGameData.querySelector(".ftmanswerImage").title = null;
+  newftmGameData.querySelector(".ftmanswerAudio").title = null;
   newftmGameData.querySelector(".forftmdelete").classList.add("ftmdeleteitem");
   newftmGameData.querySelector(".ftmdeleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -166,6 +166,9 @@ ftmform.addEventListener("submit", (event) => {
     document.getElementById("findthematchgames").style.display = "none";
     document.getElementById("findthematch").style.display = "block";
     window.scrollTo(0,0);
+    document.getElementById('ftmbgname').innerText = "";
+    document.getElementById('ftmthumbname').innerText = "";
+    showftmthree();
     showftmSuccessFlashMsg();
   });
 
@@ -208,3 +211,44 @@ function showftmSuccessFlashMsg() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
 }
+
+//for filters json
+const ftmfilform = document.querySelector("#ftmfilform");
+ftmfilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(ftmfilform);
+  const ftmfilData = Array.from(filterData.getAll("ftmfil"));
+
+  const filData = {
+    fil_template_id: 9,
+    fil_name:filterData.get("ftm_filname"),
+    fil_agemin:filterData.get("ftm_filagemin"),
+    fil_agmemax:filterData.get("ftm_filagemax"),
+    fil_subject:ftmfilData
+  }
+  console.log(JSON.stringify(filData));
+})
+
+  //function to show only  que on refresh.....
+  function showftmthree() {
+    let children;
+    const noofchild = ftmitems.childElementCount;
+    if (noofchild > 3) {
+      children = ftmitems.querySelectorAll('.ftmitem');
+      for (let i = 3; i < noofchild; i++) {
+        ftmitems.removeChild(children[i]);
+      }
+    }
+    emptyfilvalues();
+    noOfItemsftm = 3;
+  }
+  
+  function emptyfilvalues(){
+    let gameDataFields = document.querySelectorAll(".ftmgamedata");
+    for (var i = 0; i < gameDataFields.length; i++) {
+        questionImage = gameDataFields[i].querySelector(".ftmquestionImage").title="",
+        questionAudio = gameDataFields[i].querySelector(".ftmquestionAudio").title="",
+        answerImage = gameDataFields[i].querySelector(".ftmanswerImage").title="",
+        answerAudio = gameDataFields[i].querySelector(".ftmanswerAudio").title=""
+      };
+  }

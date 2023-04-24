@@ -69,10 +69,10 @@ wf_additembtn.addEventListener("click", () => {
   newwfGameData.querySelector(".wfItemNo").innerText = noOfItemswf + 1;
   newwfGameData.querySelector(".forwfquestionImage").setAttribute("for","wfqueimg"+wfitemid);
   newwfGameData.querySelector(".wfquestionImage").setAttribute("id","wfqueimg"+wfitemid);
-  newwfGameData.querySelector(".wfquestionText").value = null;
-  newwfGameData.querySelector(".wfquestionImage").value = null;
-  newwfGameData.querySelector(".wfactualwords").value = null;
-  newwfGameData.querySelector(".wfrandomwords").value = null;
+  newwfGameData.querySelector(".wfquestionText").value = "";
+  newwfGameData.querySelector(".wfquestionImage").title = "";
+  newwfGameData.querySelector(".wfactualwords").value = "";
+  newwfGameData.querySelector(".wfrandomwords").value = "";
   newwfGameData.querySelector(".forwfdelete").classList.add("wfdeleteitem");
   newwfGameData.querySelector(".wfdeleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -152,6 +152,9 @@ wfform.addEventListener("submit", (event) => {
     document.getElementById("wordformationgames").style.display = "none";
     document.getElementById("wordformation").style.display = "block";
     window.scrollTo(0,0);
+    document.getElementById('wfbgname').innerText = "";
+    document.getElementById('wfthumbname').innerText = "";
+    showwfone();
     showwfSuccessFlashMsg();
   });
 
@@ -193,3 +196,41 @@ function showwfSuccessFlashMsg() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
 }
+
+//for filters json
+const wffilform = document.querySelector("#wffilform");
+wffilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(wffilform);
+  const wffilData = Array.from(filterData.getAll("wffil"));
+
+  const filData = {
+    fil_template_id: 5,
+    fil_name:filterData.get("wf_filname"),
+    fil_agemin:filterData.get("wf_filagemin"),
+    fil_agmemax:filterData.get("wf_filagemax"),
+    fil_subject:wffilData
+  }
+  console.log(JSON.stringify(filData));
+})
+
+  //function to show only  que on refresh.....
+  function showwfone() {
+    let children;
+    const noofchild = wfcontent.childElementCount;
+    if (noofchild > 1) {
+      children = wfcontent.querySelectorAll('.wfsingleitem');
+      for (let i = 1; i < noofchild; i++) {
+        wfcontent.removeChild(children[i]);
+      }
+    }
+    emptyfilvalues();
+    noOfItemswf = 1;
+  }
+  
+  function emptyfilvalues(){
+    let gameDataFields = document.querySelectorAll(".wfgamedata");
+    for (var i = 0; i < gameDataFields.length; i++) {
+        questionImage = gameDataFields[i].querySelector(".wfquestionImage").title=""
+      };
+  }

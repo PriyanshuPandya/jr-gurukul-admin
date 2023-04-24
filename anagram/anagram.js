@@ -143,6 +143,9 @@ agmform.addEventListener("submit", (event) => {
   agmform.reset();
   document.getElementById("anagramgames").style.display = "none";
   document.getElementById("anagram").style.display = "block";
+  document.getElementById('agmbgname').innerText="";
+  document.getElementById('agmthumbname').innerText="";
+  showagmthree();
   window.scrollTo(0,0);
   showagmSuccessFlashMsg();
 });
@@ -184,4 +187,36 @@ function showagmSuccessFlashMsg() {
   setTimeout(function() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
+
+//for filters json
+const agmfilform = document.querySelector("#agmfilform");
+agmfilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(agmfilform);
+  const agmfilData = Array.from(filterData.getAll("agmfil"));
+
+  const filData = {
+    fil_template_id: 7,
+    fil_name:filterData.get("agm_filname"),
+    fil_agemin:filterData.get("agm_filagemin"),
+    fil_agmemax:filterData.get("agm_filagemax"),
+    fil_subject:agmfilData
+  }
+  console.log(JSON.stringify(filData));
+})
+
+//function to show only 3 que on refresh.....
+function showagmthree() {
+  let children;
+  const noofchild = agmitems.childElementCount;
+  if (noofchild > 3) {
+    children = agmitems.querySelectorAll('div');
+    for (let i = 3; i < noofchild; i++) {
+      console.log(children[i]);
+      // children[i].style.display = "none";
+      agmitems.removeChild(children[i]);
+    }
+  }
+  noOfItemsagm = 3;
 }

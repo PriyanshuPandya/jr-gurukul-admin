@@ -17,7 +17,7 @@
 }
 
 .quizitembox{
-    width:50vw;
+    width:52vw;
 }
 
 .quizquebox{
@@ -77,7 +77,7 @@
     font-size:0.7rem;
     color:var(--darkgray);
     font-weight: bolder;
-    width:47%;
+    width:95%;
     display: flex;
     flex-direction: row;
     align-items:center;
@@ -98,7 +98,7 @@
     float: right;
 }
 
-.optionname{
+.quizoptionname{
     font-size: 0.7rem;
     font-weight: bolder;
     color:rgb(64, 102, 159);
@@ -127,9 +127,11 @@
     margin-top:0.5vh;
 }
 
-.foroptionsimg input[type="file"], .foroptionsaudio input[type="file"] {
+/* .foroptionsimg input[type="file"], .foroptionsaudio input[type="file"] {
     display: none;
-}
+} */
+
+
 
 .upanswer{
     font-size: 0.7rem;
@@ -156,10 +158,11 @@
 
 .delopt{
     height: 2vh;
+    margin-left:12%;
 }
 
 .quizoptans{
-    width:15vw;
+    width:10vw;
     margin-left: 0;
 }
 

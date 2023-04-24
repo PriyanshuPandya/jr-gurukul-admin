@@ -76,8 +76,8 @@ fc_additembtn.addEventListener("click", () => {
   newfcGameData.querySelector(".fcquestionAudio").setAttribute("id","fcqueaudio"+fcitemid);
 
   newfcGameData.querySelector(".fcquestionText").value = null;
-  newfcGameData.querySelector(".fcquestionImage").value = null;
-  newfcGameData.querySelector(".fcquestionAudio").value = null;
+  newfcGameData.querySelector(".fcquestionImage").title = null;
+  newfcGameData.querySelector(".fcquestionAudio").title = null;
 
   newfcGameData.querySelector(".forfcdelete").classList.add("fcdeleteitem");
   newfcGameData.querySelector(".fcdeleteitem").addEventListener("click", (event) => {
@@ -156,6 +156,9 @@ fcform.addEventListener("submit", (event) => {
     document.getElementById("flashcardsgames").style.display = "none";
     document.getElementById("flashcards").style.display = "block";
     window.scrollTo(0,0);
+    document.getElementById('fcbgname').innerText = "";
+    document.getElementById('fcthumbname').innerText = "";
+    showfcthree();
     showfcSuccessFlashMsg();
   });
 
@@ -197,4 +200,43 @@ function showfcSuccessFlashMsg() {
   setTimeout(function() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
+
+//for filters json
+const fcfilform = document.querySelector("#fcfilform");
+fcfilform.addEventListener("submit",(event)=>{
+event.preventDefault();
+const filterData = new FormData(fcfilform);
+const fcfilData = Array.from(filterData.getAll("fcfil"));
+
+const filData = {
+  fil_template_id: 10,
+  fil_name:filterData.get("fc_filname"),
+  fil_agemin:filterData.get("fc_filagemin"),
+  fil_agmemax:filterData.get("fc_filagemax"),
+  fil_subject:fcfilData
+}
+console.log(JSON.stringify(filData));
+})
+
+//function to show only  que on refresh.....
+function showfcthree() {
+  let children;
+  const noofchild = fcitems.childElementCount;
+  if (noofchild > 1) {
+    children = fcitems.querySelectorAll('.fcitem');
+    for (let i = 3; i < noofchild; i++) {
+      fcitems.removeChild(children[i]);
+    }
+  }
+  emptyfilvalues();
+  noOfItemsfc = 3;
+}
+
+function emptyfilvalues(){
+  let gameDataFields = document.querySelectorAll(".fcgamedata");
+  for (var i = 0; i < gameDataFields.length; i++) {
+      questionImage = gameDataFields[i].querySelector(".fcquestionImage").title="",
+      questionAudio = gameDataFields[i].querySelector(".fcquestionAudio").title=""
+    };
 }

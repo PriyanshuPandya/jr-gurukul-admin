@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="../flashCards/flashCards.css" class="CSS">
     <link rel="stylesheet" href="../unjumble/unjumble.css" class="CSS">
     <link rel="stylesheet" href="../trueOrFalse/trueOrFalse.css" class="CSS">
+
+    <link rel="stylesheet" href="../spinTheWheel/upspin.css" class="CSS">
 </head>
 
 <body>
@@ -191,132 +193,77 @@
             </div> -->
 
 
-            <!------------------------------------------------------------------------------------------------------------------->
-            <!----------------------------------------------Form payment-list------------------------------------------------------->
-            <!-- <div class="formpaymentslist" id="formpaymentslist">
-                <div class="paymentslistitems">
-                    <div class="paymentslistbox">
-                        <img class="profilepic" src="../Images/profilepic.jpg" alt="editprofile">
-                        <div class="clientname paymentsinput">User 1</div>
-                        <div class="forpackage paymentelement">Package :&nbsp;<span
-                                class="clientpackage paymentsinput">A</span></div>
-                        <div class="forduration paymentelement"><span
-                                class="duration paymentsinput">10</span>&nbsp;Months</div>
-                        <div class="fordates paymentelement">
-                            <div class="forstartdate">Start Date :<span class="paymentsinput">01/03/2022</span></div>
-                            &nbsp;|&nbsp;<div class="forstartdate">End Date :<span
-                                    class="paymentsinput">15/05/2023</span></div>
-                        </div>
-                        <div class="forpaymentamount paymentelement">Rs. :&nbsp;<span class="payamount">8000</span>
-                        </div>
-                    </div>
+            <!-------------------spin update-------------------------------->
 
-                    <div class="paymentslistbox">
-                        <img class="profilepic" src="../Images/profilepic.jpg" alt="editprofile">
-                        <div class="clientname paymentsinput">User 4</div>
-                        <div class="forpackage paymentelement">Package :&nbsp;<span
-                                class="clientpackage paymentsinput">B</span></div>
-                        <div class="forduration paymentelement"><span
-                                class="duration paymentsinput">03</span>&nbsp;Months</div>
-                        <div class="fordates paymentelement">
-                            <div class="forstartdate">Start Date :<span class="paymentsinput">17/09/2022</span></div>
-                            &nbsp;|&nbsp;<div class="forstartdate">End Date :<span
-                                    class="paymentsinput">10/04/2023</span></div>
-                        </div>
-                        <div class="forpaymentamount paymentelement">Rs. :&nbsp;<span class="payamount">5000</span>
-                        </div>
-                    </div>
-
-                    <div class="paymentslistbox">
-                        <img class="profilepic" src="../Images/profilepic.jpg" alt="editprofile">
-                        <div class="clientname paymentsinput">User 3</div>
-                        <div class="forpackage paymentelement">Package :&nbsp;<span
-                                class="clientpackage paymentsinput">B</span></div>
-                        <div class="forduration paymentelement"><span
-                                class="duration paymentsinput">06</span>&nbsp;Months</div>
-                        <div class="fordates paymentelement">
-                            <div class="forstartdate">Start Date :<span class="paymentsinput">23/08/2022</span></div>
-                            &nbsp;|&nbsp;<div class="forstartdate">End Date :<span
-                                    class="paymentsinput">25/07/2023</span></div>
-                        </div>
-                        <div class="forpaymentamount paymentelement">Rs. :&nbsp;<span class="payamount">10000</span>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <!------------------------------------------------------------------------------------------------------------------->
-            <!----------------------------------------------Spin the Wheel------------------------------------------------------->
-
-            <div class="spinthewheelgames" id="spinthewheelgames">
-                <div class="gametop">
+            <div class="upspingames" id="upspingames">
+                <span class="upheading">:  Update Form  :</span>
+                <div class="gametop upgametop">
                     <div class="nameandlogo">
-                        <img src="../spinTheWheel/logo.jpg" class="gamelogo" alt="spinTheWheel logo">
+                        <img src="../spinTheWheel/logo.jpg" class="gamelogo upgamelogo">
                         <div class="gamename">
-                            <div class="gametitle">SPIN THE WHEEL</div>
-                            <div class="gamedesc">Spin the wheel to see what comes up next</div>
+                            <div class="gametitle upclassname">SPIN THE WHEEL</div>
                         </div>
+                        
                     </div>
                     <!-- <div class="create">
                             <button class="createbtn">Create</button>
                         </div> -->
                 </div>
 
-                <div class="gamemain">
+                <div class="gamemain upgamemain">
 
-                    <div class="mainhead">
+                    <!-- <div class="mainhead">
                         <span class="forheading">
-                            <span class="entercontent">Enter Content</span>
+                            <span class="entercontent"> Content</span>
                             <img src="../Images/rightarr.png" alt="right arrow">
                             <span class="mainheadplay">Play</span>
                         </span>
-                    </div>
+                    </div> -->
 
-                    <div class="forform">
+                    <div class="forform forupdateform">
                         <form class="form spinform" autocomplete="off">
 
                             <div class="titleandthumb">
                                 <div class="foractivitytitle">
-                                    <div><img src="../Images/plus.png" class="plusimg" alt="Add icon"><label
-                                            class="titlelabel" for="activitytitle">Activity Title</label></div>
+                                    <div><img src="../Images/edit2.png" class="editimg" alt="Add icon"><label
+                                            class="titlelabel" for="activitytitle">Update Activity Title</label></div>
                                     <input type="text" required placeholder="Enter the Title"
                                         name="spinthewheel_activitytitle" class="activitytitle" />
                                 </div>
 
                                 <span class="forbg" id="forbg">
                                     <div class="aboutbg">
-                                        <span class="selectbg">Select Background</span>
+                                        <span class="selectbg">Change Background</span>
                                         <span class="selectbgname" id="spinbgname"></span>
                                     </div>
                                     <label for="spinbg"><img class="imageurl" id="imageurl"
-                                            src="../spinTheWheel/logo.jpg" alt="upload image"></label>
+                                            src="../Images/editpic.jpg" alt="upload image"></label>
                                     <input type="file" id="spinbg" name="spinthewheel_bg" accept="image/*" required
                                         onchange="changespinbg()">
                                 </span>
 
                                 <span class="forthumb" id="forthumb">
                                     <div class="aboutthumb">
-                                        <span class="selectthumb">Select Thumbnail</span>
+                                        <span class="selectthumb">Change Thumbnail</span>
                                         <span class="selectthumbname" id="spinthumbname"></span>
                                     </div>
                                     <label for="spinthumb"><img class="thumburl" id="thumburl"
-                                            src="../spinTheWheel/logo.jpg" alt="upload thumbnail"></label>
+                                            src="../Images/editpic.jpg" alt="upload thumbnail"></label>
                                     <input type="file" id="spinthumb" name="spinthewheel_thumb" accept="image/*"
                                         required onchange="changespinthumb()">
                                 </span>
                             </div>
 
                             <div class="foractivitydesc">
-                                <div><img src="../Images/plus.png" class="plusimg" alt="Add icon"><label
-                                        class="desclabel" for="activitydesc">Activity Description</label></div>
+                                <div><img src="../Images/edit2.png" class="editimg" alt="Add icon"><label
+                                        class="desclabel" for="activitydesc">Update Activity Description</label></div>
                                 <textarea placeholder="Enter Activity Description" class="activitydesc" rows="1"
                                     cols="103" name="spinthewheel_activitydesc"></textarea>
                             </div>
 
                             <div id="items" class="items">
-                                <div class="foritems"><img src="../Images/plus.png" class="plusimg" alt="">Game Data
+                                <div class="foritems"><img src="../Images/edit2.png" class="editimg" alt="">Game Data
                                 </div>
-                                <div class="itemcount">min:3 max:50</div>
 
                                 <div class="spinitems" id="spinitems">
                                     <!--item 1-->
@@ -440,33 +387,196 @@
                             </div>
                         </form>
                     </div>
-
-                    <br />
-                    <!-- <div class="forgamedata">
-                            <div class="gamedataitem">
-                                <div class="gamedatainfo">
-                                    <img src="../spinTheWheel/logo.jpg" class="gaedatalogo" alt="logo">
-                                    <span class="gamedatanum">Game 1</span>
-                                </div>
-                                <div class="gamedatamodify">
-                                    <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                                    <img src="../Images/bin.png" class="gamedataimg" alt="delete">
-                                </div>
-                            </div>
-                            <div class="gamedataitem">
-                                <div class="gamedatainfo">
-                                    <img src="../spinTheWheel/logo.jpg" class="gaedatalogo" alt="logo">
-                                    <span class="gamedatanum">Game 2</span>
-                                </div>
-                                <div class="gamedatamodify">
-                                    <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                                    <img src="../Images/bin.png" class="gamedataimg" alt="delete">
-                                </div>
-                            </div>
-                        </div> -->
                 </div>
             </div>
 
+            <!------------------------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------Spin the Wheel------------------------------------------------------->
+
+            <div class="spinthewheelgames" id="spinthewheelgames">
+                <div class="gametop">
+                    <div class="nameandlogo">
+                        <img src="../spinTheWheel/logo.jpg" class="gamelogo" alt="spinTheWheel logo">
+                        <div class="gamename">
+                            <div class="gametitle">SPIN THE WHEEL</div>
+                            <div class="gamedesc">Spin the wheel to see what comes up next</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="gamemain">
+
+                    <div class="mainhead">
+                        <span class="forheading">
+                            <span class="entercontent">Enter Content</span>
+                            <img src="../Images/rightarr.png" alt="right arrow">
+                            <span class="mainheadplay">Play</span>
+                        </span>
+                    </div>
+
+                    <div class="forform">
+                        <form class="form  spinform" autocomplete="off">
+
+                            <div class="titleandthumb">
+                                <div class="foractivitytitle">
+                                    <div><img src="../Images/plus.png" class="plusimg" alt="Add icon"><label
+                                            class="titlelabel" for="activitytitle">Activity Title</label></div>
+                                    <input type="text" required placeholder="Enter the Title"
+                                        name="spinthewheel_activitytitle" class="activitytitle" />
+                                </div>
+
+                                <span class="forbg" id="forbg">
+                                    <div class="aboutbg">
+                                        <span class="selectbg">Select Background</span>
+                                        <span class="selectbgname" id="spinbgname"></span>
+                                    </div>
+                                    <label for="spinbg"><img class="imageurl" id="imageurl"
+                                            src="../spinTheWheel/logo.jpg" alt="upload image"></label>
+                                    <input type="file" id="spinbg" name="spinthewheel_bg" accept="image/*" required
+                                        onchange="changespinbg()">
+                                </span>
+
+                                <span class="forthumb" id="forthumb">
+                                    <div class="aboutthumb">
+                                        <span class="selectthumb">Select Thumbnail</span>
+                                        <span class="selectthumbname" id="spinthumbname"></span>
+                                    </div>
+                                    <label for="spinthumb"><img class="thumburl" id="thumburl"
+                                            src="../spinTheWheel/logo.jpg" alt="upload thumbnail"></label>
+                                    <input type="file" id="spinthumb" name="spinthewheel_thumb" accept="image/*"
+                                        required onchange="changespinthumb()">
+                                </span>
+                            </div>
+
+                            <div class="foractivitydesc">
+                                <div><img src="../Images/plus.png" class="plusimg" alt="Add icon"><label
+                                        class="desclabel" for="activitydesc">Activity Description</label></div>
+                                <textarea placeholder="Enter Activity Description" class="activitydesc" rows="1"
+                                    cols="103" name="spinthewheel_activitydesc"></textarea>
+                            </div>
+
+                            <div id="items" class="items">
+                                <div class="foritems"><img src="../Images/plus.png" class="plusimg" alt="">Game Data
+                                </div>
+                                <div class="itemcount">min:3 max:50</div>
+
+                                <div class="spinitems" id="spinitems">
+                                
+                                    <div class="item spinitem">
+                                        <p class="spinItemNo">1</p>
+                                        <input type="text" name="spingameData[]" class="upquestion spinupque" />
+                                        <img class="itemimg del" src="../Images/bin.png" alt="delete it"
+                                            title="Delete this Instruction">
+                                    </div>
+
+                                    
+                                    <div class="item spinitem">
+                                        <p class="spinItemNo">2</p>
+                                        <input type="text" name="spingameData[]" class="upquestion spinupque" />
+                                        <img class="itemimg del spindeleteitem" src="../Images/bin.png" alt="delete it"
+                                            title="Delete this Instruction">
+                                    </div>
+
+                                    
+                                    <div class="item spinitem">
+                                        <p class="spinItemNo">3</p>
+                                        <input type="text" name="spingameData[]" class="upquestion spinupque" />
+                                        <img class="itemimg del spindeleteitem" src="../Images/bin.png" alt="delete it"
+                                            title="Delete this Instruction">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="addnewitem">
+                                <button type="button" id="spinthewheel_additembtn" class="addbtn">Add Item</button>
+                            </div>
+
+                            <div class="tools">
+
+                                <div class="toolslist">
+                                    
+                                    <div class="tools1">
+                                        <div class="forsound" id="forsound">
+                                            <label for="spinbgaudio"><img class="soundurl tools1img" id="soundurl"
+                                                    src="../Images/audioOn.png" alt="upload background audio"><span
+                                                    class="addaudiospan">Add Audio</span></label>
+                                            <input type="file" id="spinbgaudio" name="spinthewheel_sound"
+                                                accept="audio/*" onchange="addspinbgaudio()">
+                                            <div class="forbgaudio">
+                                                <span class="bgaudioname" id="spinbgaudioname"></span>
+                                            </div>
+                                        </div>
+                                        <div class="fortime">
+                                            <img src="../Images/timer.png" class="timeimg tools1img" alt="Timer Image">
+                                            <div class="forminsec">
+                                                <div class="forsec">
+                                                    <span class="timetext">Seconds</span>
+                                                    <input type="number" class="seconds" name="spinthewheel_time"
+                                                        min="0" value="45">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fortimer">
+                                            <div class="timerorder">Timeup</div>
+                                            <input checked type="checkbox" name="spinthewheel_timeup" />
+                                        </div>
+
+                                        <div class="forlives">
+                                            <div class="livestext">No. of Lives</div>
+                                            <input type="number" class="lives" min="0" value="3"
+                                                name="spinthewheel_lives">
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="tools2">
+                                        <div class="forsubject" title="Choose Subject">
+                                            <img src="../Images/subject.png" class="tools2img" alt="subject">
+                                            <select name="spinthewheel_subject">
+                                                <option style="display:none">Choose Subject</option>
+                                                <option>Maths</option>
+                                                <option>Science</option>
+                                                <option>English</option>
+                                            </select>
+                                            <img src="../Images/down.png" id="down" alt="">
+                                        </div>
+
+                                        
+
+                                        <div class="foragegroup" title="Select Age Group">
+                                            <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
+                                            <span>Age Group</span>
+                                            <div class="forminsec">
+                                                <div class="foragemin">
+                                                    <span class="timetext">Minimum</span>
+                                                    <input type="number" class="seconds" id="spinagemin" name="spinthewheel_agemin"
+                                                        min="0" max="20" value="6">
+                                                </div>
+                                                <div class="foragemax">
+                                                    <span class="timetext">Maximum</span>
+                                                    <input type="number" class="seconds" id="spinagemax" name="spinthewheel_agemax"
+                                                        min="1" max="23" value="9">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="forsubmit">
+                                    <button type="submit" class="submitbtn">Done</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <br />
+                </div>
+            </div>
 
 
             <!---------------------------------------------Spin The Wheel Main---------------------------------------------->
@@ -505,7 +615,6 @@
                 </div>
 
 
-                <!-------------------------------------------------------For Flash Message-------------------------------------------------->
                 <div id="spinflashsuccess"></div>
 
                 <form class="filters" id="spinfilform">
@@ -517,19 +626,10 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="spin_filname" id="spinfilname" placeholder="Search Game">
+                            <input type="text" name="spin_filname" id="spinfilname" autocomplete="off" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
-                            <!-- <span class="forfilterssub">
-                                <img src="../Images/subject.png" class="tools2img" alt="subject">
-                                <select name="spinfilsub">
-                                    <option style="display:none">Choose Subject</option>
-                                    <option>Maths</option>
-                                    <option>Science</option>
-                                    <option>English</option>
-                                </select>
-                                <img src="../Images/down.png" id="down" alt="">
-                            </span> -->
+                    
                             <span class="forfiltersage">
                                 <div class="foragegroup" title="Select Age Group">
                                     <img src="../Images/age.png" class="timeimg tools2img" alt="Age Group">
@@ -555,9 +655,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="spinfil" id="">Maths
-                        <input type="checkbox" name="spinfil" id="">English
-                        <input type="checkbox" name="spinfil" id="">Science
+                        <input type="checkbox" name="spinfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="spinfil" id="" value="English">English
+                        <input type="checkbox" name="spinfil" id="" value="Science">Science
                     </div>
                 </form>
                
@@ -628,9 +728,6 @@
                                 proceed.</div>
                         </div>
                     </div>
-                    <!-- <div class="create">
-                        <button class="createbtn">Create</button>
-                    </div> -->
                 </div>
 
                 <div class="gamemain">
@@ -659,7 +756,7 @@
                                         <span class="selectbg">Select Background</span>
                                         <span class="selectbgname" id="quizbgname"></span>
                                     </div>
-                                    <label for="quizbg"><img class="imageurl" id="imageurl" src="../quiz/logo.jpg"
+                                    <label for="quiz_bg"><img class="imageurl" id="imageurl" src="../quiz/logo.jpg"
                                             alt="upload image"></label>
                                     <input type="file" id="quiz_bg" name="quiz_bg" accept="image/*" required
                                         onchange="changequizbg()">
@@ -670,7 +767,7 @@
                                         <span class="selectthumb">Select Thumbnail</span>
                                         <span class="selectthumbname" id="quizthumbname"></span>
                                     </div>
-                                    <label for="quizthumb"><img class="thumburl" id="thumburl" src="../quiz/logo.jpg"
+                                    <label for="quiz_thumb"><img class="thumburl" id="thumburl" src="../quiz/logo.jpg"
                                             alt="upload thumbnail"></label>
                                     <input type="file" id="quiz_thumb" name="quiz_thumb" accept="image/*" required
                                         onchange="changequizthumb()">
@@ -689,26 +786,26 @@
                                 <div class="foritems"><img src="../Images/plus.png" class="plusimg" alt="">Game Data
                                 </div>
 
-                                <div class="quizgamecontainer" id="quizgamecontainer">
+                                <!-- <div class="quizgamecontainer" id="quizgamecontainer">
                                     <div class="quizgamedata" id="quizitemtocopy">
                                         <div class="queheading qaheading">Question</div>
 
                                         <div class="quizquebox">
                                             <p class="quizItemNo">1</p>
                                             <span class="itembox quizitembox">
-                                                <span class="forimage" id="forimage" title="Upload Image">
-                                                    <label for="itemimage"><img class="itemimg" id="upimg"
+                                                <span class="forimage" title="Upload Image">
+                                                    <label for="quizqueimg" class="forquizqueimg"><img class="itemimg" id="upimg"
                                                             src="../Images/image.png" alt="upload image"></label>
-                                                    <input type="file" class="quizgameQuestion quizquestionImage" id="quizquestionImage"
+                                                    <input type="file" class="quizgameQuestion quizquestionImage quizqueimg" id="quizqueimg"
                                                         name="quizquestionImage"
-                                                        accept="image/*"><!--onchange="getquizimgname()-->
+                                                        accept="image/*" onchange="quizgetthebase64(this)">
                                                 </span>
                                                 <span class="foraudio" id="foraudio" title="Upload Instruction Audio">
-                                                    <label for="itemaudio"><img class="itemimg upaudio"
+                                                    <label for="quizqueaudio" class="forquizqueaudio"><img class="itemimg upaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="quizgameQuestion quizquestionAudio" id="quizquestionAudio"
+                                                    <input type="file" class="quizgameQuestion quizquestionAudio quizqueaudio" id="quizqueaudio"
                                                         name="quizquestionAudio"
-                                                        accept="audio/*"><!--onchange="getquizaudioname()"-->
+                                                        accept="audio/*" onchange="quizgetthebase64(this)">
                                                 </span>
                                                 <input type="text" id="quizquestionText" name="quizquestionText" placeholder="Enter Question"
                                                     class="upquestion quizupque quizgameQuestion quizquestionText"/>
@@ -724,101 +821,245 @@
 
                                         <div class="ansheading qaheading">Answers</div>
 
-                                        <div class="quizansbox">
-                                            <!--Answers Options-->
-                                            <!--Option 1-->
+                                        <div class="quizansbox" id="quizansbox">
+
+
                                             <div class="quizansitem" id="quizoptcopy">
-                                                <span class="optionname">&#97;</span>
+                                                <span class="quizoptionname">&#97;</span>
                                                 <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
-                                                    title="Select Correct Answer" id="option1">
+                                                    title="Select Correct Answer">
                                                 <span class="foroptionsimg" title="Upload Image as Option">
-                                                    <label for="itemimage"><img class="optionimg" src="../Images/image.png"
+                                                    <label for="quiz1optimg1" class="forquizoptimg1"><img class="optionimg" src="../Images/image.png"
                                                             alt="upload image"></label>
-                                                    <input type="file" class="forquizansopt" id="ansoptImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <input type="file" class="quizanswerImage1" id="quiz1optimg1" name="itemimage"
+                                                        accept="image/*" onchange="quizgetthebase64(this)">
                                                 </span>
                                                 <span class="foroptionsaudio" title="Upload Audio as Option">
-                                                    <label for="optionaudio"><img class="optionimg optioinimgaudio"
+                                                    <label for="quiz1optaudio1" class="forquizoptaudio1"><img class="optionimg optioinimgaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="forquizansopt" id="ansoptAudio" name="optionaudio"
-                                                        accept="audio/*">
+                                                    <input type="file" class="quizanswerAudio1" name="optionaudio"
+                                                        accept="audio/*" onchange="quizgetthebase64(this)" id="quiz1optaudio1">
                                                 </span>
-                                                <input type="text" placeholder="Enter Answer"
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option1"
                                                     class="upanswer quizoptans quizanswerText forquizansopt" />
-                                                <img class="itemimg del delopt" id="ansoptText" onclick="removequizAnsOption(this)" src="../Images/bin.png" alt="delete it"
+                                                <img class="itemimg del delopt" id="ansoptText" onclick="delquizoption(this)" src="../Images/bin.png" alt="delete it"
                                                     title="Delete Option">
                                             </div>
                                         
-
-                                            <!--Option 2-->
+                                            
                                             <div class="quizansitem">
-                                                <span class="optionname">&#98;</span>
+                                                <span class="quizoptionname">&#98;</span>
                                                 <input type="radio" name="forcorrect" class="forcorrect"
-                                                    title="Select Correct Answer" id="option2">
+                                                    title="Select Correct Answer">
                                                 <span class="foroptionsimg" title="Upload Image as Option">
-                                                    <label for="itemimage"><img class="optionimg" src="../Images/image.png"
+                                                    <label for="quiz1optimg2" class="forquizoptimg2"><img class="optionimg" src="../Images/image.png"
                                                             alt="upload image"></label>
-                                                    <input type="file" class="quizanswerImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <input type="file" class="quizanswerImage2" id="quiz1optimg2" name="itemimage"
+                                                        accept="image/*" onchange="quizgetthebase64(this)">
                                                 </span>
                                                 <span class="foroptionsaudio" title="Upload Audio as Option">
-                                                    <label for="optionaudio"><img class="optionimg optioinimgaudio"
+                                                    <label for="quiz1optaudio2" class="forquizoptaudio2"><img class="optionimg optioinimgaudio"
                                                             src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="quizanswerAudio" name="optionaudio"
-                                                        accept="audio/*">
+                                                    <input type="file" class="quizanswerAudio2" id="quiz1optaudio2" name="optionaudio"
+                                                        accept="audio/*" onchange="quizgetthebase64(this)">
                                                 </span>
-                                                <input type="text" placeholder="Enter Answer"
-                                                    class="upanswer quizoptans quizanswerText" />
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option2"
+                                                    class="upanswer quizoptans" />
+                                                <img class="itemimg del delopt" src="../Images/bin.png" alt="delete it"
+                                                    title="Delete Option" onclick="delquizoption(this)">
+                                            </div>
+
+                                            
+                                            <div class="quizansitem">
+                                                <span class="quizoptionname">&#99;</span>
+                                                <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
+                                                    title="Select Correct Answer">
+                                                <span class="foroptionsimg" title="Upload Image as Option">
+                                                    <label for="quiz1optimg3" class="forquizoptimg3"><img class="optionimg" src="../Images/image.png"
+                                                            alt="upload image"></label>
+                                                    <input type="file" class="quizanswerImage3" id="quiz1optimg3" name="itemimage"
+                                                        accept="image/*" onchange="quizgetthebase64(this)">
+                                                </span>
+                                                <span class="foroptionsaudio" title="Upload Audio as Option">
+                                                    <label for="quiz1optaudio3" class="forquizoptaudio3"><img class="optionimg optioinimgaudio"
+                                                            src="../Images/audioOn.png" alt="upload image"></label>
+                                                    <input type="file" class="quizanswerAudio3" name="optionaudio"
+                                                        accept="audio/*" onchange="quizgetthebase64(this)" id="quiz1optaudio3">
+                                                </span>
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option3"
+                                                    class="upanswer quizoptans forquizansopt"/>
+                                                <img class="itemimg del delopt" id="ansoptText" onclick="delquizoption(this)" src="../Images/bin.png" alt="delete it"
+                                                    title="Delete Option">
+                                            </div>
+
+                                            
+                                            <div class="quizansitem">
+                                                <span class="quizoptionname">&#100;</span>
+                                                <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
+                                                    title="Select Correct Answer">
+                                                <span class="foroptionsimg" title="Upload Image as Option">
+                                                    <label for="quiz1optimg4" class="forquizoptimg4"><img class="optionimg" src="../Images/image.png"
+                                                            alt="upload image"></label>
+                                                    <input type="file" class="quizanswerImage4" id="quiz1optimg4" name="itemimage"
+                                                        accept="image/*" onchange="quizgetthebase64(this)">
+                                                </span>
+                                                <span class="foroptionsaudio" title="Upload Audio as Option">
+                                                    <label for="quiz1optaudio4" class="forquizoptaudio4"><img class="optionimg optioinimgaudio"
+                                                            src="../Images/audioOn.png" alt="upload image"></label>
+                                                    <input type="file" class="quizanswerAudio4" name="optionaudio"
+                                                        accept="audio/*" onchange="quizgetthebase64(this)" id="quiz1optaudio4">
+                                                </span>
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option4"
+                                                    class="upanswer quizoptans forquizansopt"/>
+                                                <img class="itemimg del delopt" id="ansoptText" onclick="delquizoption(this)" src="../Images/bin.png" alt="delete it"
+                                                    title="Delete Option">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> -->
+
+
+                                <div class="quizgamecontainer" id="quizgamecontainer">
+                                    <div class="quizgamedata" id="quizitemtocopy">
+                                        <div class="queheading qaheading">Question</div>
+
+                                        <div class="quizquebox">
+                                            <p class="quizItemNo">1</p>
+                                            <span class="itembox quizitembox">
+                                                <span class="forquizimage" title="Upload Image">
+                                                    <label for="quizqueimg" class="forquizqueimg">
+                                                        <!-- <img class="itemimg" id="upimg" src="../Images/image.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizgameQuestion quizquestionImage quizqueimg gameData-question" id="quizqueimg"
+                                                        name="quizquestionImage"
+                                                        accept="image/*" >
+                                                </span>
+                                                <span class="forquizaudio" id="foraudio" title="Upload Instruction Audio">
+                                                    <label for="quizqueaudio" class="forquizqueaudio">
+                                                        <!-- <img class="itemimg upaudio" src="../Images/audioOn.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizgameQuestion quizquestionAudio quizqueaudio gameData-question" id="quizqueaudio"
+                                                        name="quizquestionAudio"
+                                                        accept="audio/*" >
+                                                </span>
+                                                <input type="text" id="quizquestionText" name="quizquestionText gameData-question" placeholder="Enter Question"
+                                                    class="upquestion quizupque quizgameQuestion quizquestionText"/>
+                                            </span>
+                                            <img class="itemimg del forquizdelete quizdeleteitem" src="../Images/bin.png"
+                                                alt="delete it" title="Delete this Instruction">
+                                        </div>
+
+                                        <div class="foropt">
+                                            <button type="button" id="addnewoption"  class="addbtn quiz_addoption">Add
+                                                Option</button>
+                                        </div>
+
+                                        <div class="ansheading qaheading">Answers</div>
+
+                                        <div class="quizansbox" id="quizansbox">
+                                            <!--Answers Options-->
+                                            <!--Option 1-->
+                                            <div class="quizansitem" id="quizoptcopy">
+                                                <!-- <span class="quizoptionname">&#97;</span> -->
+                                                <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
+                                                    title="Select Correct Answer">
+                                                <span class="foroptionsimg" title="Upload Image as Option">
+                                                    <label for="quiz1optimg1" class="forquizoptimg1">
+                                                        <!-- <img class="optionimg" src="../Images/image.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerImage1 forquizansopt" id="quiz1optimg1" name="itemimage"
+                                                        accept="image/*" >
+                                                </span>
+                                                <span class="foroptionsaudio" title="Upload Audio as Option">
+                                                    <label for="quiz1optaudio1" class="forquizoptaudio1">
+                                                        <!-- <img class="optionimg optioinimgaudio" src="../Images/audioOn.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerAudio1 forquizansopt" name="optionaudio"
+                                                        accept="audio/*"  id="quiz1optaudio1">
+                                                </span>
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option1"
+                                                    class="upanswer quizoptans quizanswerText forquizansopt" />
+                                                <img class="itemimg del delopt" id="ansoptText" src="../Images/bin.png" alt="delete it"
+                                                    title="Delete Option">
+                                            </div>
+                                        
+                                            <!--Option 2-->
+                                            <div class="quizansitem">
+                                                <!-- <span class="quizoptionname">&#98;</span> -->
+                                                <input type="radio" name="forcorrect" class="forcorrect forquizansopt"
+                                                    title="Select Correct Answer">
+                                                <span class="foroptionsimg" title="Upload Image as Option">
+                                                    <label for="quiz1optimg2" class="forquizoptimg2">
+                                                        <!-- <img class="optionimg" src="../Images/image.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerImage2 forquizansopt" id="quiz1optimg2" name="itemimage"
+                                                        accept="image/*" >
+                                                </span>
+                                                <span class="foroptionsaudio" title="Upload Audio as Option">
+                                                    <label for="quiz1optaudio2" class="forquizoptaudio2">
+                                                        <!-- <img class="optionimg optioinimgaudio" src="../Images/audioOn.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerAudio2 forquizansopt" id="quiz1optaudio2" name="optionaudio"
+                                                        accept="audio/*" >
+                                                </span>
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option2"
+                                                    class="upanswer forquizansopt" />
                                                 <img class="itemimg del delopt" src="../Images/bin.png" alt="delete it"
                                                     title="Delete Option">
                                             </div>
-                                        </div>
 
                                             <!--Option 3-->
-                                            <!-- <div class="quizansitem " id="quizansitem">
-                                                <span class="optionname">&#99;</span>
-                                                <input type="radio" name="forcorrect" class="forcorrect"
-                                                    title="Select Correct Answer" id="option1">
+                                            <div class="quizansitem">
+                                                <!-- <span class="quizoptionname">&#99;</span> -->
+                                                <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
+                                                    title="Select Correct Answer">
                                                 <span class="foroptionsimg" title="Upload Image as Option">
-                                                    <label for="itemimage"><img class="optionimg" src="../Images/image.png"
-                                                            alt="upload image"></label>
-                                                    <input type="file" class="quizanswerImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <label for="quiz1optimg3" class="forquizoptimg3">
+                                                        <!-- <img class="optionimg" src="../Images/image.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerImage3 forquizansopt" id="quiz1optimg3" name="itemimage"
+                                                        accept="image/*" >
                                                 </span>
                                                 <span class="foroptionsaudio" title="Upload Audio as Option">
-                                                    <label for="optionaudio"><img class="optionimg optioinimgaudio"
-                                                            src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="quizanswerAudio" name="optionaudio"
-                                                        accept="audio/*">
+                                                    <label for="quiz1optaudio3" class="forquizoptaudio3">
+                                                        <!-- <img class="optionimg optioinimgaudio" src="../Images/audioOn.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerAudio3 forquizansopt" name="optionaudio"
+                                                        accept="audio/*"  id="quiz1optaudio3">
                                                 </span>
-                                                <input type="text" placeholder="Enter Answer"
-                                                    class="upanswer quizoptans quizanswerText" />
-                                                <img class="itemimg del delopt" src="../Images/bin.png" alt="delete it"
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option3"
+                                                    class="upanswer quizoptans forquizansopt"/>
+                                                <img class="itemimg del delopt" id="ansoptText" onclick="delquizoption(this)" src="../Images/bin.png" alt="delete it"
                                                     title="Delete Option">
-                                            </div> -->
+                                            </div>
 
                                             <!--Option 4-->
-                                            <!-- <div class="quizansitem" id="quizansitem">
-                                                <span class="optionname">&#100;</span>
-                                                <input type="radio" name="forcorrect" class="forcorrect"
-                                                    title="Select Correct Answer" id="option2">
+                                            <div class="quizansitem">
+                                                <!-- <span class="quizoptionname">&#100;</span> -->
+                                                <input type="radio" name="forcorrect" id="ansoptRadio" class="forcorrect forquizansopt"
+                                                    title="Select Correct Answer">
                                                 <span class="foroptionsimg" title="Upload Image as Option">
-                                                    <label for="itemimage"><img class="optionimg" src="../Images/image.png"
-                                                            alt="upload image"></label>
-                                                    <input type="file" class="quizanswerImage" name="itemimage"
-                                                        accept="image/*">
+                                                    <label for="quiz1optimg4" class="forquizoptimg4">
+                                                        <!-- <img class="optionimg" src="../Images/image.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerImage4 forquizansopt" id="quiz1optimg4" name="itemimage"
+                                                        accept="image/*" >
                                                 </span>
                                                 <span class="foroptionsaudio" title="Upload Audio as Option">
-                                                    <label for="optionaudio"><img class="optionimg optioinimgaudio"
-                                                            src="../Images/audioOn.png" alt="upload image"></label>
-                                                    <input type="file" class="quizanswerAudio" name="optionaudio"
-                                                        accept="audio/*">
+                                                    <label for="quiz1optaudio4" class="forquizoptaudio4">
+                                                        <!-- <img class="optionimg optioinimgaudio" src="../Images/audioOn.png" alt="upload image"> -->
+                                                    </label>
+                                                    <input type="file" class="quizanswerAudio4 forquizansopt" name="optionaudio"
+                                                        accept="audio/*" id="quiz1optaudio4">
                                                 </span>
-                                                <input type="text" placeholder="Enter Answer" class="upanswer quizoptans" />
-                                                <img class="itemimg del delopt" src="../Images/bin.png" alt="delete it"
+                                                <input type="text" placeholder="Enter Answer" id="quiz1option4"
+                                                    class="upanswer quizoptans forquizansopt"/>
+                                                <img class="itemimg del delopt" id="ansoptText" onclick="delquizoption(this)" src="../Images/bin.png" alt="delete it"
                                                     title="Delete Option">
-                                        </div> -->
-                                        <!-- </div> -->
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -836,7 +1077,7 @@
                                     <!--tools 1st line-->
                                     <div class="tools1">
                                         <div class="forsound" id="forsound">
-                                            <label for="quizbgaudio"><img class="soundurl tools1img" id="soundurl"
+                                            <label for="quiz_sound"><img class="soundurl tools1img" id="soundurl"
                                                     src="../Images/audioOn.png" alt="upload background audio"><span
                                                     class="addaudiospan">Add Audio</span></label>
                                             <input type="file" id="quiz_sound" name="quiz_sound" accept="audio/*"
@@ -921,28 +1162,6 @@
                     </div>
 
                     <br />
-                    <!-- <div class="forgamedata">
-                        <div class="gamedataitem">
-                            <div class="gamedatainfo">
-                                <img src="../quiz/logo.jpg" class="gaedatalogo" alt="logo">
-                                <span class="gamedatanum">Game 1</span>
-                            </div>
-                            <div class="gamedatamodify">
-                                <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                                <img src="../Images/bin.png" class="gamedataimg" alt="delete">
-                            </div>
-                        </div>
-                        <div class="gamedataitem">
-                            <div class="gamedatainfo">
-                                <img src="../quiz/logo.jpg" class="gaedatalogo" alt="logo">
-                                <span class="gamedatanum">Game 2</span>
-                            </div>
-                            <div class="gamedatamodify">
-                                <img src="../Images/edit.png" class="gamedataimg" alt="edit">
-                                <img src="../Images/bin.png" class="gamedataimg" alt="delete">
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
@@ -995,7 +1214,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="quiz_filname" id="quizfilname" placeholder="Search Game">
+                            <input type="text" name="quiz_filname" id="quizfilname" autocomplete="off" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -1023,9 +1242,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="quizfilsub1" id="">Maths
-                        <input type="checkbox" name="quizfilsub2" id="">English
-                        <input type="checkbox" name="quizfilsub3" id="">Science
+                        <input type="checkbox" name="quizfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="quizfil" id="" value="English">English
+                        <input type="checkbox" name="quizfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -1432,7 +1651,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="mtf_filname" id="mtffilname" placeholder="Search Game">
+                            <input type="text" name="mtf_filname" autocomplete="off" id="mtffilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -1460,9 +1679,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="mtffilsub1" id="">Maths
-                        <input type="checkbox" name="mtffilsub2" id="">English
-                        <input type="checkbox" name="mtffilsub3" id="">Science
+                        <input type="checkbox" name="mtffil" value="Maths" id="">Maths
+                        <input type="checkbox" name="mtffil" id="" value="English">English
+                        <input type="checkbox" name="mtffil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -1836,7 +2055,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="otb_filname" id="otbfilname" placeholder="Search Game">
+                            <input type="text" name="otb_filname" autocomplete="off" id="otbfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -1864,9 +2083,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="otbfilsub1" id="">Maths
-                        <input type="checkbox" name="otbfilsub2" id="">English
-                        <input type="checkbox" name="otbfilsub3" id="">Science
+                        <input type="checkbox" name="otbfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="otbfil" id="" value="English">English
+                        <input type="checkbox" name="otbfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -2200,7 +2419,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="wf_filname" id="wffilname" placeholder="Search Game">
+                            <input type="text" name="wf_filname" id="wffilname" autocomplete="off" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -2228,9 +2447,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="quizfilsub1" id="">Maths
-                        <input type="checkbox" name="quizfilsub2" id="">English
-                        <input type="checkbox" name="quizfilsub3" id="">Science
+                        <input type="checkbox" name="wffil" value="Maths" id="">Maths
+                        <input type="checkbox" name="wffil" id="" value="English">English
+                        <input type="checkbox" name="wffil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -2611,7 +2830,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="mw_filname" id="mwfilname" placeholder="Search Game">
+                            <input type="text" name="mw_filname" autocomplete="off" id="mwfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -2639,9 +2858,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="mwfilsub1" id="">Maths
-                        <input type="checkbox" name="mwfilsub2" id="">English
-                        <input type="checkbox" name="mwfilsub3" id="">Science
+                        <input type="checkbox" name="mwfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="mwfil" id="" value="English">English
+                        <input type="checkbox" name="mwfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -2968,7 +3187,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="agm_filname" id="agmfilname" placeholder="Search Game">
+                            <input type="text" name="agm_filname" autocomplete="off" id="agmfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -2996,9 +3215,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="agmfilsub1" id="">Maths
-                        <input type="checkbox" name="agmfilsub2" id="">English
-                        <input type="checkbox" name="agmfilsub3" id="">Science
+                        <input type="checkbox" name="agmfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="agmfil" id="" value="English">English
+                        <input type="checkbox" name="agmfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -3133,7 +3352,7 @@
                                     <input type="text" title="Change Group Name" id="g1name" value="Group 1" class="groupname gsname1"
                                         autofocus>
 
-                                    <div>   
+                                    <div id="groupsortitems1">   
                                         <div class="gsitem gsitems1" id="gs1itemtocopy">
                                             <p class="gsItemNo gs1ItemNo">1</p>
                                             <span class="itembox gsitembox">
@@ -3185,7 +3404,7 @@
                                 <div class="forg2">
                                     <input type="text" title="Change Group Name" id="g2name" value="Group 2" class="groupname gsname2"
                                         autofocus>
-                                    <div>
+                                    <div id="groupsortitems2">
                                         <div class="gsitem gsitems2" id="gs2itemtocopy">
                                             <p class="gsItemNo gs2ItemNo">1</p>
                                             <span class="itembox gsitembox">
@@ -3400,7 +3619,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="_figslname" id="gsfilname" placeholder="Search Game">
+                            <input type="text" name="gs_filname" autocomplete="off" id="gsfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -3428,9 +3647,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="gsfilsub1" id="">Maths
-                        <input type="checkbox" name="gsfilsub2" id="">English
-                        <input type="checkbox" name="gsfilsub3" id="">Science
+                        <input type="checkbox" name="gsfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="gsfil" id="" value="English">English
+                        <input type="checkbox" name="gsfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -3858,7 +4077,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="ftm_filname" id="ftmfilname" placeholder="Search Game">
+                            <input type="text" name="ftm_filname" autocomplete="off" id="ftmfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -3886,9 +4105,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="ftmfilsub1" id="">Maths
-                        <input type="checkbox" name="ftmfilsub2" id="">English
-                        <input type="checkbox" name="ftmfilsub3" id="">Science
+                        <input type="checkbox" name="ftmfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="ftmfil" id="" value="English">English
+                        <input type="checkbox" name="ftmfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -4262,7 +4481,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="fc_filname" id="fcfilname" placeholder="Search Game">
+                            <input type="text" name="fc_filname" autocomplete="off" id="fcfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -4290,9 +4509,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="fcfilsub1" id="">Maths
-                        <input type="checkbox" name="fcfilsub2" id="">English
-                        <input type="checkbox" name="fcfilsub3" id="">Science
+                        <input type="checkbox" name="fcfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="fcfil" id="" value="English">English
+                        <input type="checkbox" name="fcfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -4615,7 +4834,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="unjb_filname" id="unjbfilname" placeholder="Search Game">
+                            <input type="text" name="unjb_filname" autocomplete="off" id="unjbfilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -4643,9 +4862,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="unjbfilsub1" id="">Maths
-                        <input type="checkbox" name="unjbfilsub2" id="">English
-                        <input type="checkbox" name="unjbfilsub3" id="">Science
+                        <input type="checkbox" name="unjbfil" value="Maths" id="">Maths
+                        <input type="checkbox" name="unjbfil" id="" value="English">English
+                        <input type="checkbox" name="unjbfil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -4787,7 +5006,7 @@
                                             </span>
                                         </div>
 
-                                        <div>
+                                        <div id="truefalse1">
                                             <div class="tofitem tofitems1" id="tof1itemtocopy">
                                                 <p class="tof1ItemNo tofItemNo">1</p>
                                                 <span class="itembox tofitembox">
@@ -4845,7 +5064,7 @@
                                             </span>
                                         </div>
 
-                                        <div>
+                                        <div id="truefalse2">
                                             <div class="tofitem tofitems2" id="tof2itemtocopy">
                                                 <p class="tof2ItemNo tofItemNo">1</p>
                                                 <span class="itembox tofitembox">
@@ -5055,7 +5274,7 @@
                         <span class="forfiltersname">
                             <img src="../Images/name.png" alt="filter by name">
                             <strong>&nbsp;By Activity Name :</strong>
-                            <input type="text" name="tof_filname" id="toffilname" placeholder="Search Game">
+                            <input type="text" name="tof_filname" autocomplete="off" id="toffilname" placeholder="Search Game">
                         </span>
                         <span class="filsubage">
                             <span class="forfiltersage">
@@ -5083,9 +5302,9 @@
                     </div>
                     <div class="forfiltersub">
                         <img src="../Images/subject.png" class="tools2img" alt="subject"><strong>By Subject :</strong> 
-                        <input type="checkbox" name="toffilsub1" id="">Maths
-                        <input type="checkbox" name="toffilsub2" id="">English
-                        <input type="checkbox" name="toffilsub3" id="">Science
+                        <input type="checkbox" name="toffil" value="Maths" id="">Maths
+                        <input type="checkbox" name="toffil" id="" value="English">English
+                        <input type="checkbox" name="toffil" id="" value="Science">Science
                     </div>
                 </form>
 
@@ -5152,7 +5371,7 @@
     <!-- <script src="../payments/payments.js"></script> -->
 
     <script src="../spinTheWheel/spinthewheel.js"></script>
-    <script src="../quiz/quiz.js"></script>
+    <script src="../quiz/quiz2.js"></script>
     <script src="../matchTheFollowing/matchthefollowing.js"></script>
     <!-- <script src="../openTheBox/openTheBox.js"></script> -->
     <script src="../wordFormation/wordFormation.js"></script>
@@ -5163,6 +5382,8 @@
     <script src="../flashCards/flashCards.js"></script>
     <script src="../unjumble/unjumble.js"></script>
     <script src="../trueOrFalse/trueOrFalse.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>

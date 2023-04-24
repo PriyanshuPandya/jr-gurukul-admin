@@ -69,30 +69,30 @@ mw_additembtn.addEventListener("click", () => {
   const newmwGameData = createnewmwitem.cloneNode(true); // copy with events
   createnewmwitem.parentNode.appendChild(newmwGameData);
   newmwGameData.querySelector(".mwItemNo").innerText = noOfItemsmw + 1;
-  newmwGameData.querySelector("formwquestionImage").setAttribute("for","mwqueimg"+mwitemid);
-  newmwGameData.querySelector("mwquestionImage").setAttribute("id","mwqueimg"+mwitemid);
-  newmwGameData.querySelector("formwquestionAudio").setAttribute("for","mwqueaudio"+mwitemid);
-  newmwGameData.querySelector("mwquestionAudio").setAttribute("id","mwqueaudio"+mwitemid);
+  newmwGameData.querySelector(".formwquestionImage").setAttribute("for","mwqueimg"+mwitemid);
+  newmwGameData.querySelector(".mwquestionImage").setAttribute("id","mwqueimg"+mwitemid);
+  newmwGameData.querySelector(".formwquestionAudio").setAttribute("for","mwqueaudio"+mwitemid);
+  newmwGameData.querySelector(".mwquestionAudio").setAttribute("id","mwqueaudio"+mwitemid);
   
-  newmwGameData.querySelector("formwanswer1Image").setAttribute("for","mwans1img"+mwitemid);
-  newmwGameData.querySelector("mwanswer1Image").setAttribute("id","mwans1img"+mwitemid);
-  newmwGameData.querySelector("formwanswer1Audio").setAttribute("for","mwans1audio1"+mwitemid);
-  newmwGameData.querySelector("mwanswer1Audio").setAttribute("id","mwans1audio1"+mwitemid);
+  newmwGameData.querySelector(".formwanswer1Image").setAttribute("for","mwans1img"+mwitemid);
+  newmwGameData.querySelector(".mwanswer1Image").setAttribute("id","mwans1img"+mwitemid);
+  newmwGameData.querySelector(".formwanswer1Audio").setAttribute("for","mwans1audio1"+mwitemid);
+  newmwGameData.querySelector(".mwanswer1Audio").setAttribute("id","mwans1audio1"+mwitemid);
 
-  newmwGameData.querySelector("formwanswer2Image").setAttribute("for","mwans2img"+mwitemid);
-  newmwGameData.querySelector("mwanswer2Image").setAttribute("id","mwans2img"+mwitemid);
-  ewmwGameData.querySelector("formwanswer1Audio").setAttribute("for","mwans1audio1"+mwitemid);
-  newmwGameData.querySelector("mwanswer1Audio").setAttribute("id","mwans1audio1"+mwitemid);
+  newmwGameData.querySelector(".formwanswer2Image").setAttribute("for","mwans2img"+mwitemid);
+  newmwGameData.querySelector(".mwanswer2Image").setAttribute("id","mwans2img"+mwitemid);
+  newmwGameData.querySelector(".formwanswer1Audio").setAttribute("for","mwans1audio1"+mwitemid);
+  newmwGameData.querySelector(".mwanswer1Audio").setAttribute("id","mwans1audio1"+mwitemid);
 
-  newmwGameData.querySelector(".mwquestionText").value = null;
-  newmwGameData.querySelector(".mwquestionImage").value = null;
-  newmwGameData.querySelector(".mwquestionAudio").value = null;
-  newmwGameData.querySelector(".mwanswer1Text").value = null;
-  newmwGameData.querySelector(".mwanswer1Image").value = null;
-  newmwGameData.querySelector(".mwanswer1Audio").value = null;
-  newmwGameData.querySelector(".mwanswer2Text").value = null;
-  newmwGameData.querySelector(".mwanswer2Image").value = null;
-  newmwGameData.querySelector(".mwanswer2Audio").value = null;
+  newmwGameData.querySelector(".mwquestionText").value = "";
+  newmwGameData.querySelector(".mwquestionImage").title = "";
+  newmwGameData.querySelector(".mwquestionAudio").title = "";
+  newmwGameData.querySelector(".mwanswer1Text").value = "";
+  newmwGameData.querySelector(".mwanswer1Image").title = "";
+  newmwGameData.querySelector(".mwanswer1Audio").title = "";
+  newmwGameData.querySelector(".mwanswer2Text").value = "";
+  newmwGameData.querySelector(".mwanswer2Image").title = "";
+  newmwGameData.querySelector(".mwanswer2Audio").title = "";
   newmwGameData.querySelector(".formwdelete").classList.add("mwdeleteitem");
   newmwGameData.querySelector(".mwdeleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -182,7 +182,10 @@ mwform.addEventListener("submit", (event) => {
     mwform.reset();
     document.getElementById("missingwordgames").style.display = "none";
     document.getElementById("missingword").style.display = "block";
-    window.scrollTo(0,0);
+    window.scrollTo(0,0);    
+    document.getElementById('mwbgname').innerText = "";
+    document.getElementById('mwthumbname').innerText = "";
+    showmwone();
     showmwSuccessFlashMsg();
   });
 
@@ -223,4 +226,50 @@ function hidemwGameDelPopup(){
     setTimeout(function() {
       flashMessage.remove();
     }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+  }
+
+//for filters json
+const mwfilform = document.querySelector("#mwfilform");
+mwfilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(mwfilform);
+  const mwfilData = Array.from(filterData.getAll("mwfil"));
+
+  const filData = {
+    fil_template_id: 6,
+    fil_name:filterData.get("mw_filname"),
+    fil_agemin:filterData.get("mw_filagemin"),
+    fil_agmemax:filterData.get("mw_filagemax"),
+    fil_subject:mwfilData
+  }
+  console.log(JSON.stringify(filData));
+})
+
+  //function to show only  que on refresh.....
+  function showmwone() {
+    const noofchild = mwcontent.childElementCount;
+    if (noofchild > 2) {
+      const children = mwcontent.querySelectorAll(".mwitem");
+      if (children.length > 0) {
+        for (let i = 1; i < children.length; i++) {
+          mwcontent.removeChild(children[i]);
+        }
+      }
+    }
+    emptyfilvalues();
+    noOfItemsmw = 1;
+  }
+  
+  function emptyfilvalues(){
+    let gameDataFields = document.querySelectorAll(".mwitem");
+    for (var i = 0; i < gameDataFields.length; i++) {
+        questionImage = gameDataFields[i].querySelector(".mwquestionImage").title="",
+        questionAudio = gameDataFields[i].querySelector(".mwquestionAudio").title="",
+        answer1Image = gameDataFields[i].querySelector(".mwanswer1Image").title="",
+        answer1Audio = gameDataFields[i].querySelector(".mwanswer1Audio").title="",
+        answer2Image = gameDataFields[i].querySelector(".mwanswer2Image").title="",
+        answer2Audio = gameDataFields[i].querySelector(".mwanswer2Audio").title="",
+        mwans1value = "false",
+        mwans1value = "false"
+      };
   }

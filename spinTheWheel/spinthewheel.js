@@ -1,11 +1,3 @@
-// let  forimage = document.getElementById('forimage');
-// let foraudio = document.getElementById('foraudio');
-// let upquestion = document.getElementById('upquestion');
-
-// import {showSuccessFlashMsg} from "../basic/showgame.js";
-
-
-
 let spinbg = "";
 let spinthumb = "";
 let spinsound="";
@@ -53,26 +45,6 @@ async function addspinbgaudio(){
     });
 }
 
- const toBase64 = file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-});
-     
-function readTextFromFile(file) {
-  return new Promise(function(resolve, reject) {
-    var reader = new FileReader();
-    reader.onload = function () {
-      var result = reader.result;
-      resolve(result);
-    };
-    reader.onerror = function() {
-      reject(reader.error);
-    };
-    reader.readAsText(file);
-  });
-}
 const spinthewheel_additembtn = document.getElementById("spinthewheel_additembtn");
 const spinitems = document.getElementById("spinitems");
 const spinDeleteItemBtns = document.querySelectorAll(".spindeleteitem");
@@ -168,13 +140,16 @@ spinform.addEventListener("submit", (event) => {
     gameData: spingameData
   };
   console.log(JSON.stringify(data));
+  
 
   spinform.reset();
   document.getElementById("spinthewheelgames").style.display = "none";
   document.getElementById("spinthewheel").style.display = "block";
+  document.getElementById('spinbgname').innerText="";
+  document.getElementById('spinthumbname').innerText="";
+  showspinthree();
   window.scrollTo(0,0);
   showspinSuccessFlashMsg();
-
 });
 
 
@@ -207,6 +182,7 @@ function hidespinGameDelPopup(){
 }
 
 //for flash msg
+  
 function showspinSuccessFlashMsg() {
   const flashMessage = document.createElement("div");
   flashMessage.classList.add("flashsuccess");
@@ -221,13 +197,32 @@ function showspinSuccessFlashMsg() {
 const spinfilform = document.querySelector("#spinfilform");
 spinfilform.addEventListener("submit",(event)=>{
   event.preventDefault();
-  const spinfilData = Array.from(spinfilform.querySelectorAll("spinfil"));
+  const filterData = new FormData(spinfilform);
+  const spinfilData = Array.from(filterData.getAll("spinfil"));
 
   const filData = {
-    fil_name:spinfilform.querySelector("spin_filname"),
-    fil_agemin:spinfilform.querySelector("spin_filagemin"),
-    fil_agmemax:spinfilform.querySelector("spin_filagemax"),
+    fil_template_id: 1,
+    fil_name:filterData.get("spin_filname"),
+    fil_agemin:filterData.get("spin_filagemin"),
+    fil_agmemax:filterData.get("spin_filagemax"),
     fil_subject:spinfilData
   }
   console.log(JSON.stringify(filData));
 })
+
+
+
+//function to show only 3 que on refresh.....
+function showspinthree() {
+  let children;
+  const noofchild = spinitems.childElementCount;
+  if (noofchild > 3) {
+    children = spinitems.querySelectorAll('div');
+    for (let i = 3; i < noofchild; i++) {
+      console.log(children[i]);
+      // children[i].style.display = "none";
+      spinitems.removeChild(children[i]);
+    }
+  }
+  noOfItemsSpin = 3;
+}

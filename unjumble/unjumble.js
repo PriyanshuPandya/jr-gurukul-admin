@@ -146,6 +146,9 @@ unjbform.addEventListener("submit", (event) => {
   unjbform.reset();
   document.getElementById("unjumblegames").style.display = "none";
   document.getElementById("unjumble").style.display = "block";
+  document.getElementById('unjbbgname').innerText="";
+  document.getElementById('unjbthumbname').innerText="";
+  showunjbthree();
   window.scrollTo(0,0);
   showunjbSuccessFlashMsg();
 });
@@ -188,4 +191,37 @@ function showunjbSuccessFlashMsg() {
   setTimeout(function() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
+
+//for filters json
+const unjbfilform = document.querySelector("#unjbfilform");
+unjbfilform.addEventListener("submit",(event)=>{
+event.preventDefault();
+const filterData = new FormData(unjbfilform);
+const unjbfilData = Array.from(filterData.getAll("unjbfil"));
+
+const filData = {
+  fil_template_id: 11,
+  fil_name:filterData.get("unjb_filname"),
+  fil_agemin:filterData.get("unjb_filagemin"),
+  fil_agmemax:filterData.get("unjb_filagemax"),
+  fil_subject:unjbfilData
+}
+console.log(JSON.stringify(filData));
+})
+
+
+//function to show only 3 que on refresh.....
+function showunjbthree() {
+  let children;
+  const noofchild = unjbitems.childElementCount;
+  if (noofchild > 3) {
+    children = unjbitems.querySelectorAll('div');
+    for (let i = 3; i < noofchild; i++) {
+      console.log(children[i]);
+      // children[i].style.display = "none";
+      unjbitems.removeChild(children[i]);
+    }
+  }
+  noOfItemsunjb = 3;
 }

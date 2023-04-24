@@ -4,20 +4,17 @@
     --lightgray:#777777;
     --darkgray:#656565;
 }
-
 #formpaymentslist{
     font-size: 0.8rem;
     font-weight: bolder;
     color:var(--darkgray);
 }
-
 .paymentslistitems{
     margin-top:5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 .paymentslistbox{
     display: flex;
     flex-direction: row;
@@ -33,52 +30,31 @@
 .paymentslistbox:hover{
     border-color:var(--lightblue);
 }
-
 .clientname{
     margin-left:1%;
-    width:11%;
+    width:8vw;
 }
-
 .fordates,.forpaymentamount{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .profilepic{
     margin-right: 0;
     cursor: pointer;
     height: 1.8rem;
     border-radius:0.9rem;
 }
-
 .delpaymentitem{
     height:0.8rem;
-    margin-left:2%;
+    margin-left:1.5vw;
 }
-
-/* .forpaymentsstatus{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-   .paymentitemstatus{
-    height: 1rem;
-} */
-
 .paymentelement{
-    margin-left:6%;
+    margin-left:4vw;
 }
-
 .paymentsinput{
     color:var(--blue);
 }
-
-/* .paystatuspaid{
-    color:rgb(34, 224, 34);
-} */
-
 .payamount{
     color:rgb(170, 67, 8);
     font-weight: bolder;

@@ -331,7 +331,6 @@
     font-weight: bolder;
     cursor: pointer;
     padding:0.33rem 1rem;
-    border:0.1rem solid white;
     background-image:linear-gradient(to left,var(--blue),var(--lightblue));
     border-radius:0.2rem;
     color:white;

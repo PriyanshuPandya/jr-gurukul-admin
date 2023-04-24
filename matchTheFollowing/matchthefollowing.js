@@ -23,18 +23,6 @@ async function changemtfbg(){
   });
 }
 
-async function mtfgetthebase64(element){
-const file = element.files.item(0);
-    await fileToBase64(file)
-    .then( base64String => {
-        element.title = base64String;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  }
-
-
 async function changemtfthumb(){
     document.getElementById('mtfthumbname').innerText = document.getElementById('mtfthumb').files.item(0).name;
     const file = document.getElementById('mtfthumb').files.item(0);
@@ -76,10 +64,10 @@ mtf_additembtn.addEventListener("click", () => {
   newmtfGameData.querySelector(".mtfquestionImage").setAttribute("id","mtfqueimg"+mtfitemid);
   newmtfGameData.querySelector(".formtfanswerImage").setAttribute("for","mtfansimg"+mtfitemid);
   newmtfGameData.querySelector(".mtfanswerImage").setAttribute("id","mtfansimg"+mtfitemid);
-  newmtfGameData.querySelector(".mtfquestionText").value = null;
-  newmtfGameData.querySelector(".mtfquestionImage").value = null;
-  newmtfGameData.querySelector(".mtfanswerText").value = null;
-  newmtfGameData.querySelector(".mtfanswerImage").value = null;
+  newmtfGameData.querySelector(".mtfquestionText").value = "";
+  newmtfGameData.querySelector(".mtfquestionImage").title = "";
+  newmtfGameData.querySelector(".mtfanswerText").value = "";
+  newmtfGameData.querySelector(".mtfanswerImage").title = "";
   newmtfGameData.querySelector(".formtfdelete").classList.add("mtfdeleteitem");
   newmtfGameData.querySelector(".mtfdeleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -89,8 +77,6 @@ mtf_additembtn.addEventListener("click", () => {
     });
   noOfItemsmtf++;
 });
-
-
 
 mtfDeleteItemBtns.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -159,6 +145,9 @@ mtfform.addEventListener("submit", (event) => {
 
     mtfform.reset();
     document.getElementById("matchthefollowinggames").style.display = "none";
+    document.getElementById('mtfbgname').innerText = "";
+    document.getElementById('mtfthumbname').innerText = "";
+    showthreeitems();
     document.getElementById("matchthefollowing").style.display = "block";
     window.scrollTo(0,0);
     showmtfSuccessFlashMsg();
@@ -202,3 +191,53 @@ function hidemtfGameDelPopup(){
       flashMessage.remove();
     }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
   }
+
+  //for filters json
+const mtffilform = document.querySelector("#mtffilform");
+mtffilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(mtffilform);
+  const mtffilData = Array.from(filterData.getAll("mtffil"));
+
+  const filData = {
+    fil_template_id: 3,
+    fil_name:filterData.get("mtf_filname"),
+    fil_agemin:filterData.get("mtf_filagemin"),
+    fil_agmemax:filterData.get("mtf_filagemax"),
+    fil_subject:mtffilData
+  }
+  console.log(JSON.stringify(filData));
+})
+
+async function mtfgetthebase64(element){
+const file = element.files.item(0);
+    await fileToBase64(file)
+    .then( base64String => {
+        element.title = base64String;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
+
+  //function to show only 3 que on refresh.....
+function showthreeitems() {
+  let children;
+  const noofchild = mtfitems.childElementCount;
+  if (noofchild > 3) {
+    children = mtfitems.querySelectorAll('.mtfitem');
+    for (let i = 3; i < noofchild; i++) {
+      mtfitems.removeChild(children[i]);
+    }
+  }
+  emptyfilvalues();
+}
+
+function emptyfilvalues(){
+  let gameDataFields = document.querySelectorAll(".mtfgamedata");
+  for (var i = 0; i < gameDataFields.length; i++) {
+      questionImage = gameDataFields[i].querySelector(".mtfquestionImage").title="",
+      answerImage =  gameDataFields[i].querySelector(".mtfanswerImage").title=""
+    };
+}

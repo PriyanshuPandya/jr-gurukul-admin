@@ -127,8 +127,8 @@ gs2_additembtn.addEventListener("click", () => {
     newgs2item.querySelector(".gs2questionAudio").setAttribute("id","gs2Audio"+gs2itemid);
 
     newgs2item.querySelector(".gs2questionText").value = null;
-    newgs2item.querySelector(".gs2questionImage").value = null;
-    newgs2item.querySelector(".gs2questionAudio").value = null;
+    newgs2item.querySelector(".gs2questionImage").title = null;
+    newgs2item.querySelector(".gs2questionAudio").title = null;
     newgs2item.querySelector(".forgs2delete").classList.add("gs2deleteitem");
     newgs2item.querySelector(".gs2deleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -163,7 +163,6 @@ gsform.addEventListener("submit", (event) => {
     event.preventDefault();
     let form = document.getElementById("gsform");
     let formData = new FormData(form);
-    console.log(formData);
     let gameDataArray = [];
     // Loop through the gameData fields and build the gameDataArray
     let gs1Fields = document.querySelectorAll(".gsitems1");
@@ -222,6 +221,9 @@ gsform.addEventListener("submit", (event) => {
     document.getElementById("groupsortgames").style.display = "none";
     document.getElementById("groupsort").style.display = "block";
     window.scrollTo(0,0);
+    document.getElementById('gsbgname').innerText = "";
+    document.getElementById('gsthumbname').innerText = "";
+    showgstwo();
     showgsSuccessFlashMsg();
   });
 
@@ -262,4 +264,58 @@ function showgsSuccessFlashMsg() {
   setTimeout(function() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
+
+const gsfilform = document.querySelector("#gsfilform");
+gsfilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(gsfilform);
+  const gsfilData = Array.from(filterData.getAll("gsfil"));
+
+//for filters json
+const filData = {
+  fil_template_id: 8,
+  fil_name:filterData.get("gs_filname"),
+  fil_agemin:filterData.get("gs_filagemin"),
+  fil_agmemax:filterData.get("gs_filagemax"),
+  fil_subject:gsfilData
+}
+console.log(JSON.stringify(filData));
+})
+
+//function to show only  que on refresh.....
+function showgstwo() {
+  let children;
+  let groupsortitems1 = document.getElementById("groupsortitems1");
+  const noofchild1 = groupsortitems1.childElementCount;
+  if (noofchild1 > 2) {
+    children = groupsortitems1.querySelectorAll('.gsitems1');
+    for (let i = 2; i < noofchild1; i++) {
+      groupsortitems1.removeChild(children[i]);
+    }
+  }
+  let groupsortitems2 = document.getElementById("groupsortitems2");
+  const noofchild2 = groupsortitems2.childElementCount;
+  if (noofchild2 > 2) {
+    children = groupsortitems2.querySelectorAll('.gsitems2');
+    for (let i = 2; i < noofchild2; i++) {
+      groupsortitems2.removeChild(children[i]);
+    }
+  }
+  emptyfilvalues();
+  noOfItemsgs1 = 2;
+  noOfItemsgs2 = 2;
+}
+
+function emptyfilvalues(){
+  let gs1Fields = document.querySelectorAll(".gsitems1");
+  let gs2Fields = document.querySelectorAll(".gsitems2");
+  for (var i = 0; i < gs1Fields.length; i++) {
+      questionImage = gs1Fields[i].querySelector(".gs1questionImage").title="",
+      questionAudio = gs1Fields[i].querySelector(".gs1questionAudio").title=""
+    };
+    for (var i = 0; i < gs2Fields.length; i++) {
+      questionImage = gs2Fields[i].querySelector(".gs2questionImage").title="",
+      questionAudio = gs2Fields[i].querySelector(".gs2questionAudio").title=""
+    };
 }

@@ -127,9 +127,9 @@
     margin-top:0.5vh;
 }
 
-.foroptionsimg input[type="file"], .foroptionsaudio input[type="file"] {
+/* .foroptionsimg input[type="file"], .foroptionsaudio input[type="file"] {
     display: none;
-}
+} */
 
 .upanswer{
     font-size: 0.7rem;

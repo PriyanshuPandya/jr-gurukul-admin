@@ -81,8 +81,8 @@ tof1_additembtn.addEventListener("click", () => {
   newtof1item.querySelector(".tof1questionAudio").setAttribute("id","tof1Audio"+tof1itemid);
 
   newtof1item.querySelector(".tof1questionText").value = null;
-  newtof1item.querySelector(".tof1questionImage").value = null;
-  newtof1item.querySelector(".tof1questionAudio").value = null;
+  newtof1item.querySelector(".tof1questionImage").title = null;
+  newtof1item.querySelector(".tof1questionAudio").title = null;
   newtof1item.querySelector(".fortof1delete").classList.add("tof1deleteitem");
   newtof1item.querySelector(".tof1deleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -126,8 +126,8 @@ tof2_additembtn.addEventListener("click", () => {
     newtof2item.querySelector(".tof2questionAudio").setAttribute("id","tof2Audio"+tof2itemid);
 
     newtof2item.querySelector(".tof2questionText").value = null;
-    newtof2item.querySelector(".tof2questionImage").value = null;
-    newtof2item.querySelector(".tof2questionAudio").value = null;
+    newtof2item.querySelector(".tof2questionImage").title = null;
+    newtof2item.querySelector(".tof2questionAudio").title = null;
     newtof2item.querySelector(".fortof2delete").classList.add("tof2deleteitem");
     newtof2item.querySelector(".tof2deleteitem").addEventListener("click", (event) => {
     event.preventDefault();
@@ -221,6 +221,9 @@ tofform.addEventListener("submit", (event) => {
     document.getElementById("trueorfalsegames").style.display = "none";
     document.getElementById("trueorfalse").style.display = "block";
     window.scrollTo(0,0);
+    document.getElementById('tofbgname').innerText = "";
+    document.getElementById('tofthumbname').innerText = "";
+    showtoftwo();
     showtofSuccessFlashMsg();
   });
 
@@ -261,4 +264,60 @@ function showtofSuccessFlashMsg() {
   setTimeout(function() {
     flashMessage.remove();
   }, 1500); // Set the timeout for the message to be displayed (in milliseconds)
+}
+
+//for filters json
+const toffilform = document.querySelector("#toffilform");
+toffilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(toffilform);
+  const toffilData = Array.from(filterData.getAll("toffil"));
+
+  const filData = {
+    fil_template_id: 12,
+    fil_name:filterData.get("tof_filname"),
+    fil_agemin:filterData.get("tof_filagemin"),
+    fil_agmemax:filterData.get("tof_filagemax"),
+    fil_subject:toffilData
+  }
+  console.log(JSON.stringify(filData));
+})
+
+//function to show only  que on refresh.....
+function showtoftwo() {
+  let children;
+  let truefalse1 = document.getElementById("truefalse1");
+  const noofchild1 = truefalse1.childElementCount;
+  if (noofchild1 > 2) {
+    children = truefalse1.querySelectorAll('.tofitems1');
+    for (let i = 2; i < noofchild1; i++) {
+      truefalse1.removeChild(children[i]);
+    }
+  }
+  let truefalse2 = document.getElementById("truefalse2");
+  const noofchild2 = truefalse2.childElementCount;
+  if (noofchild2 > 2) {
+    children = truefalse2.querySelectorAll('.tofitems2');
+    for (let i = 2; i < noofchild2; i++) {
+      truefalse2.removeChild(children[i]);
+    }
+  }
+  emptyfilvalues();
+  noOfItemstof1 = 2;
+  noOfItemstof2 = 2;
+}
+
+function emptyfilvalues(){
+  let tof1Fields = document.querySelectorAll(".tofitems1");
+  let tof2Fields = document.querySelectorAll(".tofitems2");
+  for (var i = 0; i < tof1Fields.length; i++) {
+      questionImage = tof1Fields[i].querySelector(".tof1questionImage").title="",
+      questionAudio = tof1Fields[i].querySelector(".tof1questionAudio").title="",
+      answerImage = document.getElementById("tof1answerImage").title=""
+    };
+    for (var i = 0; i < tof2Fields.length; i++) {
+      questionImage = tof2Fields[i].querySelector(".tof2questionImage").title="",
+      questionAudio = tof2Fields[i].querySelector(".tof2questionAudio").title="",
+      answerImage = document.getElementById("tof1answerImage").title=""
+    };
 }

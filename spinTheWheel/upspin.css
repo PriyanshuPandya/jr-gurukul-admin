@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+.upspingames{
+    display: none;
+    width:72vw;
+    background-color: #c4edfc;
+    margin-left:5vw;
+    margin-top:4vh;
+    border-radius: 20px;
+    padding-top:2vh;
+    border:0.2rem solid rgb(162, 230, 255);
+    outline: 0.15rem solid rgb(130, 234, 255);
+    margin-bottom: 3vh;
+}
+.upheading{
+    margin-left:35vw;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    font-family: 'Roboto Slab', serif;
+    color:rgb(2, 55, 115);
+    background-color: transparent;
+}
+.upgametop{
+    background-color: #c4edfc;
+    margin-bottom:2vh;
+}
+.forupdateform{
+    box-shadow: none;
+}
+.upgamemain{
+    margin-left:2%;
+}
+.editimg{
+    height:0.75rem;
+}

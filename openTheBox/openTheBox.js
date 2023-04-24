@@ -89,3 +89,20 @@ function showotbSuccessFlashMsg() {
 // document.getElementById("openbox").style.display = "block";
 // window.scrollTo(0,0);
 // showquizSuccessFlashMsg();
+
+//for filters json
+const otbfilform = document.querySelector("#otbfilform");
+otbfilform.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  const filterData = new FormData(otbfilform);
+  const otbfilData = Array.from(filterData.getAll("otbfil"));
+
+  const filData = {
+    fil_template_id: 4,
+    fil_name:filterData.get("otb_filname"),
+    fil_agemin:filterData.get("otb_filagemin"),
+    fil_agmemax:filterData.get("otb_filagemax"),
+    fil_subject:otbfilData
+  }
+  console.log(JSON.stringify(filData));
+})
